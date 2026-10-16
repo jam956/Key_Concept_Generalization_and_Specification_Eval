@@ -1,6 +1,6 @@
 # KCE generalization evaluation
 
-For AI systems to reuse knowledge reliably, they must move in two directions: turn specific examples into bounded concepts, then apply those concepts to new specifics without losing the conditions that make them true. Fluent output alone does not establish that transfer. A generalization can discard a necessary limit; a retelling can preserve details without identifying what transfers.
+For agentic AI systems to reuse knowledge reliably, they must move in two directions: turn specific examples into bounded concepts, then apply those concepts to new specifics without losing the conditions that make them true. Fluent output alone does not establish that transfer. A generalization can discard a necessary constraint; a retelling can preserve details without identifying what transfers.  New unestablished information (hallucination) should not be introduced to force a desired position.  This repository assesses a model’s ability to navigate this cognitive skill.  
 
 A trained technician who needs someone else to unlock a workshop illustrates a transferable distinction: capability does not confer control of required access. Applied to an archive, the same distinction means that being able to verify a record does not grant authority to release it. The details change; the governing relationship and its limits must survive.
 
@@ -49,26 +49,6 @@ python3 -m kce_eval prompt fixtures/capacity_council.json
 ```
 
 Reviewer rubrics and reference answers are excluded from model prompts.
-
-## Run both evaluations
-
-**Local Qwen:** requires Ollama running and the requested model installed. These commands request the `qwen3.8:27b` alias used in the recorded comparison; use another installed model name for a new condition. Thinking is disabled by default.
-
-```sh
-python3 -m kce_eval.suite encoding --execute --backend ollama --model qwen3.8:27b --out runs/qwen-encoding
-python3 -m kce_eval.suite decoding --execute --backend ollama --model qwen3.8:27b --out runs/qwen-decoding
-```
-
-**Sol 6.1:** requires an authenticated Codex CLI with access to `gpt-6.1-sol`. The included adapter starts isolated ephemeral calls, requests low reasoning effort and rejects observed tool use.
-
-```sh
-python3 -m kce_eval.suite encoding --execute --backend command --model gpt-6.1-sol --command-json '["python3","adapters/sol_cli.py"]' --out runs/sol-encoding
-python3 -m kce_eval.suite decoding --execute --backend command --model gpt-6.1-sol --command-json '["python3","adapters/sol_cli.py"]' --out runs/sol-decoding
-```
-
-Each invocation creates new UUID run receipts. Keep models and configurations in separate output directories. There is no automatic repair or semantic grading during inference. A transport-only mock is available in `examples/mock_model.py`; its output is not a model assessment.
-
-Ollama uses JSON mode, temperature 0.2, seed 417, a 16,384-token context and a 1,800-token prediction limit. The Sol adapter does not apply those Ollama controls. Wall time includes backend overhead and any model loading, excludes review, and has no first-token measurement. The recorded comparison is **not equal-compute or a per-token speed benchmark**. The Qwen model name is a provider alias; its recorded digest is in the comparison manifest.
 
 ## Review, score and inspect a new run
 
