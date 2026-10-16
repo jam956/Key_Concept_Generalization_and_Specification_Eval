@@ -1,0 +1,53 @@
+{
+  "contract": "kce.submission.v1",
+  "bundle_id": "2cbb8a8c05c48d5fe2e0a2febc02e7384dfac41822ef5308275b143f23c5c0d3",
+  "model": {
+    "name": "",
+    "provider": "",
+    "settings": {}
+  },
+  "cases": [
+    {
+      "case_id": "case-001",
+      "status": "missing",
+      "raw_response": "",
+      "claimed_wall_seconds": null
+    },
+    {
+      "case_id": "case-002",
+      "status": "missing",
+      "raw_response": "",
+      "claimed_wall_seconds": null
+    },
+    {
+      "case_id": "case-003",
+      "status": "missing",
+      "raw_response": "",
+      "claimed_wall_seconds": null
+    },
+    {
+      "case_id": "case-004",
+      "status": "missing",
+      "raw_response": "",
+      "claimed_wall_seconds": null
+    },
+    {
+      "case_id": "case-005",
+      "status": "missing",
+      "raw_response": "",
+      "claimed_wall_seconds": null
+    },
+    {
+      "case_id": "case-006",
+      "status": "missing",
+      "raw_response": "",
+      "claimed_wall_seconds": null
+    },
+    {
+      "case_id": "case-007",
+      "status": "missing",
+      "raw_response": "",
+      "claimed_wall_seconds": null
+    }
+  ]
+}

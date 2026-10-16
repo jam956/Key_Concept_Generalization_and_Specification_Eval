@@ -1,0 +1,15 @@
+{
+  "case_id": "case-002",
+  "fixture_id": "capacity_mentor",
+  "track": "kce",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"capacity_mentor\",\"input\":{\"source_text\":\"[s1] Mira can diagnose the pump alone, but only her mentor holds the workshop key. [s2] Each repair still requires his approval to enter. [s3] Her growing skill has not yet given her control of access.\"},\"track\":\"kce\"}"
+    }
+  ]
+}

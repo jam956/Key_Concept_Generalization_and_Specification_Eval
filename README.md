@@ -19,6 +19,19 @@ The recorded comparison contains six encoding cases and one article case per mod
 - [Offline HTML comparison](results/sol-qwen-2026-10-15/comparison.html) — download and open locally
 - [Publication and original-receipt hashes](results/sol-qwen-2026-10-15/publication-receipt.json)
 
+## Evaluate any model through a submission
+
+Download the [ready-to-use evaluation bundle](evaluation/bundle-v1/) and follow the [submission and independent review instructions](docs/USAGE.md). Each candidate case uses a fresh chat or independent API call with the selected case file's ordered messages. The model portion can be performed manually without Python. The optional CLI imports captured responses, prepares an anonymous judge packet, and validates an independently obtained judgment; it does not call models.
+
+Responses appear before separate dimension scores. Failures remain visible. Manual timing and statelessness claims are not independently verified. Keep existing results and prior grades out of candidate and judge chats.
+
+1. **Run the candidate:** use the bundle’s common candidate instructions and one `cases/case-NNN.json` at a time in a fresh chat. Preserve that case’s ordered system/user messages.
+2. **Submit the outputs:** copy `04_Submission_Template.json`, fill model settings and every case’s exact raw response, and retain failures. Import it with the commands in [USAGE](docs/USAGE.md).
+3. **Use a separate judge:** generate the anonymous judge packet, then give a fresh judge only that packet and `06_Judge_Agent.md`. Keep example reports, prior grades and model metadata out of the judge context.
+4. **Finalize the report:** capture the judge’s JSON and run finalization to check ownership, score ranges and evidence quotes. Read the outputs before the separate scores.
+
+The full [step-by-step guide](docs/USAGE.md) includes submission JSON, copyable import/judging commands, uncertainty handling and the final report files. Run `python3 -m kce_eval.workflow --help` for command help. All workflow commands are offline preparation/validation; you choose and run the candidate and judge models separately.
+
 ## What the two evaluations measure
 
 | Evaluation | Model receives | Model produces | Separate dimensions |

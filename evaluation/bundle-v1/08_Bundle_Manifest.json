@@ -1,0 +1,38 @@
+{
+  "contract": "kce.bundle.v1",
+  "bundle_id": "2cbb8a8c05c48d5fe2e0a2febc02e7384dfac41822ef5308275b143f23c5c0d3",
+  "files_sha256": {
+    "01_Candidate_Agent.md": "71187cb069a5b1c333301f05b28f969cc98ff4c287bc769d1864fae547751e07",
+    "02_Candidate_Packet.json": "0cebd45e35c925447938fdc5d06b6ef60390cf55e5686d59313cc043d2fb8796",
+    "03_Run_Prompt.md": "59941174c3659bb6a7f5ad06c26d5922119edeec36a250e6e00e916bc9358f8c",
+    "04_Submission_Template.json": "9d78eebbabdce2237ba0ccc2dc959539b559fc0e638974cea07b38eaf0d9a392",
+    "cases/case-001.json": "878be6a8e4b66871a13506c8c26e52b323efa48a1e51484b55f02ec211c0bc0f",
+    "cases/case-002.json": "45ad681262ab6878aa431d9ac096ff569b11c110a1355075c3a14f8927dd816f",
+    "cases/case-003.json": "9a11a3c793d82bfad5e27e56121ccd19e9bf2e76810543e8928ff985adea301a",
+    "cases/case-004.json": "e958a39f3314ca88c7b97aa54299bd58db88c8c2d8a043b857a4d158bfe9f268",
+    "cases/case-005.json": "a39b1010b22408281136121aaee9ca9463678ee13f7c53dce098d8187dfa5156",
+    "cases/case-006.json": "2aee6560356953c952cb3e59e2dfa75717605b32e9320672c9b0d908e29e8c27",
+    "cases/case-007.json": "b60464c5eb76a32fe213aaa45967fa3ea11547428fce6474ff2ffcfab1c8eb1b",
+    "judge/05_Rubric.json": "e85edd4f9ec36997d92bc9d8d2add90d2768effa8bbeababeee273ebf7184e13",
+    "judge/06_Judge_Agent.md": "eb90cf1b92d148e0ce6bc2fbf8c027619458109e223a7b8d9376d7aab94ba016",
+    "judge/07_Fixtures.json": "466631fed19b5ec0706d4af533f5974f2a0155c2928172a3d8ffd121f551ff45"
+  },
+  "candidate_context_allowlist": [
+    "01_Candidate_Agent.md",
+    "03_Run_Prompt.md",
+    "cases/case-001.json",
+    "cases/case-002.json",
+    "cases/case-003.json",
+    "cases/case-004.json",
+    "cases/case-005.json",
+    "cases/case-006.json",
+    "cases/case-007.json"
+  ],
+  "candidate_context_rule": "Supply common instructions and exactly one case file per fresh context; 02_Candidate_Packet.json is an operator index, not an all-cases prompt.",
+  "operator_submission_template": "04_Submission_Template.json",
+  "judge_only": [
+    "judge/05_Rubric.json",
+    "judge/06_Judge_Agent.md",
+    "judge/07_Fixtures.json"
+  ]
+}

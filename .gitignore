@@ -16,3 +16,9 @@ reviews/
 
 # Local Actions definition; portable template is tracked under docs/.
 .github/workflows/
+
+# New attempts and judge artifacts stay local until explicitly published.
+work/
+submissions/
+judged/
+my-submission.json

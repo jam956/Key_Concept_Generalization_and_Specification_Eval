@@ -1,0 +1,15 @@
+{
+  "case_id": "case-001",
+  "fixture_id": "capacity_council",
+  "track": "kce",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"capacity_council\",\"input\":{\"source_text\":\"[s1] The neighborhood council trained its own water technicians. [s2] The supplier alone can unlock the meter needed to restore service. [s3] Technical competence therefore leaves restoration dependent on the supplier until another access route exists.\"},\"track\":\"kce\"}"
+    }
+  ]
+}

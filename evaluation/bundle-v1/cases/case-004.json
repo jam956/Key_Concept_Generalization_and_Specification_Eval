@@ -1,0 +1,15 @@
+{
+  "case_id": "case-004",
+  "fixture_id": "counterfactual_key_surface",
+  "track": "kce",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"counterfactual_key_surface\",\"input\":{\"source_text\":\"[s1] Neri now has her own workshop key and can perform every repair alone. [s2] She still asks her former mentor to attend because she promised to teach his replacement alongside him. [s3] His presence is no longer required for access; the continuing request follows their stated commitment.\"},\"track\":\"kce\"}"
+    }
+  ]
+}

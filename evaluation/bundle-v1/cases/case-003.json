@@ -1,0 +1,15 @@
+{
+  "case_id": "case-003",
+  "fixture_id": "counterfactual_commitment",
+  "track": "kce",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"counterfactual_commitment\",\"input\":{\"source_text\":\"[s1] The River Party promised its ally a vote on the harbor bill. [s2] Later it gained enough seats to pass the bill alone. [s3] Its chair said the promise still governed the vote even though the ally’s seats were no longer necessary. [s4] The account establishes a stated commitment, not proof that the promise will be kept.\"},\"track\":\"kce\"}"
+    }
+  ]
+}

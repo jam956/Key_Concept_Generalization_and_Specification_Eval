@@ -1,0 +1,15 @@
+{
+  "case_id": "case-006",
+  "fixture_id": "signal_audience",
+  "track": "kce",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"signal_audience\",\"input\":{\"source_text\":\"[s1] At the closed rehearsal, listeners laughed at Elin’s story about her brother. [s2] He had allowed the rehearsal but had not agreed to its use at the public memorial. [s3] The warm response changed Elin’s confidence, not the scope of his consent.\"},\"track\":\"kce\"}"
+    }
+  ]
+}

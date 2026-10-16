@@ -1,0 +1,15 @@
+{
+  "case_id": "case-005",
+  "fixture_id": "signal_access",
+  "track": "kce",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"signal_access\",\"input\":{\"source_text\":\"[s1] A rehearsal restored every sample record correctly. [s2] The owner authorized rehearsal only and reserved approval of the live migration. [s3] The successful test supplies evidence of readiness, not permission to migrate.\"},\"track\":\"kce\"}"
+    }
+  ]
+}
