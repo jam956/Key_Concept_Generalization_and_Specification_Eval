@@ -1,12 +1,12 @@
 # KCE generalization evaluation
 
-Can a model extract the transferable relationship in a passage without inventing conditions—and then use a supplied conceptual framework to write something new?
+For AI systems to reuse knowledge reliably, they must move in two directions: turn specific examples into bounded concepts, then apply those concepts to new specifics without losing the conditions that make them true. Fluent output alone does not establish that transfer. A generalization can discard a necessary limit; a retelling can preserve details without identifying what transfers.
 
-This repository tests those abilities separately. **KCE means Key Concept Elevation:** moving from a specific example to its governing concept while preserving the conditions that make the concept true. The extracted representation is **ODRO: ontology, dynamics, regime, outcome**—what is involved, how it changes, under what constraints, and with what possible result.
+A trained technician who needs someone else to unlock a workshop illustrates a transferable distinction: capability does not confer control of required access. Applied to an archive, the same distinction means that being able to verify a record does not grant authority to release it. The details change; the governing relationship and its limits must survive.
 
-For example, a trained technician who still needs another person to unlock the workshop illustrates **capability without control of required access**. “Training is useless” overgeneralizes it; “a technician needs a key” misses the transferable relationship.
+This repository examines whether that relationship survives both steps. **KCE—Key Concept Elevation—**extracts a governing concept from a specific passage. **ODRO—ontology, dynamics, regime, outcome—**records what is involved, how it changes, the applicable constraints, and the possible result.
 
-This is a small diagnostic pilot, not a calibrated benchmark or a general intelligence score. The repository is currently private.
+The tests assess extraction and generation separately. Generation uses a supplied conceptual framework, so this pilot does not establish automatic round-trip transfer. It is a small diagnostic study, not a calibrated benchmark.
 
 ## Start with the outputs
 
