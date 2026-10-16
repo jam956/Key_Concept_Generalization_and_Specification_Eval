@@ -1,116 +1,114 @@
 # KCE generalization evaluation
 
-A small, inspectable behavioral evaluation of concept extraction and transfer. It records **overgeneralization and undergeneralization separately**, rather than hiding them inside a prose-quality or overall intelligence score. Version 0.1 is an executable pilot framework with provisional original fixtures and a human review rubric. It is not a calibrated benchmark and has no established predictive validity.
+Can a model extract the transferable relationship in a passage without inventing conditions—and then use a supplied conceptual framework to write something new?
 
-## Recorded comparison
+This repository tests those abilities separately. **KCE means Key Concept Elevation:** moving from a specific example to its governing concept while preserving the conditions that make the concept true. The extracted representation is **ODRO: ontology, dynamics, regime, outcome**—what is involved, how it changes, under what constraints, and with what possible result.
 
-[Read the Sol 6.1 / Qwen outputs, then separate scores and timing](results/sol-qwen-2026-10-15/README.md). This is a small, single-attempt pilot with model-masked AI review, not human calibration. Raw responses, portable run receipts, reviews and an offline HTML report are included.
+For example, a trained technician who still needs another person to unlock the workshop illustrates **capability without control of required access**. “Training is useless” overgeneralizes it; “a technician needs a key” misses the transferable relationship.
 
-## Two governing evaluations
+This is a small diagnostic pilot, not a calibrated benchmark or a general intelligence score. The repository is currently private.
 
-The primary suite profiles are `suites/encoding.json` and `suites/decoding.json`:
+## Start with the outputs
 
-1. **Encoding:** paragraph/section → governing concept → generalized ODRO. Six source-bounded fixtures score overgeneralization and undergeneralization separately.
-2. **Decoding:** supplied Kissinger framework/ODRO + bounded new facts → a new article. Use the local work-scoped fixture `data/kissinger/kissinger-standalone-article.json`; generation quality, structural fidelity and leakage remain separate. The extracted framework is a reviewable candidate, not yet a calibrated gold reference.
+[**Read the Sol 6.1 and Qwen comparison: outputs first, then separate scores and timing**](results/sol-qwen-2026-10-15/README.md).
 
-Inspect either executable plan without inference:
+The recorded comparison contains six encoding cases and one article case per model, with one stateless attempt per case. All 14 calls completed. Reviews were performed separately with model identity and timing masked; they are **provisional AI judgments, not human-calibrated grades**. Exact prompts, responses, evidence quotations, hashes and timing are included.
 
-```sh
-python3 -m kce_eval.suite encoding
-python3 -m kce_eval.suite decoding
-```
+- [Results and full text](results/sol-qwen-2026-10-15/README.md)
+- [Separate score and timing summaries](results/sol-qwen-2026-10-15/comparison-summary.json)
+- [Offline HTML comparison](results/sol-qwen-2026-10-15/comparison.html) — download and open locally
+- [Publication and original-receipt hashes](results/sol-qwen-2026-10-15/publication-receipt.json)
 
-Run explicitly with `--execute --backend ollama --model MODEL --out runs/MODEL-encoding` (or decoding). A supplied-framework decoding score isolates realization; a later chained condition may use that model’s own encoding, labeled end-to-end. Ordinary conversation fixtures remain supplementary transfer tests. The profiles do not merge scores into one Cortex score.
+## What the two evaluations measure
 
-## Implementation tracks
+| Evaluation | Model receives | Model produces | Separate dimensions |
+|---|---|---|---|
+| **Encoding** | A bounded passage | Governing concept, ODRO, limits | Overgeneralization severity; undergeneralization severity; source fidelity |
+| **Decoding** | A supplied Kissinger analytical framework and new fictional facts | A four-to-six-paragraph article | Generation quality; structural transfer; source fidelity; control-block leakage |
 
-| Track | Model task | Independently reviewed dimensions |
-|---|---|---|
-| `kce` | Source passage → governing concept → generalized ontology, dynamics, regime, outcome | Overgeneralization severity, undergeneralization severity, source fidelity |
-| `target` | Supplied framework → situation-specific words or action proposal | Target generation, structural transfer, source fidelity, control-block leakage |
-| `article` | Supplied argumentative framework + bounded new facts → article | Target generation, structural transfer, source fidelity, control-block leakage |
+Encoding asks whether the model preserves the relationship and its scope. Decoding asks whether it can realize a supplied structure in coherent, situation-specific writing without importing unsupported history or exposing control instructions. The supplied-framework condition keeps extraction errors separate from writing errors.
 
-Generation receives a supplied framework so a poor extraction does not automatically cause a poor generation score. A subsequent end-to-end study can provide the same model's extracted framework instead, labeled as a distinct condition. Individual tracks here do not automatically execute a Cortex agent pipeline or graph search.
+The repository also includes supplementary target-generation fixtures. These tracks do **not** automatically execute the full Noetic Cortex, perform autonomous graph retrieval, or measure a model's hidden internal reasoning.
 
-The original fixtures expose source sentences, expected relations, acceptable alternatives and contrasting failure modes. Reviewer annotations in `rubric` are never sent to the tested model. Public validation families differ from development families; public validation is not a private uncontaminated holdout. See [RUBRIC.md](docs/RUBRIC.md) and [VALIDATION.md](docs/VALIDATION.md).
+## Quick start: no model calls
 
-## Run locally
-
-Python 3.9+; run from the repository root. Core operation needs only the standard library and no install.
+Requires **Python 3.9+**. Run from the repository root; the core uses only the standard library and needs no installation.
 
 ```sh
 python3 -m unittest discover -s tests -v
 python3 -m kce_eval validate fixtures
-python3 -m kce_eval prompt fixtures/capacity_council.json
-python3 -m kce_eval run fixtures/capacity_council.json --backend command --command-json '["python3","examples/mock_model.py"]' --model mock-only --out runs/mock
-python3 -m kce_eval run fixtures/capacity_council.json --backend ollama --model qwen3.8:27b --think false --out runs/qwen-dev
-```
-
-`run` calls the chosen backend; the mock command only tests transport and produces no model assessment. Validation and prompt inspection do not perform inference. Keep results and reviews in separate directories per model and configuration; mixed configurations are rejected during summary. A command adapter also works:
-
-```sh
-python3 -m kce_eval run fixtures/capacity_council.json --backend command --command-json '["python3","adapters/sol_cli.py"]' --model gpt-6.1-sol --out runs/sol-dev
-```
-
-Command adapters receive one JSON request on stdin (`model`, `messages`, `think`, etc.) and return only model-content text on stdout, not an API envelope. They must return nonzero on runtime/incomplete-response failure. Commands are argument arrays and run without a shell. The supplied optional SOL adapter requires an authenticated Codex CLI, runs an isolated ephemeral call, requests low reasoning effort, and refuses observed tool calls. Model resolution, injected CLI context, JSON mode, output limits, local versus hosted latency and reasoning mode can differ: report those differences rather than claiming equal compute.
-
-Each new run writes an exclusive UUID receipt containing the exact fixture, prompt, configuration, raw response, hashes, timing, and explicit runtime/parse/schema status. Missing first-token timing is `null`, not zero. Fixture annotations are in the host receipt for review, not the inference prompt. Historical Tahoe scores are not imported as current benchmark results.
-
-The initial Ollama adapter records JSON mode and fixed defaults (temperature 0.2, seed 417, 16,384 context tokens, 1,800 predicted tokens). It rejects incomplete or tool-bearing envelopes and nonempty thinking output when nonthinking was requested. Model-reported timing and identity are retained where available; a provider alias is not an independently verified weights fingerprint.
-
-## Review and score
-
-```sh
-python3 -m kce_eval review-template runs/qwen-dev/RUN_ID/run.json --output reviews/qwen-dev/review.json
-# Fill the template with an identified reviewer, separate 0–3 judgments,
-# reasons and exact response evidence; leave unassessed dimensions null.
-python3 -m kce_eval score runs/qwen-dev/RUN_ID/run.json reviews/qwen-dev/review.json
-python3 -m kce_eval summarize runs/qwen-dev reviews/qwen-dev
-```
-
-Severity dimensions use **0 = no error, 3 = severe error**. Quality dimensions use **0 = absent/contradictory, 3 = faithful/useful**. Unassessed is not a passing zero. Reasons and quoted evidence are checked against the response and review/run hashes must agree. Severe errors are recorded explicitly in `critical_errors`; no overall quality average can compensate for them. `critical_gate_pass` means all dimensions were reviewed on a successful run and no critical error was declared—it is not an intelligence certification or automatic threshold on all quality dimensions. Reviewer honesty and semantic consistency still require calibration.
-
-Failed runs may retain diagnostic review notes, but their judgments are excluded from semantic means. All-run and unreviewed failure statuses remain visible in summaries. Missing reviews do not become successful scores.
-
-Severity summaries also give the number and fraction of assessed successful cases with a nonzero error. This is a case-level incidence, not “percent of concepts understood”; failures and unassessed cases have separate counts. Mean 0–3 scores are descriptive ordinal summaries, not calibrated measurements of intelligence.
-
-Unique control canaries are checked only inside public `generated_text`, with findings returned as review flags, not automatic semantic grades. Generic words such as “operator” can be legitimate content and are not silently penalized. Broader instruction or scaffolding leakage is judged in context. Exact overlap alone does not prove copying. There is no self-referential draft-as-reference grader.
-
-## Optional Kissinger database track
-
-The current mixed Expressions database is 345,579,520 bytes (329.57 MiB), with 82 works; it is not only a Kissinger database. The selected work is *Strains on the Alliance* (1963). Use a local database path:
-
-```sh
-python3 -m kce_eval.kissinger --database /path/to/expressions.sqlite --output data/private/kissinger-rebuilt-framework.json --article-fixture data/private/kissinger-rebuilt-article.json
 python3 -m kce_eval validate data/kissinger/kissinger-standalone-article.json
-python3 -m kce_eval run data/kissinger/kissinger-standalone-article.json --backend ollama --model qwen3.8:27b --out runs/qwen-article
+python3 -m kce_eval.suite encoding
+python3 -m kce_eval.suite decoding
 ```
 
-The exporter opens the original read-only, verifies its schema and before/after hash, selects one work and exports 12 source-extracted sentence vectors plus that work's operators/edges/routes/style summaries. It excludes generated drafts, historical judge scores, transfer-derived vectors, source PDFs and personal machine paths. Candidate extraction status is retained. The article fixture uses synthetic new political facts; it evaluates use of the supplied framework, not whether the model independently learned all of Kissinger's thinking.
-
-New local exports remain ignored by default. This private repository includes the explicitly approved sanitized Kissinger corpus and its framework/article fixture under `data/kissinger/`; the original mixed database is excluded. If later distribution of the original is desired, use a separately reviewed release asset or LFS; ordinary GitHub files are limited to 100 MiB. Source and derived-annotation redistribution should be reviewed before publishing. No remote repository or license is selected by this local scaffold.
-
-## Interpretation
-
-This is useful for diagnosing where a model loses a concept's scope, conditions or specificity, separately from its ability to render a target. It does not measure an inaccessible internal mechanism or establish a broad cognitive ability score. [RESEARCH.md](docs/RESEARCH.md) distinguishes related published benchmarks from the predictive validation this particular eval still needs.
-
-### Read the output before its review
-
-Create an offline, self-contained HTML report from a verified run receipt:
+The suite commands show the planned fixtures unless `--execute` is supplied. To inspect an exact model prompt:
 
 ```sh
-python -m kce_eval.report results/RUN_ID/run.json --output output-review.html
-python -m kce_eval.report results/RUN_ID/run.json --review reviews/RUN_ID.json --output scored-review.html
+python3 -m kce_eval prompt fixtures/capacity_council.json
 ```
 
-Open the HTML file in a browser. It shows the decoded generated prose (or parsed KCE JSON) and exact raw model response first, followed by separate dimension scores, reasons, exact evidence quotes and their surrounding output context. Runtime status and wall time remain visible. Fixture/source context, model messages and metadata are expandable. Reports contain the source and reviewer-only context, so handle them as work-scoped exports.
+Reviewer rubrics and reference answers are excluded from model prompts.
 
-Without a review, dimensions are **Not scored (null)** and the critical gate is unassessed. Missing judgments remain unscored. Severity uses 0 good–3 bad; quality uses 0 bad–3 good. There is no aggregate score. Reviews are checked against receipt IDs and hashes and must quote actual output. Invalid receipts or reviews are rejected before creating a report; existing output files are never overwritten. Normal report generation performs no model calls.
+## Run both evaluations
 
-## Standalone Kissinger database
+**Local Qwen:** requires Ollama running and the requested model installed. These commands request the `qwen3.8:27b` alias used in the recorded comparison; use another installed model name for a new condition. Thinking is disabled by default.
 
-The decoding suite uses `data/kissinger/kissinger-standalone-article.json`, retrieved from the sanitized `data/kissinger/kissinger-eval.sqlite`. These approved portable assets are included in this private repository. See [corpus extraction and verification](docs/KISSINGER_DATABASE.md) for scope and rebuilding instructions.
+```sh
+python3 -m kce_eval.suite encoding --execute --backend ollama --model qwen3.8:27b --out runs/qwen-encoding
+python3 -m kce_eval.suite decoding --execute --backend ollama --model qwen3.8:27b --out runs/qwen-decoding
+```
 
-## Optional GitHub Actions
+**Sol 6.1:** requires an authenticated Codex CLI with access to `gpt-6.1-sol`. The included adapter starts isolated ephemeral calls, requests low reasoning effort and rejects observed tool use.
 
-The tested workflow template is included at [`docs/github-actions-workflow.example.yml`](docs/github-actions-workflow.example.yml). It is not installed as an active Actions workflow; the publishing credential does not have workflow scope. Local checks and a clean-checkout verification passed.
+```sh
+python3 -m kce_eval.suite encoding --execute --backend command --model gpt-6.1-sol --command-json '["python3","adapters/sol_cli.py"]' --out runs/sol-encoding
+python3 -m kce_eval.suite decoding --execute --backend command --model gpt-6.1-sol --command-json '["python3","adapters/sol_cli.py"]' --out runs/sol-decoding
+```
+
+Each invocation creates new UUID run receipts. Keep models and configurations in separate output directories. There is no automatic repair or semantic grading during inference. A transport-only mock is available in `examples/mock_model.py`; its output is not a model assessment.
+
+Ollama uses JSON mode, temperature 0.2, seed 417, a 16,384-token context and a 1,800-token prediction limit. The Sol adapter does not apply those Ollama controls. Wall time includes backend overhead and any model loading, excludes review, and has no first-token measurement. The recorded comparison is **not equal-compute or a per-token speed benchmark**. The Qwen model name is a provider alias; its recorded digest is in the comparison manifest.
+
+## Review, score and inspect a new run
+
+```sh
+python3 -m kce_eval review-template runs/qwen-encoding/RUN_ID/run.json --output reviews/qwen-encoding/RUN_ID.json
+# Fill in reviewer identity, scores, reasons and exact output quotations.
+python3 -m kce_eval score runs/qwen-encoding/RUN_ID/run.json reviews/qwen-encoding/RUN_ID.json
+python3 -m kce_eval summarize runs/qwen-encoding reviews/qwen-encoding
+python3 -m kce_eval.report runs/qwen-encoding/RUN_ID/run.json --review reviews/qwen-encoding/RUN_ID.json --output reviewed-run.html
+```
+
+Replace `RUN_ID` with the UUID directory created by the run. The HTML report shows the output before the dimension scores and supporting evidence.
+
+| Score type | 0 | 3 |
+|---|---|---|
+| Severity: overgeneralization, undergeneralization, leakage | No error | Severe error |
+| Quality: fidelity, generation, structural transfer | Absent or contradictory | Faithful and useful |
+
+There is **no combined score**. Missing judgments remain unscored; failed runs stay visible and are excluded from semantic means. Reviews must match run/output hashes and quote actual output. Control-marker detection supplies review flags, not automatic semantic grades. Critical errors remain explicit; a critical-gate pass is not an intelligence certification or a quality threshold.
+
+See the [scoring rubric](docs/RUBRIC.md) for dimension anchors, examples and critical-error rules.
+
+## Included Kissinger corpus
+
+[`data/kissinger/kissinger-eval.sqlite`](data/kissinger/kissinger-eval.sqlite) is a **7.47 MiB standalone extraction** containing 28 works, 206 analytical operators, 78 routes, 155 source-derived sentence vectors, and the necessary shared concept and invariant nodes.
+
+Source spans, document pointers, historical generated drafts/scores and six transfer-test-derived lesson vectors are excluded. Conceptual summaries and analytical expressions remain; this is not a guarantee of no wording overlap with original works. Candidate annotations are not validated gold.
+
+The current article fixture uses the framework from **Strains on the Alliance (1963)** and new fictional river-energy facts. It does not test all 28 works or establish author-wide emulation ability. Database integrity, graph references, route sequences and framework retrieval were checked against the original before publication.
+
+- [Corpus scope, extraction and verification](docs/KISSINGER_DATABASE.md)
+- [Database extraction receipt](data/kissinger/kissinger-eval.receipt.json)
+- [Consumer retrieval verification](data/kissinger/kissinger-eval.consumer-verification.json)
+
+The original mixed database and local working runs remain excluded from Git. The recorded results are portable publication copies: repository-absolute adapter paths were made relative, while exact prompts, outputs, timing and judgments were preserved.
+
+## Interpretation and next steps
+
+The results can help locate a failure: losing a qualifier, remaining too close to an example, importing unsupported facts, failing to realize a framework, or leaking control material. They do not establish a general cognitive ability or predictive validity. Repeated trials, independent human calibration and a genuinely held-out set are needed before stronger claims. Visible validation families differ from development families, but are not a private holdout.
+
+Read [validation limits and design](docs/VALIDATION.md) and [related research](docs/RESEARCH.md).
+
+The [GitHub Actions template](docs/github-actions-workflow.example.yml) runs local-style contract checks without model calls. It is included as a template rather than an active workflow because the publishing credential lacks workflow permission.
