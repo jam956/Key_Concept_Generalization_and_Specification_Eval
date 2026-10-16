@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Evaluation output and review</title><style>body{max-width:960px;margin:2rem auto;padding:0 1rem;font:17px/1.6 system-ui;color:#17212b;background:#faf9f5}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;padding:1rem;border:1px solid #d8d8d0}article,details{margin:1rem 0}blockquote{border-left:3px solid #777;padding-left:1rem;white-space:pre-wrap}a{color:#145b8c}h2{margin-top:2rem}</style></head><body><h1>Evaluation output and review</h1><section id="model-output"><h2>Model output</h2><h3>Parsed KCE JSON</h3><pre>{
+  &quot;governing_concept&quot;: &quot;When independent capability removes a practical dependency, continued collaboration may follow an explicit commitment rather than a continuing need for assistance.&quot;,
+  &quot;odro&quot;: {
+    &quot;ontology&quot;: &quot;A collaboration with distinct practical and commitment-based grounds for participation.&quot;,
+    &quot;dynamics&quot;: &quot;Independent access and capability remove the practical requirement for another person&#x27;s presence, while an existing shared teaching commitment sustains the request to participate.&quot;,
+    &quot;regime&quot;: &quot;The actor can access the workspace and complete every task alone, and explicitly attributes the continuing invitation to a promise involving joint instruction.&quot;,
+    &quot;outcome&quot;: &quot;Participation continues on commitment-based grounds after practical dependence ends.&quot;
+  },
+  &quot;limits&quot;: [
+    &quot;The explanation depends on the stated commitment; continued invitations alone would not establish their motive.&quot;,
+    &quot;Independent access and repair capability do not establish independence in every domain.&quot;,
+    &quot;The source establishes a continuing request, not whether the mentor attends or the teaching commitment is fulfilled.&quot;,
+    &quot;The source does not establish that collaboration must continue after the commitment is fulfilled.&quot;
+  ]
+}</pre><h3>Exact raw model response</h3><pre id="raw-output">{
+  &quot;governing_concept&quot;: &quot;When independent capability removes a practical dependency, continued collaboration may follow an explicit commitment rather than a continuing need for assistance.&quot;,
+  &quot;odro&quot;: {
+    &quot;ontology&quot;: &quot;A collaboration with distinct practical and commitment-based grounds for participation.&quot;,
+    &quot;dynamics&quot;: &quot;Independent access and capability remove the practical requirement for another person&#x27;s presence, while an existing shared teaching commitment sustains the request to participate.&quot;,
+    &quot;regime&quot;: &quot;The actor can access the workspace and complete every task alone, and explicitly attributes the continuing invitation to a promise involving joint instruction.&quot;,
+    &quot;outcome&quot;: &quot;Participation continues on commitment-based grounds after practical dependence ends.&quot;
+  },
+  &quot;limits&quot;: [
+    &quot;The explanation depends on the stated commitment; continued invitations alone would not establish their motive.&quot;,
+    &quot;Independent access and repair capability do not establish independence in every domain.&quot;,
+    &quot;The source establishes a continuing request, not whether the mentor attends or the teaching commitment is fulfilled.&quot;,
+    &quot;The source does not establish that collaboration must continue after the commitment is fulfilled.&quot;
+  ]
+}
+</pre></section><section id="scores"><h2>Independent dimension scores</h2><p>Severity: 0 good, 3 bad. Quality: 0 bad, 3 good. Dimensions stay separate; no aggregate score.</p><p>Reviewer: Alex AI rubric review, separate model-masked pass; not human-calibrated. Review complete: True. Critical gate: pass.</p><article><h3>overgeneralization</h3><p>severity: <strong>0 / 3</strong></p><p>Outcome participation continues could sound stronger than a request, but explicit limit resolves this as possible consequence rather than asserted attendance.</p><blockquote>The source establishes a continuing request, not whether the mentor attends or the teaching commitment is fulfilled.</blockquote><p><a href="#raw-output">Exact quote in model output</a></p><details><summary>Surrounding output context</summary><pre>    &quot;Independent access and repair capability do not establish independence in every domain.&quot;,
+    &quot;The source establishes a continuing request, not whether the mentor attends or the teaching commitment is fulfilled.&quot;,
+    &quot;The source does not establish that collaboration must continue after the commitment is fulfi</pre></details></article><article><h3>undergeneralization</h3><p>severity: <strong>0 / 3</strong></p><p>Generalizes the commitment-versus-necessity relation while preserving the actual supplied reason.</p><blockquote>continued collaboration may follow an explicit commitment rather than a continuing need for assistance.</blockquote><p><a href="#raw-output">Exact quote in model output</a></p><details><summary>Surrounding output context</summary><pre>{
+  &quot;governing_concept&quot;: &quot;When independent capability removes a practical dependency, continued collaboration may follow an explicit commitment rather than a continuing need for assistance.&quot;,
+  &quot;odro&quot;: {
+    &quot;ontology&quot;: &quot;A collaboration with distinct practical and commitment-based grounds</pre></details></article><article><h3>source_fidelity</h3><p>quality: <strong>3 / 3</strong></p><p>Preserves independent access, repair competence, promise-based invitation and unknown attendance.</p><blockquote>Independent access and capability remove the practical requirement for another person&#x27;s presence</blockquote><p><a href="#raw-output">Exact quote in model output</a></p><details><summary>Surrounding output context</summary><pre>boration with distinct practical and commitment-based grounds for participation.&quot;,
+    &quot;dynamics&quot;: &quot;Independent access and capability remove the practical requirement for another person&#x27;s presence, while an existing shared teaching commitment sustains the request to participate.&quot;,
+    &quot;regime&quot;: </pre></details></article><h3>Critical errors</h3><p>None recorded in this review.</p><p>Provisional AI rubric judgments; not calibrated model truth.</p></section><section><h2>Runtime</h2><p>Status: success</p><p>Model request wall time (seconds): 8.647223915999994</p></section><details><summary>Fixture and source context (includes reviewer-only annotations)</summary><pre>{
+  &quot;id&quot;: &quot;counterfactual_key_surface&quot;,
+  &quot;track&quot;: &quot;kce&quot;,
+  &quot;family&quot;: &quot;counterfactual-dependence&quot;,
+  &quot;split&quot;: &quot;validation&quot;,
+  &quot;input&quot;: {
+    &quot;source_text&quot;: &quot;[s1] Neri now has her own workshop key and can perform every repair alone. [s2] She still asks her former mentor to attend because she promised to teach his replacement alongside him. [s3] His presence is no longer required for access; the continuing request follows their stated commitment.&quot;
+  },
+  &quot;rubric&quot;: {
+    &quot;expected_governing_concept_alternatives&quot;: [
+      &quot;Continuing collaboration may follow commitment after access dependence has ended.&quot;
+    ],
+    &quot;required_relations&quot;: [
+      &quot;Independent access removes the old gate; a promise explains continued requests.&quot;
+    ],
+    &quot;conditions_to_preserve&quot;: [
+      &quot;The passage supplies a reason for this request, not a universal theory of loyalty.&quot;
+    ],
+    &quot;overgeneralization_traps&quot;: [
+      &quot;The mentor still controls entry.&quot;,
+      &quot;All consultation indicates dependence.&quot;
+    ],
+    &quot;undergeneralization_traps&quot;: [
+      &quot;Retelling keys and mentorship without distinguishing commitment from necessity.&quot;
+    ],
+    &quot;generation_checks&quot;: [],
+    &quot;forbidden_source_carryover&quot;: [],
+    &quot;acceptable_alternatives&quot;: [
+      &quot;Equivalent wording that preserves the causal relation and its limits is acceptable.&quot;
+    ]
+  }
+}</pre></details><details><summary>Run metadata and mechanical checks</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;started_at_utc&quot;: &quot;2026-10-15T23:41:45.786849+00:00&quot;,
+  &quot;run_id&quot;: &quot;dae61738d3f24eedbb392e960e50906c&quot;,
+  &quot;fixture_id&quot;: &quot;counterfactual_key_surface&quot;,
+  &quot;fixture_sha256&quot;: &quot;b31a5902edb5a2d13cd8c82a70753011144be72eb8237c894e6fafbbb5f765d1&quot;,
+  &quot;prompt_sha256&quot;: &quot;5a0a5ebe1cff5398296709cdbb4dcefd75e73ba871c2735992af051c3f4513e2&quot;,
+  &quot;model_config&quot;: {
+    &quot;backend&quot;: &quot;command&quot;,
+    &quot;model&quot;: &quot;gpt-6.1-sol&quot;,
+    &quot;timeout_seconds&quot;: 120,
+    &quot;think&quot;: false,
+    &quot;format&quot;: &quot;json&quot;,
+    &quot;options&quot;: {
+      &quot;temperature&quot;: 0.2,
+      &quot;seed&quot;: 417,
+      &quot;num_ctx&quot;: 16384,
+      &quot;num_predict&quot;: 1800
+    },
+    &quot;command&quot;: [
+      &quot;python3&quot;,
+      &quot;adapters/sol_cli.py&quot;
+    ]
+  },
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;mechanical_checks&quot;: {
+    &quot;control_markers_in_generated_text&quot;: [],
+    &quot;semantic_grading&quot;: &quot;not performed&quot;
+  },
+  &quot;timing&quot;: {
+    &quot;time_to_first_text_seconds&quot;: null,
+    &quot;time_to_first_text_availability&quot;: &quot;unavailable: nonstreaming adapter&quot;,
+    &quot;model_request_wall_seconds&quot;: 8.647223915999994
+  },
+  &quot;stderr_sha256&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+  &quot;process_returncode&quot;: 0,
+  &quot;response_sha256&quot;: &quot;ddb8b8f10e35e2dad5d5ae77ff22c720669d158a1cec3e2ad085f5c0ee5280f7&quot;,
+  &quot;publication_export&quot;: {
+    &quot;original_receipt_sha256&quot;: &quot;c87b30ba0afba3694858b988d028bf96e9a692e7a19e640022ef10b7e2cac2cd&quot;,
+    &quot;normalization&quot;: &quot;Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged.&quot;
+  }
+}</pre></details><details><summary>Exact model messages</summary><pre>[
+  {
+    &quot;role&quot;: &quot;system&quot;,
+    &quot;content&quot;: &quot;Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance.&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;{\&quot;id\&quot;:\&quot;counterfactual_key_surface\&quot;,\&quot;input\&quot;:{\&quot;source_text\&quot;:\&quot;[s1] Neri now has her own workshop key and can perform every repair alone. [s2] She still asks her former mentor to attend because she promised to teach his replacement alongside him. [s3] His presence is no longer required for access; the continuing request follows their stated commitment.\&quot;},\&quot;track\&quot;:\&quot;kce\&quot;}&quot;
+  }
+]</pre></details><details><summary>Review record</summary><pre>{
+  &quot;run_id&quot;: &quot;dae61738d3f24eedbb392e960e50906c&quot;,
+  &quot;fixture_id&quot;: &quot;counterfactual_key_surface&quot;,
+  &quot;fixture_sha256&quot;: &quot;b31a5902edb5a2d13cd8c82a70753011144be72eb8237c894e6fafbbb5f765d1&quot;,
+  &quot;response_sha256&quot;: &quot;ddb8b8f10e35e2dad5d5ae77ff22c720669d158a1cec3e2ad085f5c0ee5280f7&quot;,
+  &quot;reviewer&quot;: &quot;Alex AI rubric review, separate model-masked pass; not human-calibrated&quot;,
+  &quot;judgments&quot;: {
+    &quot;overgeneralization&quot;: {
+      &quot;score&quot;: 0,
+      &quot;reason&quot;: &quot;Outcome participation continues could sound stronger than a request, but explicit limit resolves this as possible consequence rather than asserted attendance.&quot;,
+      &quot;evidence_quotes&quot;: [
+        &quot;The source establishes a continuing request, not whether the mentor attends or the teaching commitment is fulfilled.&quot;
+      ]
+    },
+    &quot;undergeneralization&quot;: {
+      &quot;score&quot;: 0,
+      &quot;reason&quot;: &quot;Generalizes the commitment-versus-necessity relation while preserving the actual supplied reason.&quot;,
+      &quot;evidence_quotes&quot;: [
+        &quot;continued collaboration may follow an explicit commitment rather than a continuing need for assistance.&quot;
+      ]
+    },
+    &quot;source_fidelity&quot;: {
+      &quot;score&quot;: 3,
+      &quot;reason&quot;: &quot;Preserves independent access, repair competence, promise-based invitation and unknown attendance.&quot;,
+      &quot;evidence_quotes&quot;: [
+        &quot;Independent access and capability remove the practical requirement for another person&#x27;s presence&quot;
+      ]
+    }
+  },
+  &quot;critical_errors&quot;: []
+}</pre></details></body></html>

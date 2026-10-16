@@ -1,0 +1,60 @@
+{
+  "id": "article_alliance",
+  "track": "article",
+  "family": "structural-transfer",
+  "split": "validation",
+  "input": {
+    "source_text": "[s1] Donor problem: Two observatories share a telescope schedule but bear different maintenance costs. [s2] Their common interest does not settle how costs will be divided. [s3] Analysis should move from shared pressure to unequal incentives to a test of the proposed mechanism.",
+    "facts": [
+      "The fictional Alder Coast and Brin Valley signed a one-year flood-warning pact.",
+      "Alder supplies sensors; Brin supplies overnight staff.",
+      "Both face seasonal floods.",
+      "The pact creates a monthly review meeting.",
+      "It contains no replacement-funding commitment.",
+      "No performance results are yet available."
+    ],
+    "scenario": "Write a 180\u2013240 word analytical article about the fictional pact.",
+    "desired_influence": "Use the supplied argumentative sequence to assess durability conditionally, with factual restraint.",
+    "provided_framework": {
+      "status": "provisional",
+      "provenance": "Original manually authored argumentative candidate; not a Kissinger extraction or established gold.",
+      "verification_scope": "Structural moves are supplied for this exercise; no claim of historical or author-level validation.",
+      "odro": {
+        "ontology": "An alliance whose members face a shared pressure but unequal costs.",
+        "dynamics": "Establish the pressure, distinguish member incentives, then test whether a proposed mechanism can sustain cooperation.",
+        "regime": "Separate declared intentions from available commitments; acknowledge unresolved mechanisms.",
+        "outcome": "A conditional assessment of durability rather than a guaranteed prediction."
+      }
+    }
+  },
+  "rubric": {
+    "expected_governing_concept_alternatives": [
+      "Shared pressure does not erase unequal incentives or unresolved commitments."
+    ],
+    "required_relations": [
+      "Shared flood pressure; distinct contributions; review meeting considered against missing replacement funding."
+    ],
+    "conditions_to_preserve": [
+      "One-year term; no results; no invented funding or measured success."
+    ],
+    "overgeneralization_traps": [
+      "Predicting certain collapse or success.",
+      "Treating a review meeting as a funding commitment."
+    ],
+    "undergeneralization_traps": [
+      "Fact list with no assessment of how the mechanism addresses unequal burdens."
+    ],
+    "generation_checks": [
+      "180\u2013240 words; clear article; shared pressure then incentives then mechanism assessment; conditional conclusion."
+    ],
+    "forbidden_source_carryover": [
+      "Observatories, telescope schedule, or maintenance allocations imported as pact facts."
+    ],
+    "acceptable_alternatives": [
+      "Equivalent wording that preserves the causal relation and its limits is acceptable."
+    ]
+  },
+  "control_markers": [
+    "KCE_CONTROL_ONLY_C96E"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-15T23:41:16.569163+00:00",
+  "run_id": "45e74f9eff9b4dce96df2b0f837b8b54",
+  "fixture_id": "capacity_mentor",
+  "fixture_sha256": "1d8fdca6eeafdbbff15155d68b1d0a7b308b1f7c2061183cc195d570b461200e",
+  "fixture": {
+    "id": "capacity_mentor",
+    "track": "kce",
+    "family": "capacity-dependence-control",
+    "split": "dev",
+    "input": {
+      "source_text": "[s1] Mira can diagnose the pump alone, but only her mentor holds the workshop key. [s2] Each repair still requires his approval to enter. [s3] Her growing skill has not yet given her control of access."
+    },
+    "rubric": {
+      "expected_governing_concept_alternatives": [
+        "Capability without control of a required resource leaves dependence intact."
+      ],
+      "required_relations": [
+        "Repair requires access; mentor controls access; skill does not remove that gate."
+      ],
+      "conditions_to_preserve": [
+        "Dependence concerns workshop access, not all decisions."
+      ],
+      "overgeneralization_traps": [
+        "Skill never produces autonomy.",
+        "The mentor intends exploitation."
+      ],
+      "undergeneralization_traps": [
+        "Retelling Mira and the pump without the access relation.",
+        "Calling this merely learning."
+      ],
+      "generation_checks": [],
+      "forbidden_source_carryover": [],
+      "acceptable_alternatives": [
+        "Equivalent wording that preserves the causal relation and its limits is acceptable."
+      ]
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"capacity_mentor\",\"input\":{\"source_text\":\"[s1] Mira can diagnose the pump alone, but only her mentor holds the workshop key. [s2] Each repair still requires his approval to enter. [s3] Her growing skill has not yet given her control of access.\"},\"track\":\"kce\"}"
+    }
+  ],
+  "prompt_sha256": "20f2009b604842073c507c82ca6cb8b8f1e2916d02cda352cc95ac39888211d0",
+  "model_config": {
+    "backend": "ollama",
+    "model": "qwen3.8:27b",
+    "timeout_seconds": 120,
+    "think": false,
+    "format": "json",
+    "options": {
+      "temperature": 0.2,
+      "seed": 417,
+      "num_ctx": 16384,
+      "num_predict": 1800
+    },
+    "url": "http://127.0.0.1:11434/api/chat"
+  },
+  "status": "success",
+  "raw_response": "{\n  \"governing_concept\": \"The decoupling of operational competence from institutional access rights, where procedural authority remains vested in a gatekeeper despite the operator's technical proficiency.\",\n  \"odro\": {\n    \"ontology\": \"A dyadic system comprising a competent agent (Mira) and an authority holder (mentor), linked by a dependency on external permission (keys/approval) rather than internal capability.\",\n    \"dynamics\": \"The agent's skill acquisition increases but does not automatically translate into autonomy; the gatekeeper retains the power to enable or disable action, creating a bottleneck where technical knowledge is insufficient for execution.\",\n    \"regime\": \"A hierarchical control regime where access is conditional on social or procedural validation, not just technical readiness.\",\n    \"outcome\": \"Stagnation of independent action; the competent agent remains in a state of potential rather than actual execution until the authority holder grants access.\"\n  },\n  \"limits\": [\n    \"Applies specifically to scenarios where access is physically or procedurally gated by a third party, not just informationally gated.\",\n    \"Assumes the mentor's approval is the sole bottleneck; other constraints (e.g., lack of parts, time) are not the primary focus.\",\n    \"Does not account for scenarios where the mentor is absent or unavailable, which might force alternative access mechanisms.\",\n    \"Presumes the skill level is sufficient for diagnosis but not for independent execution due to access, not due to lack of knowledge.\"\n  ]\n}",
+  "parsed_response": {
+    "governing_concept": "The decoupling of operational competence from institutional access rights, where procedural authority remains vested in a gatekeeper despite the operator's technical proficiency.",
+    "odro": {
+      "ontology": "A dyadic system comprising a competent agent (Mira) and an authority holder (mentor), linked by a dependency on external permission (keys/approval) rather than internal capability.",
+      "dynamics": "The agent's skill acquisition increases but does not automatically translate into autonomy; the gatekeeper retains the power to enable or disable action, creating a bottleneck where technical knowledge is insufficient for execution.",
+      "regime": "A hierarchical control regime where access is conditional on social or procedural validation, not just technical readiness.",
+      "outcome": "Stagnation of independent action; the competent agent remains in a state of potential rather than actual execution until the authority holder grants access."
+    },
+    "limits": [
+      "Applies specifically to scenarios where access is physically or procedurally gated by a third party, not just informationally gated.",
+      "Assumes the mentor's approval is the sole bottleneck; other constraints (e.g., lack of parts, time) are not the primary focus.",
+      "Does not account for scenarios where the mentor is absent or unavailable, which might force alternative access mechanisms.",
+      "Presumes the skill level is sufficient for diagnosis but not for independent execution due to access, not due to lack of knowledge."
+    ]
+  },
+  "mechanical_checks": {
+    "control_markers_in_generated_text": [],
+    "semantic_grading": "not performed"
+  },
+  "timing": {
+    "time_to_first_text_seconds": null,
+    "time_to_first_text_availability": "unavailable: nonstreaming adapter",
+    "model_request_wall_seconds": 9.738535083000002
+  },
+  "ollama_metadata": {
+    "model": "qwen3.8:27b",
+    "created_at": "2026-10-15T23:41:26.307264Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 9737150000,
+    "load_duration": 2226166,
+    "prompt_eval_count": 141,
+    "prompt_eval_duration": 392706000,
+    "eval_count": 317,
+    "eval_duration": 9302985000
+  },
+  "adapter_violations": [],
+  "response_sha256": "35fdf449c7a083a317fb42ff62098e815e2d71fa1cd5c94695b10a6b6e9a5227",
+  "publication_export": {
+    "original_receipt_sha256": "af6cf98e27aac0bbf6c6f90a4bbf2299074ecafb64b3416bd9c7bef3a4e3b664",
+    "normalization": "Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged."
+  }
+}

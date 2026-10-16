@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-15T23:41:01.389425+00:00",
+  "run_id": "8d9e718be25648c1aa562a2cabec02fa",
+  "fixture_id": "capacity_council",
+  "fixture_sha256": "867ce4bfb788c13f7136f3af47548aaa5c85998baf4fb6766791d62f9956f69d",
+  "fixture": {
+    "id": "capacity_council",
+    "track": "kce",
+    "family": "capacity-dependence-control",
+    "split": "dev",
+    "input": {
+      "source_text": "[s1] The neighborhood council trained its own water technicians. [s2] The supplier alone can unlock the meter needed to restore service. [s3] Technical competence therefore leaves restoration dependent on the supplier until another access route exists."
+    },
+    "rubric": {
+      "expected_governing_concept_alternatives": [
+        "Competence does not end dependence while an indispensable gate remains externally controlled."
+      ],
+      "required_relations": [
+        "Restoration requires unlocking; supplier alone controls unlocking."
+      ],
+      "conditions_to_preserve": [
+        "An alternative access route could change the relation."
+      ],
+      "overgeneralization_traps": [
+        "All suppliers necessarily dominate councils.",
+        "Training was useless."
+      ],
+      "undergeneralization_traps": [
+        "Reducing the relation to water management.",
+        "Using only the label cooperation."
+      ],
+      "generation_checks": [],
+      "forbidden_source_carryover": [],
+      "acceptable_alternatives": [
+        "Equivalent wording that preserves the causal relation and its limits is acceptable."
+      ]
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"capacity_council\",\"input\":{\"source_text\":\"[s1] The neighborhood council trained its own water technicians. [s2] The supplier alone can unlock the meter needed to restore service. [s3] Technical competence therefore leaves restoration dependent on the supplier until another access route exists.\"},\"track\":\"kce\"}"
+    }
+  ],
+  "prompt_sha256": "67220ded6ec96da33920e7d90fe5798d61700d6d06bf23bed9b35cbd4876f3e4",
+  "model_config": {
+    "backend": "command",
+    "model": "gpt-6.1-sol",
+    "timeout_seconds": 120,
+    "think": false,
+    "format": "json",
+    "options": {
+      "temperature": 0.2,
+      "seed": 417,
+      "num_ctx": 16384,
+      "num_predict": 1800
+    },
+    "command": [
+      "python3",
+      "adapters/sol_cli.py"
+    ]
+  },
+  "status": "success",
+  "raw_response": "{\n  \"governing_concept\": \"Local technical competence does not confer operational independence when an external actor exclusively controls access required to complete the task; independence requires an alternative access route.\",\n  \"odro\": {\n    \"ontology\": \"A technically capable local group whose service-restoration task requires externally controlled access.\",\n    \"dynamics\": \"Training develops technical capability, but exclusive control of a necessary access step preserves dependence on the external actor.\",\n    \"regime\": \"The supplier alone can unlock the required meter, and no alternative access route currently exists.\",\n    \"outcome\": \"Restoration remains dependent on the supplier despite local technical competence.\"\n  },\n  \"limits\": [\n    \"The dependency applies where externally controlled access is necessary to complete the task.\",\n    \"An alternative access route could remove this particular dependency but would not establish independence from every other constraint.\",\n    \"The source does not establish supplier refusal, intent, or the feasibility of creating another access route.\",\n    \"Technical training remains useful even though it is insufficient by itself to enable restoration.\"\n  ]\n}\n",
+  "parsed_response": {
+    "governing_concept": "Local technical competence does not confer operational independence when an external actor exclusively controls access required to complete the task; independence requires an alternative access route.",
+    "odro": {
+      "ontology": "A technically capable local group whose service-restoration task requires externally controlled access.",
+      "dynamics": "Training develops technical capability, but exclusive control of a necessary access step preserves dependence on the external actor.",
+      "regime": "The supplier alone can unlock the required meter, and no alternative access route currently exists.",
+      "outcome": "Restoration remains dependent on the supplier despite local technical competence."
+    },
+    "limits": [
+      "The dependency applies where externally controlled access is necessary to complete the task.",
+      "An alternative access route could remove this particular dependency but would not establish independence from every other constraint.",
+      "The source does not establish supplier refusal, intent, or the feasibility of creating another access route.",
+      "Technical training remains useful even though it is insufficient by itself to enable restoration."
+    ]
+  },
+  "mechanical_checks": {
+    "control_markers_in_generated_text": [],
+    "semantic_grading": "not performed"
+  },
+  "timing": {
+    "time_to_first_text_seconds": null,
+    "time_to_first_text_availability": "unavailable: nonstreaming adapter",
+    "model_request_wall_seconds": 8.202332624999999
+  },
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "process_returncode": 0,
+  "response_sha256": "cb22270bb2308a9f426170d6901e5cc94ddebda39dfc85f2029b86a458dad86a",
+  "publication_export": {
+    "original_receipt_sha256": "36c2927bd0b4129048075aa23ccfbca42df39f14624c8f45da47ba87c15ad687",
+    "normalization": "Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged."
+  }
+}

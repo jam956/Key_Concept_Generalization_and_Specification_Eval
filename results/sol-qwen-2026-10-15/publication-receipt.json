@@ -1,0 +1,145 @@
+{
+  "contract": "kce.private-publication.v1",
+  "portable_records": [
+    {
+      "run_id": "8e49ee1f68ca4c9a96bc3e0959d82e59",
+      "run": "raw/qwen/article/8e49ee1f68ca4c9a96bc3e0959d82e59/run.json",
+      "review": "reviews/qwen/8e49ee1f68ca4c9a96bc3e0959d82e59.json",
+      "original_receipt_sha256": "fc2a374d1fdae3f33da176a1f001b799719f172a74a66cc67b83b543b19155ef"
+    },
+    {
+      "run_id": "3e98fa58c04f4e8f82a13d0048a3948e",
+      "run": "raw/qwen/kce/3e98fa58c04f4e8f82a13d0048a3948e/run.json",
+      "review": "reviews/qwen/3e98fa58c04f4e8f82a13d0048a3948e.json",
+      "original_receipt_sha256": "51d37ce5a3b61ef830aa656a30fca3ba83b2a6c5b203422ab98a055aec5c1a7c"
+    },
+    {
+      "run_id": "45e74f9eff9b4dce96df2b0f837b8b54",
+      "run": "raw/qwen/kce/45e74f9eff9b4dce96df2b0f837b8b54/run.json",
+      "review": "reviews/qwen/45e74f9eff9b4dce96df2b0f837b8b54.json",
+      "original_receipt_sha256": "af6cf98e27aac0bbf6c6f90a4bbf2299074ecafb64b3416bd9c7bef3a4e3b664"
+    },
+    {
+      "run_id": "9460f992b8304d55bda8837c4d1daec2",
+      "run": "raw/qwen/kce/9460f992b8304d55bda8837c4d1daec2/run.json",
+      "review": "reviews/qwen/9460f992b8304d55bda8837c4d1daec2.json",
+      "original_receipt_sha256": "cc11920da56a1825964680ba5c540dfdf798eea9f84a65f4e269cc84148430fe"
+    },
+    {
+      "run_id": "b591772da1c34b5eaf0303500b1f8151",
+      "run": "raw/qwen/kce/b591772da1c34b5eaf0303500b1f8151/run.json",
+      "review": "reviews/qwen/b591772da1c34b5eaf0303500b1f8151.json",
+      "original_receipt_sha256": "f058f8558a8e161d05f3456e88bcb15ee13f9c6488643b275c74749950e49e1f"
+    },
+    {
+      "run_id": "ca06e8e37351428baa65fa8476e83b1c",
+      "run": "raw/qwen/kce/ca06e8e37351428baa65fa8476e83b1c/run.json",
+      "review": "reviews/qwen/ca06e8e37351428baa65fa8476e83b1c.json",
+      "original_receipt_sha256": "469f1caa13139d33c9eef58c8939d53e9e2061aea701248adb6f70bbd4f3a78b"
+    },
+    {
+      "run_id": "ca393bfc52934043b2f5adc39a32f46a",
+      "run": "raw/qwen/kce/ca393bfc52934043b2f5adc39a32f46a/run.json",
+      "review": "reviews/qwen/ca393bfc52934043b2f5adc39a32f46a.json",
+      "original_receipt_sha256": "c5cbb6a3494c1a83578a957859bb37fe6acdaab912ce2184b11a7ebaf2e4becc"
+    },
+    {
+      "run_id": "3f768ef9235741bf8a285848329ddc06",
+      "run": "raw/sol/article/3f768ef9235741bf8a285848329ddc06/run.json",
+      "review": "reviews/sol/3f768ef9235741bf8a285848329ddc06.json",
+      "original_receipt_sha256": "4e49dc4174705113dc8fcb95b12046bb01e4cd1c03d1a83132a13d8588607f62"
+    },
+    {
+      "run_id": "612c846516ce4fd3ab439f1e021184e9",
+      "run": "raw/sol/kce/612c846516ce4fd3ab439f1e021184e9/run.json",
+      "review": "reviews/sol/612c846516ce4fd3ab439f1e021184e9.json",
+      "original_receipt_sha256": "7372c19dfd90ce96f4e3dee2e8eaafeff228f4f291e5eb380db1b8c6c21d2f13"
+    },
+    {
+      "run_id": "6d32766e8bea4efcb9e746b6b5e4730f",
+      "run": "raw/sol/kce/6d32766e8bea4efcb9e746b6b5e4730f/run.json",
+      "review": "reviews/sol/6d32766e8bea4efcb9e746b6b5e4730f.json",
+      "original_receipt_sha256": "9f7c0062c1aa75b8543d4757eab282d47949430da941f618d620b5ef30bd6420"
+    },
+    {
+      "run_id": "8d9e718be25648c1aa562a2cabec02fa",
+      "run": "raw/sol/kce/8d9e718be25648c1aa562a2cabec02fa/run.json",
+      "review": "reviews/sol/8d9e718be25648c1aa562a2cabec02fa.json",
+      "original_receipt_sha256": "36c2927bd0b4129048075aa23ccfbca42df39f14624c8f45da47ba87c15ad687"
+    },
+    {
+      "run_id": "ad20d72db3f74940aab6d2266b1d0eeb",
+      "run": "raw/sol/kce/ad20d72db3f74940aab6d2266b1d0eeb/run.json",
+      "review": "reviews/sol/ad20d72db3f74940aab6d2266b1d0eeb.json",
+      "original_receipt_sha256": "5ff5f3a3a22cac84414f2fe6c3a4a87993e91f9dc184962a470b9de400b5f851"
+    },
+    {
+      "run_id": "d98e35ebf61745ffac5894258da1b497",
+      "run": "raw/sol/kce/d98e35ebf61745ffac5894258da1b497/run.json",
+      "review": "reviews/sol/d98e35ebf61745ffac5894258da1b497.json",
+      "original_receipt_sha256": "f6ba531c0c71b2761b950afec17b1d6810190fd87fe46f81504c21bacc930d43"
+    },
+    {
+      "run_id": "dae61738d3f24eedbb392e960e50906c",
+      "run": "raw/sol/kce/dae61738d3f24eedbb392e960e50906c/run.json",
+      "review": "reviews/sol/dae61738d3f24eedbb392e960e50906c.json",
+      "original_receipt_sha256": "c87b30ba0afba3694858b988d028bf96e9a692e7a19e640022ef10b7e2cac2cd"
+    }
+  ],
+  "files_sha256": {
+    "results/sol-qwen-2026-10-15/comparison.html": "1aabc804ab77e930c2fca8d70d91830565652f6e9634a6adcbb0d4bae6ceb35b",
+    "results/sol-qwen-2026-10-15/README.md": "28cc6b5be76885c6ffc3edb2b93f17312c72fc00f0e4ce48267888d259567869",
+    "results/sol-qwen-2026-10-15/manifest.json": "3d9afb7479374f09c34335a32d3e7954cf5b1ddc6670f85c3e7c4990b4d34e30",
+    "results/sol-qwen-2026-10-15/comparison-summary.json": "96eddfa60b0ddde8b4aad77954d4cd9f040b3186079ffb6cac54aaa728f5f036",
+    "results/sol-qwen-2026-10-15/raw/sol/article/3f768ef9235741bf8a285848329ddc06/run.json": "e287ecf6f515bf6ed400369120b7558710aaf7b39df8a00650ef38a90cf0d729",
+    "results/sol-qwen-2026-10-15/raw/sol/kce/d98e35ebf61745ffac5894258da1b497/run.json": "b0fe97180140aaea12846e7f51f814f1aa525f11c464f074d7aca937a048b9e1",
+    "results/sol-qwen-2026-10-15/raw/sol/kce/ad20d72db3f74940aab6d2266b1d0eeb/run.json": "cc563f2202a8e54a8fea4739f1cb46251be298ba77db60497a529da020537cd6",
+    "results/sol-qwen-2026-10-15/raw/sol/kce/8d9e718be25648c1aa562a2cabec02fa/run.json": "b95583c1046d623509d30ac6a7f11a421c6fa40d5abe5f65c80f64eb162baf0b",
+    "results/sol-qwen-2026-10-15/raw/sol/kce/dae61738d3f24eedbb392e960e50906c/run.json": "518f13f0e7fb7be1f92b7266afb16aedcba7f08b907fa45783f77aa991479dbb",
+    "results/sol-qwen-2026-10-15/raw/sol/kce/612c846516ce4fd3ab439f1e021184e9/run.json": "674fd2b6299c9821e9ba60ac91150705afc92f83b64fcdde2b86b40541f0df96",
+    "results/sol-qwen-2026-10-15/raw/sol/kce/6d32766e8bea4efcb9e746b6b5e4730f/run.json": "bce9567327f16bb4855cffb969c7a20e5a7e87a22b8be93b93ef34f11a25000e",
+    "results/sol-qwen-2026-10-15/raw/qwen/article/8e49ee1f68ca4c9a96bc3e0959d82e59/run.json": "17784a644249a6af2d128765787f0bc729be5432a080bd86343bf233e1e35ad7",
+    "results/sol-qwen-2026-10-15/raw/qwen/kce/45e74f9eff9b4dce96df2b0f837b8b54/run.json": "41517121638df8412c6f8ee1e5ec46d08099ebe8b3d731519b7b593332b3b70f",
+    "results/sol-qwen-2026-10-15/raw/qwen/kce/ca06e8e37351428baa65fa8476e83b1c/run.json": "084b77620c37bf3c8f63f59d50a1f7511e826b2f34b3639815bccf590d639ac9",
+    "results/sol-qwen-2026-10-15/raw/qwen/kce/b591772da1c34b5eaf0303500b1f8151/run.json": "767087302ede7595ad45200e0de6c25151c36ba97ce36f0e5777df946d87b622",
+    "results/sol-qwen-2026-10-15/raw/qwen/kce/ca393bfc52934043b2f5adc39a32f46a/run.json": "52fa1e943f55416640ef01212cc243593d821002d669bb554110ed91c9b324ba",
+    "results/sol-qwen-2026-10-15/raw/qwen/kce/9460f992b8304d55bda8837c4d1daec2/run.json": "f4c164d1e386aa26ca8aa82a902650dd114f3dbbced01da6e7cf426d4d89a815",
+    "results/sol-qwen-2026-10-15/raw/qwen/kce/3e98fa58c04f4e8f82a13d0048a3948e/run.json": "44b5e3fd67359ee714958d2df7b64694a51b5f13316ec9421820021670e55bfb",
+    "results/sol-qwen-2026-10-15/reports/dae61738d3f24eedbb392e960e50906c.html": "7ef15792d761766f2bbdfab9bf18958442178f552f8395678167c8ad3e50f489",
+    "results/sol-qwen-2026-10-15/reports/6d32766e8bea4efcb9e746b6b5e4730f.html": "7d1fa6b05c260620e4b526426166d595f5f5e41cde814e20acfc53e7267465f3",
+    "results/sol-qwen-2026-10-15/reports/b591772da1c34b5eaf0303500b1f8151.html": "aa9b54e980adff1ffe073f95aa7e38ea90fc9351f750f1bf1cd9e517dd1d026f",
+    "results/sol-qwen-2026-10-15/reports/9460f992b8304d55bda8837c4d1daec2.html": "8986e62ec33d11cdbf871cb16adb985493dd21cf7ae11d75f88954cf766da205",
+    "results/sol-qwen-2026-10-15/reports/d98e35ebf61745ffac5894258da1b497.html": "e75c7fe8b02b46f40468a32a57e1f4d80e74fad278731e5ab3b1b11059a36a62",
+    "results/sol-qwen-2026-10-15/reports/ca06e8e37351428baa65fa8476e83b1c.html": "ffc02e79afc5dae423ab91442e89f3e52fa3d811e1c96717f5ab36c860b922bf",
+    "results/sol-qwen-2026-10-15/reports/8e49ee1f68ca4c9a96bc3e0959d82e59.html": "5b6c94eafd28b019de596dc654a98a911a51cdfa4beb0d731f00f7130f0bb06d",
+    "results/sol-qwen-2026-10-15/reports/45e74f9eff9b4dce96df2b0f837b8b54.html": "67b31f430849e622bd034e7fb447fbbdaf899d5144dcdd2065fc02ed11fdb8ad",
+    "results/sol-qwen-2026-10-15/reports/3e98fa58c04f4e8f82a13d0048a3948e.html": "1027ed3af087078c208e68b8993b545a5903b0f0e74601aa1bd3932f0e7e000f",
+    "results/sol-qwen-2026-10-15/reports/612c846516ce4fd3ab439f1e021184e9.html": "57b647884b54a4b14fe455f3e57669649213a5d7f93029f08711dce179c52a32",
+    "results/sol-qwen-2026-10-15/reports/ca393bfc52934043b2f5adc39a32f46a.html": "2fa0ddcc0abeb568be6d51beb47afa118644abdb4ce3d7581d67ecc471da9512",
+    "results/sol-qwen-2026-10-15/reports/ad20d72db3f74940aab6d2266b1d0eeb.html": "93cbfd5139f4f1606a93bdfba257b326c71626d84286cbca90430e2d47b89697",
+    "results/sol-qwen-2026-10-15/reports/3f768ef9235741bf8a285848329ddc06.html": "21e2acec557db0ac8d01a51387af169fd93329033f649c16bd50404f8f9be85d",
+    "results/sol-qwen-2026-10-15/reports/8d9e718be25648c1aa562a2cabec02fa.html": "f2107cd9b3ad35cb81bf93963cbb3bba0affecb72c457c171d94dc0104495463",
+    "results/sol-qwen-2026-10-15/reviews/sol/8d9e718be25648c1aa562a2cabec02fa.json": "ea111f5d9f41f8ed47273a1631113b0b23784ed7cb49c756a2da9e345d15b601",
+    "results/sol-qwen-2026-10-15/reviews/sol/3f768ef9235741bf8a285848329ddc06.json": "33b58b46989e5693a665c3034c2d8d05cbdf2b62e9a5853361f3859da3143072",
+    "results/sol-qwen-2026-10-15/reviews/sol/ad20d72db3f74940aab6d2266b1d0eeb.json": "ae6bae473213ff53f022d5948d3822ba4e0cbaef3b8052fac7c0dd544d0ec0c4",
+    "results/sol-qwen-2026-10-15/reviews/sol/612c846516ce4fd3ab439f1e021184e9.json": "a43bcc8325cd0d996305a894c23ac949371b85689a77475e4ba7c88a66808398",
+    "results/sol-qwen-2026-10-15/reviews/sol/d98e35ebf61745ffac5894258da1b497.json": "5fcb5e8e2117452c66c6cda56427c76a73733e62f12404f1c26921eeb41cc06f",
+    "results/sol-qwen-2026-10-15/reviews/sol/6d32766e8bea4efcb9e746b6b5e4730f.json": "48b67097156b98c2aa4722708a27fb25f464d5a7ee33c82b3689b81fa80eaee1",
+    "results/sol-qwen-2026-10-15/reviews/sol/dae61738d3f24eedbb392e960e50906c.json": "3dd6e080dbd9402fc425d4184bdbc5da54369ed40012b92c53a4c4f3640edef0",
+    "results/sol-qwen-2026-10-15/reviews/qwen/ca393bfc52934043b2f5adc39a32f46a.json": "14e16a300cdfe68ff461879007e069b1e0778c03892eb2ea9b9eacad7bd708da",
+    "results/sol-qwen-2026-10-15/reviews/qwen/3e98fa58c04f4e8f82a13d0048a3948e.json": "730c291bbe901324d1eace62644c9f98cf7f01289f3242f96196fd63eeb4eb5e",
+    "results/sol-qwen-2026-10-15/reviews/qwen/45e74f9eff9b4dce96df2b0f837b8b54.json": "0a380c631adf93deb9eb1b9497776cad15a381224702fde0f00f00acbd5819a5",
+    "results/sol-qwen-2026-10-15/reviews/qwen/8e49ee1f68ca4c9a96bc3e0959d82e59.json": "bb7f7f4f56d12ab8b8dfc0b809f62baaeb9c1f54fdf49dea0551f77a96e1ba08",
+    "results/sol-qwen-2026-10-15/reviews/qwen/ca06e8e37351428baa65fa8476e83b1c.json": "1654d28e382a8532d881474097a883c60f35eae25336670adb46ac845c29f20b",
+    "results/sol-qwen-2026-10-15/reviews/qwen/9460f992b8304d55bda8837c4d1daec2.json": "0358b486d37f6f44bfb0e0bdd27456f600d08c7cd6bbde41f6b209f960c7fd10",
+    "results/sol-qwen-2026-10-15/reviews/qwen/b591772da1c34b5eaf0303500b1f8151.json": "2298b676423e68f879d81f4ac181e56721832da45be3aac918e499c7187741f2",
+    "data/kissinger/kissinger-standalone-article.json": "39570369df9e37783be2149d8b872109dc15336b38d0323d87dc41fb29dce359",
+    "data/kissinger/kissinger-standalone-framework.json": "5a558e3ab566c6f6a7ce112bee94233c401e7a46bf969328fd7799157201961d",
+    "data/kissinger/kissinger-eval.sqlite": "426a0b7c9e066b4d5e8ab2c108ebd0caa303cd437896afe8640b474d5aa0a773",
+    "data/kissinger/kissinger-eval.receipt.json": "206a6fa3fdca7bade3d1c1c6fcd916ddce15996ae6be160384b9e8d64f72aa65",
+    "data/kissinger/kissinger-eval.consumer-verification.json": "fd93572cab0db0c82fa9251e73549e4d18f29e41e62fdc8959fe2de695529faf"
+  },
+  "original_runs_modified": false,
+  "database_includes_source_spans": false,
+  "visibility_required": "private"
+}

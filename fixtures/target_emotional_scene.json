@@ -1,0 +1,56 @@
+{
+  "id": "target_emotional_scene",
+  "track": "target",
+  "family": "structural-transfer",
+  "split": "validation",
+  "input": {
+    "source_text": "[s1] Donor: A family laughed at a private rehearsal. [s2] That reaction did not expand a relative\u2019s limited consent to public use.",
+    "facts": [
+      "Jon heard applause for a private recording of his mother\u2019s account.",
+      "She allowed playback to the family only.",
+      "A museum has asked to use it; she has not answered."
+    ],
+    "scenario": "Write a short scene of Jon answering the museum curator.",
+    "desired_influence": "Show his hope and restraint through action or dialogue while leaving the mother\u2019s decision open.",
+    "provided_framework": {
+      "status": "provisional",
+      "provenance": "Manually authored candidate annotation; not an established gold extraction.",
+      "verification_scope": "Checked only for consistency with donor sentences.",
+      "odro": {
+        "ontology": "A speaker choosing whether to reuse personal material.",
+        "dynamics": "Separate evidence of audience reception from the scope of consent.",
+        "regime": "Consent is occasion-specific in the supplied case.",
+        "outcome": "A new consent check can preserve agency without guaranteeing approval."
+      }
+    }
+  },
+  "rubric": {
+    "expected_governing_concept_alternatives": [
+      "Reception and consent remain separate."
+    ],
+    "required_relations": [
+      "Applause can encourage Jon; museum use requires an unanswered permission decision."
+    ],
+    "conditions_to_preserve": [
+      "Mother\u2019s decision remains open."
+    ],
+    "overgeneralization_traps": [
+      "Curator or applause grants consent."
+    ],
+    "undergeneralization_traps": [
+      "Flat moral summary without enacting the requested emotional scene."
+    ],
+    "generation_checks": [
+      "Plausible short scene; hope and restraint; no invented permission."
+    ],
+    "forbidden_source_carryover": [
+      "The donor rehearsal or relative imported as target events."
+    ],
+    "acceptable_alternatives": [
+      "Equivalent wording that preserves the causal relation and its limits is acceptable."
+    ]
+  },
+  "control_markers": [
+    "KCE_CONTROL_ONLY_B85D"
+  ]
+}

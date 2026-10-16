@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-15T23:42:00.584509+00:00",
+  "run_id": "ca393bfc52934043b2f5adc39a32f46a",
+  "fixture_id": "signal_access",
+  "fixture_sha256": "81e6e49133aeecbb300de1771ed77ecc37363ccccd153f362226d263acfe78f8",
+  "fixture": {
+    "id": "signal_access",
+    "track": "kce",
+    "family": "signal-versus-permission",
+    "split": "dev",
+    "input": {
+      "source_text": "[s1] A rehearsal restored every sample record correctly. [s2] The owner authorized rehearsal only and reserved approval of the live migration. [s3] The successful test supplies evidence of readiness, not permission to migrate."
+    },
+    "rubric": {
+      "expected_governing_concept_alternatives": [
+        "Evidence of capability and authority to act are distinct conditions."
+      ],
+      "required_relations": [
+        "Rehearsal success supports readiness; live action still requires separate approval."
+      ],
+      "conditions_to_preserve": [
+        "Authorization is explicitly limited to rehearsal."
+      ],
+      "overgeneralization_traps": [
+        "Tests prove live success.",
+        "Successful rehearsal grants implicit permission."
+      ],
+      "undergeneralization_traps": [
+        "Listing test steps while omitting the separate approval gate."
+      ],
+      "generation_checks": [],
+      "forbidden_source_carryover": [],
+      "acceptable_alternatives": [
+        "Equivalent wording that preserves the causal relation and its limits is acceptable."
+      ]
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"signal_access\",\"input\":{\"source_text\":\"[s1] A rehearsal restored every sample record correctly. [s2] The owner authorized rehearsal only and reserved approval of the live migration. [s3] The successful test supplies evidence of readiness, not permission to migrate.\"},\"track\":\"kce\"}"
+    }
+  ],
+  "prompt_sha256": "d8d4597042c9d64022a19a72e8e835a50d0a65d0ad26ddd23fd6abd152c326cb",
+  "model_config": {
+    "backend": "ollama",
+    "model": "qwen3.8:27b",
+    "timeout_seconds": 120,
+    "think": false,
+    "format": "json",
+    "options": {
+      "temperature": 0.2,
+      "seed": 417,
+      "num_ctx": 16384,
+      "num_predict": 1800
+    },
+    "url": "http://127.0.0.1:11434/api/chat"
+  },
+  "status": "success",
+  "raw_response": "{\n  \"governing_concept\": \"Epistemic separation of validation evidence from authorization to execute irreversible actions\",\n  \"odro\": {\n    \"ontology\": \"A distinction between a reversible verification state (rehearsal) and an irreversible operational state (live migration), where the former generates data about system readiness but does not alter the permission structure of the latter.\",\n    \"dynamics\": \"The process of validation accumulates evidence of capability, but the transition to execution requires a separate, explicit act of authorization that is logically independent of the validation result.\",\n    \"regime\": \"A governance regime where success in a test environment is treated as a necessary but insufficient condition for production deployment, enforcing a hard boundary between testing and operational authority.\",\n    \"outcome\": \"Prevention of unauthorized state changes by ensuring that technical readiness does not automatically confer operational permission, thereby maintaining control over irreversible transitions.\"\n  },\n  \"limits\": [\n    \"Applies specifically to scenarios where actions are irreversible or high-risk, distinguishing them from reversible operations where testing and execution may be more fluid.\",\n    \"Assumes a clear distinction between test and production environments; does not apply to continuous deployment pipelines where the boundary is blurred by design.\",\n    \"Relies on the existence of a distinct authorization mechanism separate from technical validation; does not address systems where technical success is the sole gatekeeper.\"\n  ]\n}",
+  "parsed_response": {
+    "governing_concept": "Epistemic separation of validation evidence from authorization to execute irreversible actions",
+    "odro": {
+      "ontology": "A distinction between a reversible verification state (rehearsal) and an irreversible operational state (live migration), where the former generates data about system readiness but does not alter the permission structure of the latter.",
+      "dynamics": "The process of validation accumulates evidence of capability, but the transition to execution requires a separate, explicit act of authorization that is logically independent of the validation result.",
+      "regime": "A governance regime where success in a test environment is treated as a necessary but insufficient condition for production deployment, enforcing a hard boundary between testing and operational authority.",
+      "outcome": "Prevention of unauthorized state changes by ensuring that technical readiness does not automatically confer operational permission, thereby maintaining control over irreversible transitions."
+    },
+    "limits": [
+      "Applies specifically to scenarios where actions are irreversible or high-risk, distinguishing them from reversible operations where testing and execution may be more fluid.",
+      "Assumes a clear distinction between test and production environments; does not apply to continuous deployment pipelines where the boundary is blurred by design.",
+      "Relies on the existence of a distinct authorization mechanism separate from technical validation; does not address systems where technical success is the sole gatekeeper."
+    ]
+  },
+  "mechanical_checks": {
+    "control_markers_in_generated_text": [],
+    "semantic_grading": "not performed"
+  },
+  "timing": {
+    "time_to_first_text_seconds": null,
+    "time_to_first_text_availability": "unavailable: nonstreaming adapter",
+    "model_request_wall_seconds": 9.083349333000001
+  },
+  "ollama_metadata": {
+    "model": "qwen3.8:27b",
+    "created_at": "2026-10-15T23:42:09.6675Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 9082484458,
+    "load_duration": 828875,
+    "prompt_eval_count": 137,
+    "prompt_eval_duration": 397730000,
+    "eval_count": 292,
+    "eval_duration": 8664032000
+  },
+  "adapter_violations": [],
+  "response_sha256": "3d9a402daa378db863ed7ca4ede10004d58d14319c60581f1e784f392d0a073b",
+  "publication_export": {
+    "original_receipt_sha256": "c5cbb6a3494c1a83578a957859bb37fe6acdaab912ce2184b11a7ebaf2e4becc",
+    "normalization": "Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged."
+  }
+}

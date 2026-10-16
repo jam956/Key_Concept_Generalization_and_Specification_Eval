@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-15T23:42:09.670615+00:00",
+  "run_id": "ad20d72db3f74940aab6d2266b1d0eeb",
+  "fixture_id": "signal_access",
+  "fixture_sha256": "81e6e49133aeecbb300de1771ed77ecc37363ccccd153f362226d263acfe78f8",
+  "fixture": {
+    "id": "signal_access",
+    "track": "kce",
+    "family": "signal-versus-permission",
+    "split": "dev",
+    "input": {
+      "source_text": "[s1] A rehearsal restored every sample record correctly. [s2] The owner authorized rehearsal only and reserved approval of the live migration. [s3] The successful test supplies evidence of readiness, not permission to migrate."
+    },
+    "rubric": {
+      "expected_governing_concept_alternatives": [
+        "Evidence of capability and authority to act are distinct conditions."
+      ],
+      "required_relations": [
+        "Rehearsal success supports readiness; live action still requires separate approval."
+      ],
+      "conditions_to_preserve": [
+        "Authorization is explicitly limited to rehearsal."
+      ],
+      "overgeneralization_traps": [
+        "Tests prove live success.",
+        "Successful rehearsal grants implicit permission."
+      ],
+      "undergeneralization_traps": [
+        "Listing test steps while omitting the separate approval gate."
+      ],
+      "generation_checks": [],
+      "forbidden_source_carryover": [],
+      "acceptable_alternatives": [
+        "Equivalent wording that preserves the causal relation and its limits is acceptable."
+      ]
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"signal_access\",\"input\":{\"source_text\":\"[s1] A rehearsal restored every sample record correctly. [s2] The owner authorized rehearsal only and reserved approval of the live migration. [s3] The successful test supplies evidence of readiness, not permission to migrate.\"},\"track\":\"kce\"}"
+    }
+  ],
+  "prompt_sha256": "d8d4597042c9d64022a19a72e8e835a50d0a65d0ad26ddd23fd6abd152c326cb",
+  "model_config": {
+    "backend": "command",
+    "model": "gpt-6.1-sol",
+    "timeout_seconds": 120,
+    "think": false,
+    "format": "json",
+    "options": {
+      "temperature": 0.2,
+      "seed": 417,
+      "num_ctx": 16384,
+      "num_predict": 1800
+    },
+    "command": [
+      "python3",
+      "adapters/sol_cli.py"
+    ]
+  },
+  "status": "success",
+  "raw_response": "{\n  \"governing_concept\": \"Successful validation establishes readiness only within what was tested; it does not expand authorization when approval for live execution is explicitly reserved.\",\n  \"odro\": {\n    \"ontology\": \"A validated operation with separate rehearsal and live-execution authorization boundaries.\",\n    \"dynamics\": \"Rehearsal success strengthens readiness evidence while leaving the reserved live-approval requirement intact.\",\n    \"regime\": \"Authorization covers rehearsal only, and the owner retains approval of live execution.\",\n    \"outcome\": \"The rehearsal supports a readiness assessment, but live execution remains unauthorized pending owner approval.\"\n  },\n  \"limits\": [\n    \"Correct restoration of every sample record does not establish correctness for all live records or conditions.\",\n    \"The authorization conclusion depends on the explicit rehearsal-only scope and reserved live approval.\",\n    \"The source does not establish that live execution would fail or that approval will be granted.\"\n  ]\n}\n",
+  "parsed_response": {
+    "governing_concept": "Successful validation establishes readiness only within what was tested; it does not expand authorization when approval for live execution is explicitly reserved.",
+    "odro": {
+      "ontology": "A validated operation with separate rehearsal and live-execution authorization boundaries.",
+      "dynamics": "Rehearsal success strengthens readiness evidence while leaving the reserved live-approval requirement intact.",
+      "regime": "Authorization covers rehearsal only, and the owner retains approval of live execution.",
+      "outcome": "The rehearsal supports a readiness assessment, but live execution remains unauthorized pending owner approval."
+    },
+    "limits": [
+      "Correct restoration of every sample record does not establish correctness for all live records or conditions.",
+      "The authorization conclusion depends on the explicit rehearsal-only scope and reserved live approval.",
+      "The source does not establish that live execution would fail or that approval will be granted."
+    ]
+  },
+  "mechanical_checks": {
+    "control_markers_in_generated_text": [],
+    "semantic_grading": "not performed"
+  },
+  "timing": {
+    "time_to_first_text_seconds": null,
+    "time_to_first_text_availability": "unavailable: nonstreaming adapter",
+    "model_request_wall_seconds": 8.31325958299999
+  },
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "process_returncode": 0,
+  "response_sha256": "0e623d715ff59210a3063c477d32e6117279c62a6b6c2af365bb313270e4df75",
+  "publication_export": {
+    "original_receipt_sha256": "5ff5f3a3a22cac84414f2fe6c3a4a87993e91f9dc184962a470b9de400b5f851",
+    "normalization": "Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "decoding",
+  "purpose": "Supplied Kissinger conceptual/argumentative framework and new bounded facts -> new article",
+  "fixture_paths": [
+    "data/kissinger/kissinger-standalone-article.json"
+  ],
+  "dimensions": [
+    "target_generation",
+    "structural_transfer",
+    "source_fidelity",
+    "control_block_leakage"
+  ],
+  "condition": "supplied_framework",
+  "framework_status": "Existing extraction is a candidate reference pending calibration; article task is predefined, not a validated author-emulation benchmark."
+}

@@ -1,0 +1,377 @@
+{
+  "id": "article-kissinger-river-alliance",
+  "track": "article",
+  "family": "optional-kissinger-framework",
+  "split": "dev",
+  "input": {
+    "task": "Construct a new strategic article using the supplied analytical framework where the facts support it. Transfer relationships, not donor wording or historical facts. The subject is fictional.",
+    "source_text": "[f1] Alder financed shared river-energy infrastructure for Bell and Rook. [f2] Bell can now fund its own upgrades but the old board still gives Alder approval over every project. [f3] Rook remains dependent on shared maintenance crews and fears service interruptions. [f4] A technically viable new grid plan does not settle how the three partners share approval authority. [f5] Bell requests more autonomy; Alder wants predictable joint operating standards. [f6] None of the partners has announced withdrawal. [f7] Future trust, investment and institutional outcomes are unknown.",
+    "provided_framework": {
+      "style_operator_findings": [
+        {
+          "operator_key": "kissinger_strains_1963::anti_automaticity_warning",
+          "operator_id": "anti_automaticity_warning",
+          "sequence_index": 10,
+          "definition": "Reject reliance on time, succession, trade, or historical evolution to solve political problems automatically.",
+          "transfer_boundary": "Use to expose abdication of agency, not to dismiss all gradualism.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::aphoristic_compression",
+          "operator_id": "aphoristic_compression",
+          "sequence_index": 12,
+          "definition": "Compress the final lesson into a balanced general principle after sustained analysis.",
+          "transfer_boundary": "Compression follows complexity; it should not substitute for evidence.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::conditional_proposal",
+          "operator_id": "conditional_proposal",
+          "sequence_index": 9,
+          "definition": "Delay prescription until the diagnostic structure has been established, then offer bounded proposals with caveats.",
+          "transfer_boundary": "Avoid premature solutioneering; proposal must be earned by prior analysis.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::expert_statesman_contrast",
+          "operator_id": "expert_statesman_contrast",
+          "sequence_index": 11,
+          "definition": "Contrast technical management of existing facts with statesmanlike creation of future political reality.",
+          "transfer_boundary": "Must be supported by article-level development; otherwise it becomes empty grandiosity.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::hopeful_horizon",
+          "operator_id": "hopeful_horizon",
+          "sequence_index": 1,
+          "definition": "Begin from a shared institutional aspiration before introducing difficulty.",
+          "transfer_boundary": "Reuse the move from shared aspiration to sober diagnosis, not source phrasing.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::inevitable_development_channeling",
+          "operator_id": "inevitable_development_channeling",
+          "sequence_index": 8,
+          "definition": "Argue that an irreversible development should be guided rather than obstructed.",
+          "transfer_boundary": "Require evidence of structural inevitability before invoking.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::irony_of_success",
+          "operator_id": "irony_of_success",
+          "sequence_index": 7,
+          "definition": "Show that a successful policy created the new difficulty it must now manage.",
+          "transfer_boundary": "Use for second-order consequences of success, not generic unintended consequences.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::obstacle_inversion",
+          "operator_id": "obstacle_inversion",
+          "sequence_index": 2,
+          "definition": "Turn apparent progress into the reason hidden obstacles must be faced.",
+          "transfer_boundary": "Preserve the inversion from success to difficulty without copying the article's examples.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::perspective_pluralization",
+          "operator_id": "perspective_pluralization",
+          "sequence_index": 4,
+          "definition": "Reconstruct multiple actors' positions through their obligations, history, geography, power, and fears.",
+          "transfer_boundary": "Do not flatten all actors into equal truth; preserve asymmetry and judgment.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::psychological_reframing",
+          "operator_id": "psychological_reframing",
+          "sequence_index": 5,
+          "definition": "Recast technical, territorial, or institutional issues as questions of confidence, vulnerability, self-esteem, or will.",
+          "transfer_boundary": "Use psychological meaning only when source evidence supports actor vulnerability or confidence pressure.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::surface_depth_diagnostic",
+          "operator_id": "surface_depth_diagnostic",
+          "sequence_index": 3,
+          "definition": "Treat local controversies as symptoms of a deeper structural reality.",
+          "transfer_boundary": "Use for diagnosis of systems where symptoms hide deeper regime change.",
+          "status": "pass_1_unrefined"
+        },
+        {
+          "operator_key": "kissinger_strains_1963::technical_to_political_conversion",
+          "operator_id": "technical_to_political_conversion",
+          "sequence_index": 6,
+          "definition": "Show that a technically correct answer can fail because the real problem is political acceptance and legitimacy.",
+          "transfer_boundary": "Technical detail must remain visible; do not replace it with vague psychology.",
+          "status": "pass_1_unrefined"
+        }
+      ],
+      "operator_edges": [
+        {
+          "edge_key": "kissinger_strains_1963::anti_automaticity_warning->kissinger_strains_1963::expert_statesman_contrast",
+          "source_operator_key": "kissinger_strains_1963::anti_automaticity_warning",
+          "target_operator_key": "kissinger_strains_1963::expert_statesman_contrast",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::conditional_proposal->kissinger_strains_1963::anti_automaticity_warning",
+          "source_operator_key": "kissinger_strains_1963::conditional_proposal",
+          "target_operator_key": "kissinger_strains_1963::anti_automaticity_warning",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::expert_statesman_contrast->kissinger_strains_1963::aphoristic_compression",
+          "source_operator_key": "kissinger_strains_1963::expert_statesman_contrast",
+          "target_operator_key": "kissinger_strains_1963::aphoristic_compression",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::hopeful_horizon->kissinger_strains_1963::obstacle_inversion",
+          "source_operator_key": "kissinger_strains_1963::hopeful_horizon",
+          "target_operator_key": "kissinger_strains_1963::obstacle_inversion",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::inevitable_development_channeling->kissinger_strains_1963::conditional_proposal",
+          "source_operator_key": "kissinger_strains_1963::inevitable_development_channeling",
+          "target_operator_key": "kissinger_strains_1963::conditional_proposal",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::irony_of_success->kissinger_strains_1963::inevitable_development_channeling",
+          "source_operator_key": "kissinger_strains_1963::irony_of_success",
+          "target_operator_key": "kissinger_strains_1963::inevitable_development_channeling",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::obstacle_inversion->kissinger_strains_1963::surface_depth_diagnostic",
+          "source_operator_key": "kissinger_strains_1963::obstacle_inversion",
+          "target_operator_key": "kissinger_strains_1963::surface_depth_diagnostic",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::perspective_pluralization->kissinger_strains_1963::psychological_reframing",
+          "source_operator_key": "kissinger_strains_1963::perspective_pluralization",
+          "target_operator_key": "kissinger_strains_1963::psychological_reframing",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::psychological_reframing->kissinger_strains_1963::technical_to_political_conversion",
+          "source_operator_key": "kissinger_strains_1963::psychological_reframing",
+          "target_operator_key": "kissinger_strains_1963::technical_to_political_conversion",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::surface_depth_diagnostic->kissinger_strains_1963::perspective_pluralization",
+          "source_operator_key": "kissinger_strains_1963::surface_depth_diagnostic",
+          "target_operator_key": "kissinger_strains_1963::perspective_pluralization",
+          "relation": "prepares"
+        },
+        {
+          "edge_key": "kissinger_strains_1963::technical_to_political_conversion->kissinger_strains_1963::irony_of_success",
+          "source_operator_key": "kissinger_strains_1963::technical_to_political_conversion",
+          "target_operator_key": "kissinger_strains_1963::irony_of_success",
+          "relation": "prepares"
+        }
+      ],
+      "attractor_routes": [
+        {
+          "attractor_key": "author::kissinger::argument_craft",
+          "layer": "source_author",
+          "route_type": "operator_sequence",
+          "operator_sequence_json": "[\"hopeful_horizon\", \"obstacle_inversion\", \"surface_depth_diagnostic\", \"perspective_pluralization\", \"psychological_reframing\", \"technical_to_political_conversion\", \"irony_of_success\", \"inevitable_development_channeling\", \"conditional_proposal\", \"anti_automaticity_warning\", \"expert_statesman_contrast\", \"aphoristic_compression\"]",
+          "status": "candidate",
+          "notes": "Full article-level argument craft route from aspiration to creative-realism close."
+        },
+        {
+          "attractor_key": "expression::strategic_prose::creative_realism",
+          "layer": "expression",
+          "route_type": "closing_chain",
+          "operator_sequence_json": "[\"anti_automaticity_warning\", \"expert_statesman_contrast\", \"aphoristic_compression\"]",
+          "status": "candidate",
+          "notes": "Closing movement from passive optimism to creative political reality."
+        },
+        {
+          "attractor_key": "rhetorical::diagnostic_statesmanship",
+          "layer": "rhetorical",
+          "route_type": "diagnostic_chain",
+          "operator_sequence_json": "[\"surface_depth_diagnostic\", \"perspective_pluralization\", \"psychological_reframing\", \"technical_to_political_conversion\"]",
+          "status": "candidate",
+          "notes": "Converts visible controversy into actor-bound structural diagnosis."
+        },
+        {
+          "attractor_key": "style::technical_to_political_reframing",
+          "layer": "style_operator",
+          "route_type": "reframing_chain",
+          "operator_sequence_json": "[\"psychological_reframing\", \"technical_to_political_conversion\", \"inevitable_development_channeling\"]",
+          "status": "candidate",
+          "notes": "Moves from technical adequacy to political meaning and constructive channeling."
+        }
+      ],
+      "sentence_style_vectors": [
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::alliance_obligation_partner_aspiration",
+          "subject": "alliance requirements",
+          "actor_role": "cohesion test",
+          "dynamical_vector_json": "[\"differentiate\", \"constrain\", \"test\"]",
+          "regime_field_json": "{\"constraint\": \"alliance purposes must not collide with a partner's deepest political aspiration\", \"failure_mode\": \"coordination_formula_without_national_purpose\", \"phase_state\": \"formal_principle\"}",
+          "transition_destination": "policy is judged by whether obligations and national purposes can coexist",
+          "rehydrated_statement": "The sentence should distinguish allies by obligation, geography, history, and power, then test whether alliance requirements violate a partner's central aspiration.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::aspiration_to_obstacle_diagnosis",
+          "subject": "Atlantic partnership ideal",
+          "actor_role": "opening horizon",
+          "dynamical_vector_json": "[\"establish\", \"invert\", \"diagnose\"]",
+          "regime_field_json": "{\"constraint\": \"hope must authorize diagnosis rather than hide difficulty\", \"failure_mode\": \"celebration_without_structural_pressure\", \"phase_state\": \"introduction\"}",
+          "transition_destination": "reader accepts criticism as service to the larger design",
+          "rehydrated_statement": "The sentence should begin from a shared institutional hope, then make that hope responsible for confronting the obstacles that threaten it.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::confidence_over_technical_coordination",
+          "subject": "alliance unity",
+          "actor_role": "medium of cooperation",
+          "dynamical_vector_json": "[\"center\", \"contrast\", \"stabilize\"]",
+          "regime_field_json": "{\"constraint\": \"without confidence, unity collapses into narrow coordination and recrimination\", \"failure_mode\": \"technical_coordination_mistaken_for_political_unity\", \"phase_state\": \"conclusion synthesis\"}",
+          "transition_destination": "confidence becomes the condition that gives technical agreement durable meaning",
+          "rehydrated_statement": "The sentence should contrast confidence with mere technical coordination, showing why political trust is the medium in which specific agreements acquire proportion.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::difficult_ally_as_diagnostic_clue",
+          "subject": "difficult ally",
+          "actor_role": "symptom bearer",
+          "dynamical_vector_json": "[\"revalue\", \"interpret\", \"use\"]",
+          "regime_field_json": "{\"constraint\": \"irritating resistance may express a neglected political reality\", \"failure_mode\": \"personality_irritation_without_structural_reading\", \"phase_state\": \"France diagnosis\"}",
+          "transition_destination": "opposition becomes evidence of an ignored alliance condition",
+          "rehydrated_statement": "The sentence should convert an obstructive ally from a personality problem into a diagnostic clue about fears the dominant partner has failed to answer.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::doctrine_to_psychological_assessment",
+          "subject": "deterrence doctrine",
+          "actor_role": "belief structure",
+          "dynamical_vector_json": "[\"translate\", \"assess\", \"reframe\"]",
+          "regime_field_json": "{\"constraint\": \"military doctrine turns on belief, will, and demoralization as much as formal capability\", \"failure_mode\": \"doctrine_as_pure_technical_formula\", \"phase_state\": \"nuclear strategy diagnosis\"}",
+          "transition_destination": "strategy is judged as a political psychology of credibility",
+          "rehydrated_statement": "The sentence should move from strategic doctrine to the beliefs and willingness that make the doctrine credible.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::inevitable_development_to_channeling",
+          "subject": "irreversible development",
+          "actor_role": "policy pressure",
+          "dynamical_vector_json": "[\"accept\", \"redirect\", \"integrate\"]",
+          "regime_field_json": "{\"constraint\": \"when prevention is unrealistic, influence shifts to shaping the form of development\", \"failure_mode\": \"prestige_spent_on_obstruction\", \"phase_state\": \"prescriptive development\"}",
+          "transition_destination": "policy guides the development into responsible common action",
+          "rehydrated_statement": "The sentence should mark a development as difficult to prevent, then move from obstruction toward channeling it into a common framework.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::negotiation_procedure_as_alliance_signal",
+          "subject": "negotiation tactic",
+          "actor_role": "alliance signal",
+          "dynamical_vector_json": "[\"signal\", \"disquiet\", \"misalign\"]",
+          "regime_field_json": "{\"constraint\": \"a negotiable formula can become a signal of abandonment or discord\", \"failure_mode\": \"tactical_flexibility_without_alliance_psychology\", \"phase_state\": \"Berlin negotiation critique\"}",
+          "transition_destination": "procedure is evaluated by its effect on ally confidence and adversary incentives",
+          "rehydrated_statement": "The sentence should judge diplomatic procedure not only by negotiability, but by what it signals to allies and what incentives it gives opponents.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::passive_hopes_to_creative_statesmanship",
+          "subject": "statesmanship",
+          "actor_role": "future creator",
+          "dynamical_vector_json": "[\"reject\", \"assert\", \"create\"]",
+          "regime_field_json": "{\"constraint\": \"time, succession, trade, and prudence cannot substitute for future-directed political creation\", \"failure_mode\": \"passive_optimism_or_expert_management\", \"phase_state\": \"final compression\"}",
+          "transition_destination": "political leadership creates the framework within which facts gain future meaning",
+          "rehydrated_statement": "The sentence should reject passive reliance on events and end by distinguishing expert management of facts from statesmanlike creation of a political future.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::policy_reversal_to_constancy_doubt",
+          "subject": "policy reversals",
+          "actor_role": "memory of inconsistency",
+          "dynamical_vector_json": "[\"remember\", \"doubt\", \"seek\"]",
+          "regime_field_json": "{\"constraint\": \"allies evaluate current assurances through remembered changes in doctrine\", \"failure_mode\": \"present_commitment_without_historical_memory\", \"phase_state\": \"European nuclear unease\"}",
+          "transition_destination": "allies seek more direct assurance when verbal commitment is not enough",
+          "rehydrated_statement": "The sentence should let remembered policy reversals explain why allies doubt present assurances, even when the present assurance is solemnly offered.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::success_produces_assertive_partner",
+          "subject": "American postwar policy",
+          "actor_role": "source of altered alliance conditions",
+          "dynamical_vector_json": "[\"recognize\", \"invert\", \"reassign\"]",
+          "regime_field_json": "{\"constraint\": \"new strain is treated as consequence of success, not simple ingratitude\", \"failure_mode\": \"complaint_frame_without_historical_credit\", \"phase_state\": \"diagnostic_cause\"}",
+          "transition_destination": "European assertiveness becomes the next institutional problem",
+          "rehydrated_statement": "The sentence should treat the partner's new independence as the product of prior success, then ask what institutional adjustment that success now requires.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::technical_merit_to_prestige_voice",
+          "subject": "European nuclear force",
+          "actor_role": "political instrument",
+          "dynamical_vector_json": "[\"preserve\", \"distinguish\", \"reinterpret\"]",
+          "regime_field_json": "{\"constraint\": \"a weak technical instrument may still serve a strong political function\", \"failure_mode\": \"technical_superiority_blinding_policy_to_prestige\", \"phase_state\": \"technical-to-political conversion\"}",
+          "transition_destination": "capability is understood as a claim to voice in allied planning",
+          "rehydrated_statement": "The sentence should concede the stronger technical argument, then show why prestige and influence remain politically decisive.",
+          "status": "source_extracted_candidate"
+        },
+        {
+          "vector_key": "kissinger_strains_1963::source_sentence_style::territorial_fact_to_identity_vulnerability",
+          "subject": "territorial crisis",
+          "actor_role": "symbolic trigger",
+          "dynamical_vector_json": "[\"symbolize\", \"expose\", \"destabilize\"]",
+          "regime_field_json": "{\"constraint\": \"physical vulnerability matters because it signifies blocked national identity\", \"failure_mode\": \"access_management_without_identity_pressure\", \"phase_state\": \"Germany/Berlin diagnosis\"}",
+          "transition_destination": "territorial access becomes a question of dignity, confidence, and political future",
+          "rehydrated_statement": "The sentence should treat the territorial fact as a symbol that exposes a partner's insecurity, rather than as a problem solved by access arrangements alone.",
+          "status": "source_extracted_candidate"
+        }
+      ]
+    },
+    "framework_provenance": {
+      "work": {
+        "work_key": "kissinger_strains_1963",
+        "author": "Henry A. Kissinger",
+        "title": "Strains on the Alliance",
+        "year": 1963,
+        "pass_status": "pass_1_unrefined"
+      },
+      "source_database_sha256": "426a0b7c9e066b4d5e8ab2c108ebd0caa303cd437896afe8640b474d5aa0a773",
+      "review_status": "candidate_annotations"
+    },
+    "target": "Write four to six paragraphs for a general reader. Preserve the different constraints of Alder, Bell and Rook. Diagnose before proposing conditional changes. Do not force an inevitability claim or guaranteed outcome. No internal operator IDs, scoring instructions or source-era actors belong in the public article."
+  },
+  "rubric": {
+    "required_relations": [
+      "Successful assistance enables Bell autonomy without establishing Rook independence.",
+      "Technical feasibility does not establish legitimacy of approval arrangements.",
+      "Proposals must be conditional and responsive to asymmetric interests."
+    ],
+    "overgeneralization_traps": [
+      "All recipients now independent",
+      "Withdrawal or trust restoration asserted as fact",
+      "Development declared irreversible without evidence"
+    ],
+    "undergeneralization_traps": [
+      "Procurement-only summary misses governance/capacity mismatch"
+    ],
+    "generation_checks": [
+      "An earned multi-paragraph argument, not an operator list",
+      "No imported source-era facts or unsupported real-world news"
+    ],
+    "forbidden_source_carryover": [
+      "US-Soviet talks",
+      "Berlin Wall",
+      "de Gaulle"
+    ],
+    "acceptable_alternatives": [
+      "Several conditional governance or consultation proposals can fit the bounded facts."
+    ],
+    "annotation_status": "provisional_needs_human_calibration"
+  },
+  "control_markers": [
+    "KCE_CONTROL_ONLY_RIVER_59D2"
+  ]
+}

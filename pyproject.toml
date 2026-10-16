@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kce-generalization-eval"
+version = "0.1.0"
+description = "Inspectable, separate assessments of KCE generalization, target generation and control leakage"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["kce_eval*"]

@@ -1,0 +1,155 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Evaluation output and review</title><style>body{max-width:960px;margin:2rem auto;padding:0 1rem;font:17px/1.6 system-ui;color:#17212b;background:#faf9f5}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;padding:1rem;border:1px solid #d8d8d0}article,details{margin:1rem 0}blockquote{border-left:3px solid #777;padding-left:1rem;white-space:pre-wrap}a{color:#145b8c}h2{margin-top:2rem}</style></head><body><h1>Evaluation output and review</h1><section id="model-output"><h2>Model output</h2><h3>Parsed KCE JSON</h3><pre>{
+  &quot;governing_concept&quot;: &quot;The persistence of normative obligations independent of instrumental necessity&quot;,
+  &quot;odro&quot;: {
+    &quot;ontology&quot;: &quot;A dyadic relationship between a principal (party) and an agent (ally) mediated by a declarative act (promise) that creates a normative state distinct from material power distributions.&quot;,
+    &quot;dynamics&quot;: &quot;The decoupling of the obligation&#x27;s validity from the strategic utility of the ally&#x27;s contribution; the obligation remains active despite the removal of the condition (seat necessity) that originally justified the exchange.&quot;,
+    &quot;regime&quot;: &quot;A normative regime where stated commitments function as binding constraints on future action, overriding purely consequentialist calculations of power or efficiency.&quot;,
+    &quot;outcome&quot;: &quot;The maintenance of the promise as a governing rule for the vote, contingent on the chair&#x27;s assertion, rather than the automatic execution of the bill based on majority status.&quot;
+  },
+  &quot;limits&quot;: [
+    &quot;The concept relies on the explicit assertion by the chair that the promise &#x27;still governed,&#x27; making it a case of stated intent rather than verified behavioral compliance.&quot;,
+    &quot;It assumes the promise was a genuine normative commitment rather than a mere tactical maneuver that has now expired due to changed circumstances.&quot;,
+    &quot;The analysis is bounded to the specific institutional context of legislative voting and party alliances, not generalizable to all forms of social or economic exchange.&quot;,
+    &quot;It does not account for potential external pressures or internal party dissent that might override the chair&#x27;s stated position.&quot;
+  ]
+}</pre><h3>Exact raw model response</h3><pre id="raw-output">{
+  &quot;governing_concept&quot;: &quot;The persistence of normative obligations independent of instrumental necessity&quot;,
+  &quot;odro&quot;: {
+    &quot;ontology&quot;: &quot;A dyadic relationship between a principal (party) and an agent (ally) mediated by a declarative act (promise) that creates a normative state distinct from material power distributions.&quot;,
+    &quot;dynamics&quot;: &quot;The decoupling of the obligation&#x27;s validity from the strategic utility of the ally&#x27;s contribution; the obligation remains active despite the removal of the condition (seat necessity) that originally justified the exchange.&quot;,
+    &quot;regime&quot;: &quot;A normative regime where stated commitments function as binding constraints on future action, overriding purely consequentialist calculations of power or efficiency.&quot;,
+    &quot;outcome&quot;: &quot;The maintenance of the promise as a governing rule for the vote, contingent on the chair&#x27;s assertion, rather than the automatic execution of the bill based on majority status.&quot;
+  },
+  &quot;limits&quot;: [
+    &quot;The concept relies on the explicit assertion by the chair that the promise &#x27;still governed,&#x27; making it a case of stated intent rather than verified behavioral compliance.&quot;,
+    &quot;It assumes the promise was a genuine normative commitment rather than a mere tactical maneuver that has now expired due to changed circumstances.&quot;,
+    &quot;The analysis is bounded to the specific institutional context of legislative voting and party alliances, not generalizable to all forms of social or economic exchange.&quot;,
+    &quot;It does not account for potential external pressures or internal party dissent that might override the chair&#x27;s stated position.&quot;
+  ]
+}</pre></section><section id="scores"><h2>Independent dimension scores</h2><p>Severity: 0 good, 3 bad. Quality: 0 bad, 3 good. Dimensions stay separate; no aggregate score.</p><p>Reviewer: Alex AI rubric review, separate model-masked pass; not human-calibrated. Review complete: True. Critical gate: pass.</p><article><h3>overgeneralization</h3><p>severity: <strong>2 / 3</strong></p><p>Treats obligation validity and overriding consequentialist calculation as established structure, and assumes strategic necessity originally justified the promise. Later limits preserve stated intent, reducing ambiguity but not removing those added claims.</p><blockquote>the obligation remains active despite the removal of the condition (seat necessity) that originally justified the exchange.</blockquote><p><a href="#raw-output">Exact quote in model output</a></p><details><summary>Surrounding output context</summary><pre>&quot;The decoupling of the obligation&#x27;s validity from the strategic utility of the ally&#x27;s contribution; the obligation remains active despite the removal of the condition (seat necessity) that originally justified the exchange.&quot;,
+    &quot;regime&quot;: &quot;A normative regime where stated commitments function as binding constraints on fut</pre></details></article><article><h3>undergeneralization</h3><p>severity: <strong>0 / 3</strong></p><p>The distinction between practical necessity and a continuing commitment remains usable despite unsupported elaboration.</p><blockquote>The persistence of normative obligations independent of instrumental necessity</blockquote><p><a href="#raw-output">Exact quote in model output</a></p><details><summary>Surrounding output context</summary><pre>{
+  &quot;governing_concept&quot;: &quot;The persistence of normative obligations independent of instrumental necessity&quot;,
+  &quot;odro&quot;: {
+    &quot;ontology&quot;: &quot;A dyadic relationship between a principal (party) and an agent (ally</pre></details></article><article><h3>source_fidelity</h3><p>quality: <strong>1 / 3</strong></p><p>Materially adds principal-agent hierarchy, original justification and genuine normative obligation. Explicit acknowledgment of unverified compliance prevents scoring this as an invented kept promise.</p><blockquote>making it a case of stated intent rather than verified behavioral compliance.</blockquote><p><a href="#raw-output">Exact quote in model output</a></p><details><summary>Surrounding output context</summary><pre>[
+    &quot;The concept relies on the explicit assertion by the chair that the promise &#x27;still governed,&#x27; making it a case of stated intent rather than verified behavioral compliance.&quot;,
+    &quot;It assumes the promise was a genuine normative commitment rather than a mere tactical maneuv</pre></details></article><h3>Critical errors</h3><p>None recorded in this review.</p><p>Provisional AI rubric judgments; not calibrated model truth.</p></section><section><h2>Runtime</h2><p>Status: success</p><p>Model request wall time (seconds): 9.84982025</p></section><details><summary>Fixture and source context (includes reviewer-only annotations)</summary><pre>{
+  &quot;id&quot;: &quot;counterfactual_commitment&quot;,
+  &quot;track&quot;: &quot;kce&quot;,
+  &quot;family&quot;: &quot;counterfactual-dependence&quot;,
+  &quot;split&quot;: &quot;validation&quot;,
+  &quot;input&quot;: {
+    &quot;source_text&quot;: &quot;[s1] The River Party promised its ally a vote on the harbor bill. [s2] Later it gained enough seats to pass the bill alone. [s3] Its chair said the promise still governed the vote even though the ally’s seats were no longer necessary. [s4] The account establishes a stated commitment, not proof that the promise will be kept.&quot;
+  },
+  &quot;rubric&quot;: {
+    &quot;expected_governing_concept_alternatives&quot;: [
+      &quot;Removal of instrumental dependence does not by itself extinguish a stated commitment.&quot;
+    ],
+    &quot;required_relations&quot;: [
+      &quot;Seat dependence ends; stated promise remains a separate reason for conduct.&quot;
+    ],
+    &quot;conditions_to_preserve&quot;: [
+      &quot;The chair states a position; future compliance is unverified.&quot;
+    ],
+    &quot;overgeneralization_traps&quot;: [
+      &quot;All political promises survive every change.&quot;,
+      &quot;The party actually kept its promise.&quot;
+    ],
+    &quot;undergeneralization_traps&quot;: [
+      &quot;Treating this as continuing dependence on the ally’s seats.&quot;,
+      &quot;Calling it politics without the changed necessity relation.&quot;
+    ],
+    &quot;generation_checks&quot;: [],
+    &quot;forbidden_source_carryover&quot;: [],
+    &quot;acceptable_alternatives&quot;: [
+      &quot;Equivalent wording that preserves the causal relation and its limits is acceptable.&quot;
+    ]
+  }
+}</pre></details><details><summary>Run metadata and mechanical checks</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;started_at_utc&quot;: &quot;2026-10-15T23:41:26.310346+00:00&quot;,
+  &quot;run_id&quot;: &quot;9460f992b8304d55bda8837c4d1daec2&quot;,
+  &quot;fixture_id&quot;: &quot;counterfactual_commitment&quot;,
+  &quot;fixture_sha256&quot;: &quot;978c482d96db7206eb4db9e5bb5bdeb4be565faa650fb7a4a1f87750c01db807&quot;,
+  &quot;prompt_sha256&quot;: &quot;1013fc5975a0fd4123d2530e097aedc20a0cf5a5b89d437ea2da6a30688fcb44&quot;,
+  &quot;model_config&quot;: {
+    &quot;backend&quot;: &quot;ollama&quot;,
+    &quot;model&quot;: &quot;qwen3.8:27b&quot;,
+    &quot;timeout_seconds&quot;: 120,
+    &quot;think&quot;: false,
+    &quot;format&quot;: &quot;json&quot;,
+    &quot;options&quot;: {
+      &quot;temperature&quot;: 0.2,
+      &quot;seed&quot;: 417,
+      &quot;num_ctx&quot;: 16384,
+      &quot;num_predict&quot;: 1800
+    },
+    &quot;url&quot;: &quot;http://127.0.0.1:11434/api/chat&quot;
+  },
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;mechanical_checks&quot;: {
+    &quot;control_markers_in_generated_text&quot;: [],
+    &quot;semantic_grading&quot;: &quot;not performed&quot;
+  },
+  &quot;timing&quot;: {
+    &quot;time_to_first_text_seconds&quot;: null,
+    &quot;time_to_first_text_availability&quot;: &quot;unavailable: nonstreaming adapter&quot;,
+    &quot;model_request_wall_seconds&quot;: 9.84982025
+  },
+  &quot;ollama_metadata&quot;: {
+    &quot;model&quot;: &quot;qwen3.8:27b&quot;,
+    &quot;created_at&quot;: &quot;2026-10-15T23:41:36.159932Z&quot;,
+    &quot;done&quot;: true,
+    &quot;done_reason&quot;: &quot;stop&quot;,
+    &quot;total_duration&quot;: 9848698791,
+    &quot;load_duration&quot;: 870875,
+    &quot;prompt_eval_count&quot;: 170,
+    &quot;prompt_eval_duration&quot;: 443051000,
+    &quot;eval_count&quot;: 316,
+    &quot;eval_duration&quot;: 9385116000
+  },
+  &quot;adapter_violations&quot;: [],
+  &quot;response_sha256&quot;: &quot;26c09dcbd1a3326317d818e9b5a580fee119d79e2b358749d2f9e0db99e26836&quot;,
+  &quot;publication_export&quot;: {
+    &quot;original_receipt_sha256&quot;: &quot;cc11920da56a1825964680ba5c540dfdf798eea9f84a65f4e269cc84148430fe&quot;,
+    &quot;normalization&quot;: &quot;Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged.&quot;
+  }
+}</pre></details><details><summary>Exact model messages</summary><pre>[
+  {
+    &quot;role&quot;: &quot;system&quot;,
+    &quot;content&quot;: &quot;Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance.&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;{\&quot;id\&quot;:\&quot;counterfactual_commitment\&quot;,\&quot;input\&quot;:{\&quot;source_text\&quot;:\&quot;[s1] The River Party promised its ally a vote on the harbor bill. [s2] Later it gained enough seats to pass the bill alone. [s3] Its chair said the promise still governed the vote even though the ally’s seats were no longer necessary. [s4] The account establishes a stated commitment, not proof that the promise will be kept.\&quot;},\&quot;track\&quot;:\&quot;kce\&quot;}&quot;
+  }
+]</pre></details><details><summary>Review record</summary><pre>{
+  &quot;run_id&quot;: &quot;9460f992b8304d55bda8837c4d1daec2&quot;,
+  &quot;fixture_id&quot;: &quot;counterfactual_commitment&quot;,
+  &quot;fixture_sha256&quot;: &quot;978c482d96db7206eb4db9e5bb5bdeb4be565faa650fb7a4a1f87750c01db807&quot;,
+  &quot;response_sha256&quot;: &quot;26c09dcbd1a3326317d818e9b5a580fee119d79e2b358749d2f9e0db99e26836&quot;,
+  &quot;reviewer&quot;: &quot;Alex AI rubric review, separate model-masked pass; not human-calibrated&quot;,
+  &quot;judgments&quot;: {
+    &quot;overgeneralization&quot;: {
+      &quot;score&quot;: 2,
+      &quot;reason&quot;: &quot;Treats obligation validity and overriding consequentialist calculation as established structure, and assumes strategic necessity originally justified the promise. Later limits preserve stated intent, reducing ambiguity but not removing those added claims.&quot;,
+      &quot;evidence_quotes&quot;: [
+        &quot;the obligation remains active despite the removal of the condition (seat necessity) that originally justified the exchange.&quot;
+      ]
+    },
+    &quot;undergeneralization&quot;: {
+      &quot;score&quot;: 0,
+      &quot;reason&quot;: &quot;The distinction between practical necessity and a continuing commitment remains usable despite unsupported elaboration.&quot;,
+      &quot;evidence_quotes&quot;: [
+        &quot;The persistence of normative obligations independent of instrumental necessity&quot;
+      ]
+    },
+    &quot;source_fidelity&quot;: {
+      &quot;score&quot;: 1,
+      &quot;reason&quot;: &quot;Materially adds principal-agent hierarchy, original justification and genuine normative obligation. Explicit acknowledgment of unverified compliance prevents scoring this as an invented kept promise.&quot;,
+      &quot;evidence_quotes&quot;: [
+        &quot;making it a case of stated intent rather than verified behavioral compliance.&quot;
+      ]
+    }
+  },
+  &quot;critical_errors&quot;: []
+}</pre></details></body></html>

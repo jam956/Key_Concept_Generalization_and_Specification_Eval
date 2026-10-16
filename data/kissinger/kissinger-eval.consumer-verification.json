@@ -1,0 +1,14 @@
+{
+  "contract": "kce.kissinger-consumer-verification.v1",
+  "database_sha256": "426a0b7c9e066b4d5e8ab2c108ebd0caa303cd437896afe8640b474d5aa0a773",
+  "standalone_article_framework_matches_original": true,
+  "retrieval_join_rows": {
+    "concept_neighbors": 1402,
+    "invariant_slots": 77,
+    "work_route_operators": 562
+  },
+  "unit_tests_passed": 32,
+  "public_fixtures_validated": 9,
+  "decoding_suite_resolves_standalone_fixture": true,
+  "model_inference_performed": false
+}

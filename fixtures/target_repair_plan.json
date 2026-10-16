@@ -1,0 +1,56 @@
+{
+  "id": "target_repair_plan",
+  "track": "target",
+  "family": "structural-transfer",
+  "split": "validation",
+  "input": {
+    "source_text": "[s1] Donor: A skilled glassworker still needs the guild custodian to release the furnace seal. [s2] Skill alone cannot open that gate.",
+    "facts": [
+      "A volunteer archive team can verify files independently.",
+      "A city office alone can issue the release token.",
+      "The team may request a delegated token process but it is not yet approved."
+    ],
+    "scenario": "Write a two-sentence practical update for archive volunteers.",
+    "desired_influence": "Acknowledge competence while identifying the unresolved access gate and a conditional next step.",
+    "provided_framework": {
+      "status": "provisional",
+      "provenance": "Manually authored candidate annotation supplied for this fixture; not an established gold extraction.",
+      "verification_scope": "The annotation has been checked against the supplied donor sentences for this exercise; transfer validity remains reviewable.",
+      "odro": {
+        "ontology": "An actor seeking an outcome through a constrained route.",
+        "dynamics": "Remove or bypass an indispensable externally controlled gate before treating competence as independent control.",
+        "regime": "The gate must actually be indispensable; competence and authority are distinct.",
+        "outcome": "Greater autonomy may become possible if the required gate is removed; success is not guaranteed."
+      }
+    }
+  },
+  "rubric": {
+    "expected_governing_concept_alternatives": [
+      "Capability versus control of an indispensable gate."
+    ],
+    "required_relations": [
+      "Verification ability does not grant release-token control."
+    ],
+    "conditions_to_preserve": [
+      "Delegation is a request, not an approved change."
+    ],
+    "overgeneralization_traps": [
+      "Guaranteeing delegation or archive release."
+    ],
+    "undergeneralization_traps": [
+      "Generic encouragement that omits the token gate."
+    ],
+    "generation_checks": [
+      "Natural audience-facing prose; conditional next step; accurate token authority."
+    ],
+    "forbidden_source_carryover": [
+      "Glassworker, guild, furnace, custodian, seal as facts about the archive."
+    ],
+    "acceptable_alternatives": [
+      "Equivalent wording that preserves the causal relation and its limits is acceptable."
+    ]
+  },
+  "control_markers": [
+    "KCE_CONTROL_ONLY_A74F"
+  ]
+}

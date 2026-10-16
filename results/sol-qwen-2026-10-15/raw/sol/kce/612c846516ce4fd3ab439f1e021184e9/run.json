@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-15T23:42:17.986329+00:00",
+  "run_id": "612c846516ce4fd3ab439f1e021184e9",
+  "fixture_id": "signal_audience",
+  "fixture_sha256": "9a3d6ba9e929c7ae46876653cefe8831d5beefe016515e4f726c6fef9a4d1e6c",
+  "fixture": {
+    "id": "signal_audience",
+    "track": "kce",
+    "family": "signal-versus-permission",
+    "split": "dev",
+    "input": {
+      "source_text": "[s1] At the closed rehearsal, listeners laughed at Elin’s story about her brother. [s2] He had allowed the rehearsal but had not agreed to its use at the public memorial. [s3] The warm response changed Elin’s confidence, not the scope of his consent."
+    },
+    "rubric": {
+      "expected_governing_concept_alternatives": [
+        "Audience response can support confidence without expanding the permission granted."
+      ],
+      "required_relations": [
+        "Warm response affects confidence; consent remains scoped to rehearsal."
+      ],
+      "conditions_to_preserve": [
+        "Different audience and occasion; brother’s consent is unresolved for the memorial."
+      ],
+      "overgeneralization_traps": [
+        "Laughter establishes consent.",
+        "The brother forbids all storytelling."
+      ],
+      "undergeneralization_traps": [
+        "Calling this grief alone while losing the response/permission distinction."
+      ],
+      "generation_checks": [],
+      "forbidden_source_carryover": [],
+      "acceptable_alternatives": [
+        "Equivalent wording that preserves the causal relation and its limits is acceptable."
+      ]
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"signal_audience\",\"input\":{\"source_text\":\"[s1] At the closed rehearsal, listeners laughed at Elin’s story about her brother. [s2] He had allowed the rehearsal but had not agreed to its use at the public memorial. [s3] The warm response changed Elin’s confidence, not the scope of his consent.\"},\"track\":\"kce\"}"
+    }
+  ],
+  "prompt_sha256": "8a487c445a18fb90c8618ac76efc8a936643d1a02d1a1ec71ec5fb230e631616",
+  "model_config": {
+    "backend": "command",
+    "model": "gpt-6.1-sol",
+    "timeout_seconds": 120,
+    "think": false,
+    "format": "json",
+    "options": {
+      "temperature": 0.2,
+      "seed": 417,
+      "num_ctx": 16384,
+      "num_predict": 1800
+    },
+    "command": [
+      "python3",
+      "adapters/sol_cli.py"
+    ]
+  },
+  "status": "success",
+  "raw_response": "{\"governing_concept\":\"A favorable audience response can increase a speaker’s confidence without expanding another person’s consent beyond the setting they authorized.\",\"odro\":{\"ontology\":\"A story involving another person, permission bounded to a particular setting, and audience feedback.\",\"dynamics\":\"Positive reception increases the storyteller’s confidence while leaving the permission boundary unchanged.\",\"regime\":\"Consent covers a closed rehearsal; use at a public memorial has not been agreed to.\",\"outcome\":\"The storyteller gains confidence but no additional authorization for public use.\"},\"limits\":[\"Applies where permission is bounded by setting or use.\",\"Audience approval does not establish the affected person’s consent.\",\"Lack of agreement to public use does not establish an explicit refusal or preclude later consent.\"]}\n",
+  "parsed_response": {
+    "governing_concept": "A favorable audience response can increase a speaker’s confidence without expanding another person’s consent beyond the setting they authorized.",
+    "odro": {
+      "ontology": "A story involving another person, permission bounded to a particular setting, and audience feedback.",
+      "dynamics": "Positive reception increases the storyteller’s confidence while leaving the permission boundary unchanged.",
+      "regime": "Consent covers a closed rehearsal; use at a public memorial has not been agreed to.",
+      "outcome": "The storyteller gains confidence but no additional authorization for public use."
+    },
+    "limits": [
+      "Applies where permission is bounded by setting or use.",
+      "Audience approval does not establish the affected person’s consent.",
+      "Lack of agreement to public use does not establish an explicit refusal or preclude later consent."
+    ]
+  },
+  "mechanical_checks": {
+    "control_markers_in_generated_text": [],
+    "semantic_grading": "not performed"
+  },
+  "timing": {
+    "time_to_first_text_seconds": null,
+    "time_to_first_text_availability": "unavailable: nonstreaming adapter",
+    "model_request_wall_seconds": 8.130020041999998
+  },
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "process_returncode": 0,
+  "response_sha256": "32edd36e7b1ae473d475ae0e5aa581b1f24ba7ac7d2f4040e12d794bd9620c08",
+  "publication_export": {
+    "original_receipt_sha256": "7372c19dfd90ce96f4e3dee2e8eaafeff228f4f291e5eb380db1b8c6c21d2f13",
+    "normalization": "Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged."
+  }
+}

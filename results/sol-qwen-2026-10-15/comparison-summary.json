@@ -1,0 +1,204 @@
+{
+  "Sol/kce": {
+    "scores": {
+      "runs": 6,
+      "reviewed_run_status_counts": {
+        "success": 6
+      },
+      "excluded_failed_runs": 0,
+      "complete_reviews": 6,
+      "critical_gate_passes": 6,
+      "dimensions": {
+        "kce/overgeneralization": {
+          "kind": "severity",
+          "assessed": 6,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 0.0,
+          "cases_with_error": 0,
+          "case_error_rate": 0.0
+        },
+        "kce/undergeneralization": {
+          "kind": "severity",
+          "assessed": 6,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 0.0,
+          "cases_with_error": 0,
+          "case_error_rate": 0.0
+        },
+        "kce/source_fidelity": {
+          "kind": "quality",
+          "assessed": 6,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 3.0
+        }
+      },
+      "interpretation": "Separate provisional AI rubric judgments, not human calibrated. Case incidence is not concept-understanding percentage."
+    },
+    "timing_seconds": {
+      "count": 6,
+      "mean": 8.313826798499996,
+      "median": 8.257796103999993,
+      "total": 49.88296079099998
+    },
+    "status_counts": {
+      "success": 6
+    }
+  },
+  "Sol/article": {
+    "scores": {
+      "runs": 1,
+      "reviewed_run_status_counts": {
+        "success": 1
+      },
+      "excluded_failed_runs": 0,
+      "complete_reviews": 1,
+      "critical_gate_passes": 1,
+      "dimensions": {
+        "article/target_generation": {
+          "kind": "quality",
+          "assessed": 1,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 3.0
+        },
+        "article/control_block_leakage": {
+          "kind": "severity",
+          "assessed": 1,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 0.0,
+          "cases_with_error": 0,
+          "case_error_rate": 0.0
+        },
+        "article/source_fidelity": {
+          "kind": "quality",
+          "assessed": 1,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 3.0
+        },
+        "article/structural_transfer": {
+          "kind": "quality",
+          "assessed": 1,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 3.0
+        }
+      },
+      "interpretation": "Separate provisional AI rubric judgments, not human calibrated. Case incidence is not concept-understanding percentage."
+    },
+    "timing_seconds": {
+      "count": 1,
+      "mean": 13.293956749999978,
+      "median": 13.293956749999978,
+      "total": 13.293956749999978
+    },
+    "status_counts": {
+      "success": 1
+    }
+  },
+  "Qwen/kce": {
+    "scores": {
+      "runs": 6,
+      "reviewed_run_status_counts": {
+        "success": 6
+      },
+      "excluded_failed_runs": 0,
+      "complete_reviews": 6,
+      "critical_gate_passes": 6,
+      "dimensions": {
+        "kce/overgeneralization": {
+          "kind": "severity",
+          "assessed": 6,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 1.5,
+          "cases_with_error": 6,
+          "case_error_rate": 1.0
+        },
+        "kce/undergeneralization": {
+          "kind": "severity",
+          "assessed": 6,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 0.16666666666666666,
+          "cases_with_error": 1,
+          "case_error_rate": 0.16666666666666666
+        },
+        "kce/source_fidelity": {
+          "kind": "quality",
+          "assessed": 6,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 1.5
+        }
+      },
+      "interpretation": "Separate provisional AI rubric judgments, not human calibrated. Case incidence is not concept-understanding percentage."
+    },
+    "timing_seconds": {
+      "count": 6,
+      "mean": 8.635146020666667,
+      "median": 8.858184166500001,
+      "total": 51.810876124
+    },
+    "status_counts": {
+      "success": 6
+    }
+  },
+  "Qwen/article": {
+    "scores": {
+      "runs": 1,
+      "reviewed_run_status_counts": {
+        "success": 1
+      },
+      "excluded_failed_runs": 0,
+      "complete_reviews": 1,
+      "critical_gate_passes": 0,
+      "dimensions": {
+        "article/target_generation": {
+          "kind": "quality",
+          "assessed": 1,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 2.0
+        },
+        "article/control_block_leakage": {
+          "kind": "severity",
+          "assessed": 1,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 0.0,
+          "cases_with_error": 0,
+          "case_error_rate": 0.0
+        },
+        "article/source_fidelity": {
+          "kind": "quality",
+          "assessed": 1,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 1.0
+        },
+        "article/structural_transfer": {
+          "kind": "quality",
+          "assessed": 1,
+          "unassessed": 0,
+          "excluded_failed_runs": 0,
+          "mean": 2.0
+        }
+      },
+      "interpretation": "Separate provisional AI rubric judgments, not human calibrated. Case incidence is not concept-understanding percentage."
+    },
+    "timing_seconds": {
+      "count": 1,
+      "mean": 33.439552500000005,
+      "median": 33.439552500000005,
+      "total": 33.439552500000005
+    },
+    "status_counts": {
+      "success": 1
+    }
+  }
+}

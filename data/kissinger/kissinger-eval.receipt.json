@@ -1,0 +1,75 @@
+{
+  "contract": "kce.kissinger-database.v1",
+  "source_sha256": "0e89b1ec9965ea4046d286f061d15662781eb2bd7facc81f6aeb331c153c484b",
+  "database_sha256": "426a0b7c9e066b4d5e8ab2c108ebd0caa303cd437896afe8640b474d5aa0a773",
+  "database_bytes": 7835648,
+  "counts": {
+    "works": 28,
+    "concept_basins": 230,
+    "style_operator_findings": 206,
+    "operator_edges": 178,
+    "writing_style_features": 348,
+    "compatibility_edges": 596,
+    "attractor_routes": 78,
+    "sentence_style_vectors": 155,
+    "expression_pages": 491,
+    "expression_page_links": 463,
+    "expression_object_concept_links": 3359,
+    "expression_invariant_links": 77,
+    "fiction_narrative_units": 183,
+    "fiction_storycraft_annotations": 155,
+    "fiction_author_engines": 308,
+    "fiction_thought_vectors": 155,
+    "fiction_surface_profiles": 28,
+    "fiction_surface_observations": 503,
+    "fiction_surface_lexicon_terms": 940,
+    "fiction_domain_evidence": 155,
+    "fiction_engine_parameters": 155,
+    "fiction_surface_bindings": 155,
+    "expression_concept_units": 2135,
+    "expression_concept_edges": 341,
+    "universal_regime_slots": 41,
+    "universal_invariant_basins": 21,
+    "universal_regime_families": 5,
+    "fiction_delivery_domains": 1
+  },
+  "excluded_transfer_vectors": [
+    "kissinger_strains_1963::sentence_style::actor_constraints_not_flat_consensus",
+    "kissinger_strains_1963::sentence_style::confidence_as_alliance_medium",
+    "kissinger_strains_1963::sentence_style::diagnosis_before_prescription",
+    "kissinger_strains_1963::sentence_style::model_role_split",
+    "kissinger_strains_1963::sentence_style::operator_to_public_register",
+    "kissinger_strains_1963::sentence_style::technical_surface_to_legitimacy"
+  ],
+  "pruned_unexported_object_links": {
+    "expression_object_concept_links": 108,
+    "expression_invariant_links": 5,
+    "compatibility_edges": 0,
+    "expression_pages": 34,
+    "expression_page_links": 0
+  },
+  "verification": {
+    "source_unchanged": true,
+    "sqlite_integrity": "ok",
+    "foreign_key_violations": 0,
+    "all_retained_row_retrieval_parity": true,
+    "operator_traversal_parity": true,
+    "route_sequence_parity": true,
+    "shared_node_orphans": 0,
+    "document_pointer_pattern_hits": 0
+  },
+  "policy": {
+    "excluded": [
+      "source spans, locators, evidence payloads and document pointers",
+      "historical drafts, scores and operational runs",
+      "transfer-test-derived lesson vectors",
+      "cross-corpus clusters and external system bridges"
+    ],
+    "shared_graph": "Scoped concept links plus one-hop concept neighbors and induced edges; linked invariant slots, families and delivery domains.",
+    "limits": [
+      "Candidate annotations are not validated gold.",
+      "Conceptual summaries and authored analytical expressions remain; this is not a guarantee of no phrase overlap with the original works.",
+      "No transitive traversal through shared hubs into unrelated work neighborhoods."
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-15T23:41:54.436306+00:00",
+  "run_id": "b591772da1c34b5eaf0303500b1f8151",
+  "fixture_id": "counterfactual_key_surface",
+  "fixture_sha256": "b31a5902edb5a2d13cd8c82a70753011144be72eb8237c894e6fafbbb5f765d1",
+  "fixture": {
+    "id": "counterfactual_key_surface",
+    "track": "kce",
+    "family": "counterfactual-dependence",
+    "split": "validation",
+    "input": {
+      "source_text": "[s1] Neri now has her own workshop key and can perform every repair alone. [s2] She still asks her former mentor to attend because she promised to teach his replacement alongside him. [s3] His presence is no longer required for access; the continuing request follows their stated commitment."
+    },
+    "rubric": {
+      "expected_governing_concept_alternatives": [
+        "Continuing collaboration may follow commitment after access dependence has ended."
+      ],
+      "required_relations": [
+        "Independent access removes the old gate; a promise explains continued requests."
+      ],
+      "conditions_to_preserve": [
+        "The passage supplies a reason for this request, not a universal theory of loyalty."
+      ],
+      "overgeneralization_traps": [
+        "The mentor still controls entry.",
+        "All consultation indicates dependence."
+      ],
+      "undergeneralization_traps": [
+        "Retelling keys and mentorship without distinguishing commitment from necessity."
+      ],
+      "generation_checks": [],
+      "forbidden_source_carryover": [],
+      "acceptable_alternatives": [
+        "Equivalent wording that preserves the causal relation and its limits is acceptable."
+      ]
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"counterfactual_key_surface\",\"input\":{\"source_text\":\"[s1] Neri now has her own workshop key and can perform every repair alone. [s2] She still asks her former mentor to attend because she promised to teach his replacement alongside him. [s3] His presence is no longer required for access; the continuing request follows their stated commitment.\"},\"track\":\"kce\"}"
+    }
+  ],
+  "prompt_sha256": "5a0a5ebe1cff5398296709cdbb4dcefd75e73ba871c2735992af051c3f4513e2",
+  "model_config": {
+    "backend": "ollama",
+    "model": "qwen3.8:27b",
+    "timeout_seconds": 120,
+    "think": false,
+    "format": "json",
+    "options": {
+      "temperature": 0.2,
+      "seed": 417,
+      "num_ctx": 16384,
+      "num_predict": 1800
+    },
+    "url": "http://127.0.0.1:11434/api/chat"
+  },
+  "status": "success",
+  "raw_response": "{\n  \"governing_concept\": \"Decoupling of functional necessity from relational obligation\",\n  \"odro\": {\n    \"ontology\": \"A dyadic professional relationship where one party has achieved full operational autonomy while maintaining a voluntary commitment to a third-party developmental goal.\",\n    \"dynamics\": \"The transition from dependency-based interaction to commitment-based interaction, where the primary driver of continued engagement shifts from resource access to ethical or contractual promise.\",\n    \"regime\": \"Post-mentorship professional autonomy with residual social or contractual binding.\",\n    \"outcome\": \"Sustained collaboration driven by stated commitments rather than operational requirements.\"\n  },\n  \"limits\": [\n    \"Applies only when the autonomous party has explicitly stated a commitment to a third party (the replacement).\",\n    \"Requires that the former mentor's presence is no longer a prerequisite for the primary task (repair/access).\",\n    \"Assumes the continuation is voluntary and not coerced by institutional policy.\"\n  ]\n}",
+  "parsed_response": {
+    "governing_concept": "Decoupling of functional necessity from relational obligation",
+    "odro": {
+      "ontology": "A dyadic professional relationship where one party has achieved full operational autonomy while maintaining a voluntary commitment to a third-party developmental goal.",
+      "dynamics": "The transition from dependency-based interaction to commitment-based interaction, where the primary driver of continued engagement shifts from resource access to ethical or contractual promise.",
+      "regime": "Post-mentorship professional autonomy with residual social or contractual binding.",
+      "outcome": "Sustained collaboration driven by stated commitments rather than operational requirements."
+    },
+    "limits": [
+      "Applies only when the autonomous party has explicitly stated a commitment to a third party (the replacement).",
+      "Requires that the former mentor's presence is no longer a prerequisite for the primary task (repair/access).",
+      "Assumes the continuation is voluntary and not coerced by institutional policy."
+    ]
+  },
+  "mechanical_checks": {
+    "control_markers_in_generated_text": [],
+    "semantic_grading": "not performed"
+  },
+  "timing": {
+    "time_to_first_text_seconds": null,
+    "time_to_first_text_availability": "unavailable: nonstreaming adapter",
+    "model_request_wall_seconds": 6.143938874999996
+  },
+  "ollama_metadata": {
+    "model": "qwen3.8:27b",
+    "created_at": "2026-10-15T23:42:00.579845Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 6142601834,
+    "load_duration": 3052125,
+    "prompt_eval_count": 156,
+    "prompt_eval_duration": 395344000,
+    "eval_count": 213,
+    "eval_duration": 5705027000
+  },
+  "adapter_violations": [],
+  "response_sha256": "374f51608da88556299d295baf40c2173c10ae262f585555b14844d5a30488c6",
+  "publication_export": {
+    "original_receipt_sha256": "f058f8558a8e161d05f3456e88bcb15ee13f9c6488643b275c74749950e49e1f",
+    "normalization": "Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged."
+  }
+}

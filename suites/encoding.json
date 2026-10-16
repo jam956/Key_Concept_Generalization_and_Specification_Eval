@@ -1,0 +1,17 @@
+{
+  "name": "encoding",
+  "purpose": "Source paragraph or section -> governing concept -> generalized ODRO",
+  "fixture_paths": [
+    "fixtures/capacity_council.json",
+    "fixtures/capacity_mentor.json",
+    "fixtures/counterfactual_commitment.json",
+    "fixtures/counterfactual_key_surface.json",
+    "fixtures/signal_access.json",
+    "fixtures/signal_audience.json"
+  ],
+  "dimensions": [
+    "overgeneralization",
+    "undergeneralization",
+    "source_fidelity"
+  ]
+}

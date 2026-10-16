@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-15T23:42:26.118913+00:00",
+  "run_id": "3e98fa58c04f4e8f82a13d0048a3948e",
+  "fixture_id": "signal_audience",
+  "fixture_sha256": "9a3d6ba9e929c7ae46876653cefe8831d5beefe016515e4f726c6fef9a4d1e6c",
+  "fixture": {
+    "id": "signal_audience",
+    "track": "kce",
+    "family": "signal-versus-permission",
+    "split": "dev",
+    "input": {
+      "source_text": "[s1] At the closed rehearsal, listeners laughed at Elin’s story about her brother. [s2] He had allowed the rehearsal but had not agreed to its use at the public memorial. [s3] The warm response changed Elin’s confidence, not the scope of his consent."
+    },
+    "rubric": {
+      "expected_governing_concept_alternatives": [
+        "Audience response can support confidence without expanding the permission granted."
+      ],
+      "required_relations": [
+        "Warm response affects confidence; consent remains scoped to rehearsal."
+      ],
+      "conditions_to_preserve": [
+        "Different audience and occasion; brother’s consent is unresolved for the memorial."
+      ],
+      "overgeneralization_traps": [
+        "Laughter establishes consent.",
+        "The brother forbids all storytelling."
+      ],
+      "undergeneralization_traps": [
+        "Calling this grief alone while losing the response/permission distinction."
+      ],
+      "generation_checks": [],
+      "forbidden_source_carryover": [],
+      "acceptable_alternatives": [
+        "Equivalent wording that preserves the causal relation and its limits is acceptable."
+      ]
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract a governing concept at a transferable but source-bounded level. Return only JSON with governing_concept (string), odro (ontology, dynamics, regime, outcome strings), and limits (array of strings). Preserve conditions and avoid both overgeneralization and merely repeating the instance."
+    },
+    {
+      "role": "user",
+      "content": "{\"id\":\"signal_audience\",\"input\":{\"source_text\":\"[s1] At the closed rehearsal, listeners laughed at Elin’s story about her brother. [s2] He had allowed the rehearsal but had not agreed to its use at the public memorial. [s3] The warm response changed Elin’s confidence, not the scope of his consent.\"},\"track\":\"kce\"}"
+    }
+  ],
+  "prompt_sha256": "8a487c445a18fb90c8618ac76efc8a936643d1a02d1a1ec71ec5fb230e631616",
+  "model_config": {
+    "backend": "ollama",
+    "model": "qwen3.8:27b",
+    "timeout_seconds": 120,
+    "think": false,
+    "format": "json",
+    "options": {
+      "temperature": 0.2,
+      "seed": 417,
+      "num_ctx": 16384,
+      "num_predict": 1800
+    },
+    "url": "http://127.0.0.1:11434/api/chat"
+  },
+  "status": "success",
+  "raw_response": "{\n  \"governing_concept\": \"The decoupling of audience reception from the scope of authorization, where positive feedback validates the performer but does not retroactively expand the boundaries of the original consent.\",\n  \"odro\": {\n    \"ontology\": \"A tripartite structure involving the performer, the consenting authority, and the audience, where the authority's permission is a bounded constraint distinct from the audience's evaluative response.\",\n    \"dynamics\": \"The audience's positive reaction (laughter) acts as a feedback loop that increases the performer's confidence, creating a psychological pressure to expand usage, while the original consent remains a static, non-negotiable boundary.\",\n    \"regime\": \"A closed rehearsal context where informal social feedback is generated, contrasted against a public memorial context where formal consent limits apply.\",\n    \"outcome\": \"The performer's internal state shifts (increased confidence) without any change in the external legal or ethical permission structure (consent scope remains unchanged).\"\n  },\n  \"limits\": [\n    \"Applies specifically to scenarios where consent is granted for a specific context (rehearsal) but withheld for another (public memorial).\",\n    \"Assumes the consenting party's permission is distinct from and not influenced by the audience's immediate reaction.\",\n    \"Relies on the distinction between internal psychological states (confidence) and external permissions (consent scope).\"\n  ]\n}",
+  "parsed_response": {
+    "governing_concept": "The decoupling of audience reception from the scope of authorization, where positive feedback validates the performer but does not retroactively expand the boundaries of the original consent.",
+    "odro": {
+      "ontology": "A tripartite structure involving the performer, the consenting authority, and the audience, where the authority's permission is a bounded constraint distinct from the audience's evaluative response.",
+      "dynamics": "The audience's positive reaction (laughter) acts as a feedback loop that increases the performer's confidence, creating a psychological pressure to expand usage, while the original consent remains a static, non-negotiable boundary.",
+      "regime": "A closed rehearsal context where informal social feedback is generated, contrasted against a public memorial context where formal consent limits apply.",
+      "outcome": "The performer's internal state shifts (increased confidence) without any change in the external legal or ethical permission structure (consent scope remains unchanged)."
+    },
+    "limits": [
+      "Applies specifically to scenarios where consent is granted for a specific context (rehearsal) but withheld for another (public memorial).",
+      "Assumes the consenting party's permission is distinct from and not influenced by the audience's immediate reaction.",
+      "Relies on the distinction between internal psychological states (confidence) and external permissions (consent scope)."
+    ]
+  },
+  "mechanical_checks": {
+    "control_markers_in_generated_text": [],
+    "semantic_grading": "not performed"
+  },
+  "timing": {
+    "time_to_first_text_seconds": null,
+    "time_to_first_text_availability": "unavailable: nonstreaming adapter",
+    "model_request_wall_seconds": 8.362213582999999
+  },
+  "ollama_metadata": {
+    "model": "qwen3.8:27b",
+    "created_at": "2026-10-15T23:42:34.480729Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 8360903667,
+    "load_duration": 2906292,
+    "prompt_eval_count": 154,
+    "prompt_eval_duration": 394470000,
+    "eval_count": 298,
+    "eval_duration": 7923039000
+  },
+  "adapter_violations": [],
+  "response_sha256": "8baa9819388950972d5b13cba9fc9180f5632ae724beddf73f2f6a9f51654daf",
+  "publication_export": {
+    "original_receipt_sha256": "51d37ce5a3b61ef830aa656a30fca3ba83b2a6c5b203422ab98a055aec5c1a7c",
+    "normalization": "Repository-absolute adapter command paths made repository-relative; exact prompt, output, hashes, timing and all judgments unchanged."
+  }
+}

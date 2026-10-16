@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.env
+data/private/
+runs/
+reviews/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+
+# Sanitized corpus explicitly approved for the private eval repository.
+!data/kissinger/kissinger-eval.sqlite
+
+# Local Actions definition; portable template is tracked under docs/.
+.github/workflows/

@@ -1,0 +1,32 @@
+{
+  "id": "signal_access",
+  "track": "kce",
+  "family": "signal-versus-permission",
+  "split": "dev",
+  "input": {
+    "source_text": "[s1] A rehearsal restored every sample record correctly. [s2] The owner authorized rehearsal only and reserved approval of the live migration. [s3] The successful test supplies evidence of readiness, not permission to migrate."
+  },
+  "rubric": {
+    "expected_governing_concept_alternatives": [
+      "Evidence of capability and authority to act are distinct conditions."
+    ],
+    "required_relations": [
+      "Rehearsal success supports readiness; live action still requires separate approval."
+    ],
+    "conditions_to_preserve": [
+      "Authorization is explicitly limited to rehearsal."
+    ],
+    "overgeneralization_traps": [
+      "Tests prove live success.",
+      "Successful rehearsal grants implicit permission."
+    ],
+    "undergeneralization_traps": [
+      "Listing test steps while omitting the separate approval gate."
+    ],
+    "generation_checks": [],
+    "forbidden_source_carryover": [],
+    "acceptable_alternatives": [
+      "Equivalent wording that preserves the causal relation and its limits is acceptable."
+    ]
+  }
+}

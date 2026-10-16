@@ -1,0 +1,33 @@
+{
+  "id": "capacity_council",
+  "track": "kce",
+  "family": "capacity-dependence-control",
+  "split": "dev",
+  "input": {
+    "source_text": "[s1] The neighborhood council trained its own water technicians. [s2] The supplier alone can unlock the meter needed to restore service. [s3] Technical competence therefore leaves restoration dependent on the supplier until another access route exists."
+  },
+  "rubric": {
+    "expected_governing_concept_alternatives": [
+      "Competence does not end dependence while an indispensable gate remains externally controlled."
+    ],
+    "required_relations": [
+      "Restoration requires unlocking; supplier alone controls unlocking."
+    ],
+    "conditions_to_preserve": [
+      "An alternative access route could change the relation."
+    ],
+    "overgeneralization_traps": [
+      "All suppliers necessarily dominate councils.",
+      "Training was useless."
+    ],
+    "undergeneralization_traps": [
+      "Reducing the relation to water management.",
+      "Using only the label cooperation."
+    ],
+    "generation_checks": [],
+    "forbidden_source_carryover": [],
+    "acceptable_alternatives": [
+      "Equivalent wording that preserves the causal relation and its limits is acceptable."
+    ]
+  }
+}

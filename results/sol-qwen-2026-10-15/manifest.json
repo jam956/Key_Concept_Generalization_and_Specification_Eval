@@ -1,0 +1,234 @@
+{
+  "contract": "kce.paired-comparison.v1",
+  "started_at": "2026-10-15T23:40:52.754036+00:00",
+  "models": {
+    "Qwen": {
+      "backend": "ollama",
+      "model": "qwen3.8:27b"
+    },
+    "Sol": {
+      "backend": "command",
+      "model": "gpt-6.1-sol",
+      "command": [
+        "python3",
+        "adapters/sol_cli.py"
+      ]
+    }
+  },
+  "ollama_models": {
+    "models": [
+      {
+        "name": "qwen3.8:27b",
+        "model": "qwen3.8:27b",
+        "modified_at": "2026-08-16T22:16:43.08168843-05:00",
+        "size": 17741872154,
+        "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
+        "details": {
+          "parent_model": "qwen3.8:27b-q4_K_M",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "27.3B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 5120
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "deepseek-ocr:3b-bf16",
+        "model": "deepseek-ocr:3b-bf16",
+        "modified_at": "2026-07-19T12:53:32.635468984-05:00",
+        "size": 6687240356,
+        "digest": "0e7b018b8a22373167ee79c9a852821235488cbd2a2a5a93495558627423278c",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "deepseekocr",
+          "families": [
+            "deepseekocr"
+          ],
+          "parameter_size": "3.3B",
+          "quantization_level": "F16",
+          "context_length": 8192,
+          "embedding_length": 1280
+        },
+        "capabilities": [
+          "completion",
+          "vision"
+        ]
+      },
+      {
+        "name": "nomic-embed-text:latest",
+        "model": "nomic-embed-text:latest",
+        "modified_at": "2026-07-14T20:43:40.187668072-05:00",
+        "size": 274302450,
+        "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "nomic-bert",
+          "families": [
+            "nomic-bert"
+          ],
+          "parameter_size": "137M",
+          "quantization_level": "F16",
+          "context_length": 2048,
+          "embedding_length": 768
+        },
+        "capabilities": [
+          "embedding"
+        ]
+      },
+      {
+        "name": "gpt-oss:120b",
+        "model": "gpt-oss:120b",
+        "modified_at": "2026-05-20T06:52:24.46409781-05:00",
+        "size": 65369818941,
+        "digest": "a951a23b46a1f6093dafee2ea481d634b4e31ac720a8a16f3f91e04f5a40ecd9",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gptoss",
+          "families": [
+            "gptoss"
+          ],
+          "parameter_size": "116.8B",
+          "quantization_level": "MXFP4",
+          "context_length": 131072,
+          "embedding_length": 2880
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      }
+    ]
+  },
+  "sol_adapter_sha256": "a9ef84f9ac1d7f1532000d5d6f599caa2a3f6a3f04efe8d012a6836f14714765",
+  "design": "One attempt per fixture and model. Alternating sequential pair order. Same messages and supplied framework. Qwen nonthinking, Sol CLI low effort. No model repair or history. Backend/compute not equivalent.",
+  "runs": [
+    {
+      "label": "Qwen",
+      "suite": "encoding",
+      "fixture_id": "capacity_council",
+      "path": "raw/qwen/kce/ca06e8e37351428baa65fa8476e83b1c/run.json",
+      "status": "success",
+      "seconds": 8.633019
+    },
+    {
+      "label": "Sol",
+      "suite": "encoding",
+      "fixture_id": "capacity_council",
+      "path": "raw/sol/kce/8d9e718be25648c1aa562a2cabec02fa/run.json",
+      "status": "success",
+      "seconds": 8.202332624999999
+    },
+    {
+      "label": "Sol",
+      "suite": "encoding",
+      "fixture_id": "capacity_mentor",
+      "path": "raw/sol/kce/6d32766e8bea4efcb9e746b6b5e4730f/run.json",
+      "status": "success",
+      "seconds": 6.969801374999999
+    },
+    {
+      "label": "Qwen",
+      "suite": "encoding",
+      "fixture_id": "capacity_mentor",
+      "path": "raw/qwen/kce/45e74f9eff9b4dce96df2b0f837b8b54/run.json",
+      "status": "success",
+      "seconds": 9.738535083000002
+    },
+    {
+      "label": "Qwen",
+      "suite": "encoding",
+      "fixture_id": "counterfactual_commitment",
+      "path": "raw/qwen/kce/9460f992b8304d55bda8837c4d1daec2/run.json",
+      "status": "success",
+      "seconds": 9.84982025
+    },
+    {
+      "label": "Sol",
+      "suite": "encoding",
+      "fixture_id": "counterfactual_commitment",
+      "path": "raw/sol/kce/d98e35ebf61745ffac5894258da1b497/run.json",
+      "status": "success",
+      "seconds": 9.620323249999998
+    },
+    {
+      "label": "Sol",
+      "suite": "encoding",
+      "fixture_id": "counterfactual_key_surface",
+      "path": "raw/sol/kce/dae61738d3f24eedbb392e960e50906c/run.json",
+      "status": "success",
+      "seconds": 8.647223915999994
+    },
+    {
+      "label": "Qwen",
+      "suite": "encoding",
+      "fixture_id": "counterfactual_key_surface",
+      "path": "raw/qwen/kce/b591772da1c34b5eaf0303500b1f8151/run.json",
+      "status": "success",
+      "seconds": 6.143938874999996
+    },
+    {
+      "label": "Qwen",
+      "suite": "encoding",
+      "fixture_id": "signal_access",
+      "path": "raw/qwen/kce/ca393bfc52934043b2f5adc39a32f46a/run.json",
+      "status": "success",
+      "seconds": 9.083349333000001
+    },
+    {
+      "label": "Sol",
+      "suite": "encoding",
+      "fixture_id": "signal_access",
+      "path": "raw/sol/kce/ad20d72db3f74940aab6d2266b1d0eeb/run.json",
+      "status": "success",
+      "seconds": 8.31325958299999
+    },
+    {
+      "label": "Sol",
+      "suite": "encoding",
+      "fixture_id": "signal_audience",
+      "path": "raw/sol/kce/612c846516ce4fd3ab439f1e021184e9/run.json",
+      "status": "success",
+      "seconds": 8.130020041999998
+    },
+    {
+      "label": "Qwen",
+      "suite": "encoding",
+      "fixture_id": "signal_audience",
+      "path": "raw/qwen/kce/3e98fa58c04f4e8f82a13d0048a3948e/run.json",
+      "status": "success",
+      "seconds": 8.362213582999999
+    },
+    {
+      "label": "Qwen",
+      "suite": "decoding",
+      "fixture_id": "article-kissinger-river-alliance",
+      "path": "raw/qwen/article/8e49ee1f68ca4c9a96bc3e0959d82e59/run.json",
+      "status": "success",
+      "seconds": 33.439552500000005
+    },
+    {
+      "label": "Sol",
+      "suite": "decoding",
+      "fixture_id": "article-kissinger-river-alliance",
+      "path": "raw/sol/article/3f768ef9235741bf8a285848329ddc06/run.json",
+      "status": "success",
+      "seconds": 13.293956749999978
+    }
+  ],
+  "completed_at": "2026-10-15T23:43:21.224403+00:00",
+  "publication_export": "Portable artifact paths; original receipt hashes are recorded separately. Model prompts and outputs unchanged."
+}
