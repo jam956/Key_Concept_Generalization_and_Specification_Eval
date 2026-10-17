@@ -8,16 +8,11 @@ This repository examines whether that relationship survives both steps. **KCE—
 
 The tests assess extraction and generation separately. Generation uses a supplied conceptual framework, so this pilot does not establish automatic round-trip transfer. It is a small diagnostic study, not a calibrated benchmark.
 
-## Start with the outputs
+## Sample report
 
-[**Read the Sol 6.1 and Qwen comparison: outputs first, then separate scores and timing**](results/sol-qwen-2026-10-15/README.md).
+[**Read the sample report: Sol 6.1 and Qwen**](examples/sample-report.md).
 
-The recorded comparison contains six encoding cases and one article case per model, with one stateless attempt per case. All 14 calls completed. Reviews were performed separately with model identity and timing masked; they are **provisional AI judgments, not human-calibrated grades**. Exact prompts, responses, evidence quotations, hashes and timing are included.
-
-- [Results and full text](results/sol-qwen-2026-10-15/README.md)
-- [Separate score and timing summaries](results/sol-qwen-2026-10-15/comparison-summary.json)
-- [Offline HTML comparison](results/sol-qwen-2026-10-15/comparison.html) — download and open locally
-- [Publication and original-receipt hashes](results/sol-qwen-2026-10-15/publication-receipt.json)
+The sample contains six encoding cases and one article case per model: complete outputs first, then separate scores, evidence and recorded timings. All 14 calls completed. Reviews were performed separately with model identity and timing masked; they remain provisional AI judgments, not human-calibrated grades. Use this as a report example, not an answer key for candidates or judges.
 
 ## Evaluate any model through a submission
 

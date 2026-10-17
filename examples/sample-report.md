@@ -1,7 +1,7 @@
-# Sol 6.1 and Qwen: encoding and article decoding
+# Sample report: Sol 6.1 and Qwen
 One stateless attempt per model on six encoding cases and one supplied-framework article case. All 14 attempts completed successfully. Model identity and timing were masked for separate AI review. Scores are provisional, not human-calibrated; this is not an estimate of general intelligence or established predictive validity.
 Sol used `gpt-6.1-sol` with CLI low reasoning effort; Qwen used the installed `qwen3.8:27b` Q4_K_M alias with thinking disabled. Prompts were identical within each pair. Backends and decoding controls differ. Wall timing includes adapter/host overhead, excludes grading, and provides no first-token timing.
-Severity: **0 good, 3 bad**. Quality: **0 bad, 3 good**. No combined score. [Offline HTML report](comparison.html) · [Summary JSON](comparison-summary.json) · [Publication receipt](publication-receipt.json).
+Recorded on 2026-10-15. Severity: **0 good, 3 bad**. Quality: **0 bad, 3 good**. No combined score.
 
 ## capacity_council
 **Source facts:** [s1] The neighborhood council trained its own water technicians. [s2] The supplier alone can unlock the meter needed to restore service. [s3] Technical competence therefore leaves restoration dependent on the supplier until another access route exists.
@@ -61,7 +61,6 @@ Request wall time: **8.63 seconds**. Status: `success`.
 
 - **source_fidelity:** Faithfully represents restoration, exclusive meter control and possible alternative access, without inferring supplier intent. Evidence: “The supplier alone can unlock the required meter, and no alternative access route currently exists.”
 
-[Full output and review](reports/8d9e718be25648c1aa562a2cabec02fa.html) · [Bound review](reviews/sol/8d9e718be25648c1aa562a2cabec02fa.json).
 
 **Qwen evidence and rationale:**
 
@@ -71,7 +70,6 @@ Request wall time: **8.63 seconds**. Status: `success`.
 
 - **source_fidelity:** Central restoration dependency is accurate; parallel routes are acknowledged, though final non-replicable wording is ambiguous and unnecessarily restrictive. Evidence: “rendering local autonomy ineffective without parallel access routes.”
 
-[Full output and review](reports/ca06e8e37351428baa65fa8476e83b1c.html) · [Bound review](reviews/qwen/ca06e8e37351428baa65fa8476e83b1c.json).
 
 ## capacity_mentor
 **Source facts:** [s1] Mira can diagnose the pump alone, but only her mentor holds the workshop key. [s2] Each repair still requires his approval to enter. [s3] Her growing skill has not yet given her control of access.
@@ -130,7 +128,6 @@ Request wall time: **9.74 seconds**. Status: `success`.
 
 - **source_fidelity:** All required gates and limits faithfully represented. Evidence: “the gatekeeper alone holds the key and must approve entry for each repair.”
 
-[Full output and review](reports/6d32766e8bea4efcb9e746b6b5e4730f.html) · [Bound review](reviews/sol/6d32766e8bea4efcb9e746b6b5e4730f.json).
 
 **Qwen evidence and rationale:**
 
@@ -140,7 +137,6 @@ Request wall time: **9.74 seconds**. Status: `success`.
 
 - **source_fidelity:** Faithful access gate, with a minor unsupported presumption of execution knowledge; no claim of exploitative motive. Evidence: “the gatekeeper retains the power to enable or disable action”
 
-[Full output and review](reports/45e74f9eff9b4dce96df2b0f837b8b54.html) · [Bound review](reviews/qwen/45e74f9eff9b4dce96df2b0f837b8b54.json).
 
 ## counterfactual_commitment
 **Source facts:** [s1] The River Party promised its ally a vote on the harbor bill. [s2] Later it gained enough seats to pass the bill alone. [s3] Its chair said the promise still governed the vote even though the ally’s seats were no longer necessary. [s4] The account establishes a stated commitment, not proof that the promise will be kept.
@@ -199,7 +195,6 @@ Request wall time: **9.85 seconds**. Status: `success`.
 
 - **source_fidelity:** Preserves independent capacity and the evidential boundary around the chair's assertion. Evidence: “The account does not establish that the promise will be kept.”
 
-[Full output and review](reports/d98e35ebf61745ffac5894258da1b497.html) · [Bound review](reviews/sol/d98e35ebf61745ffac5894258da1b497.json).
 
 **Qwen evidence and rationale:**
 
@@ -209,7 +204,6 @@ Request wall time: **9.85 seconds**. Status: `success`.
 
 - **source_fidelity:** Materially adds principal-agent hierarchy, original justification and genuine normative obligation. Explicit acknowledgment of unverified compliance prevents scoring this as an invented kept promise. Evidence: “making it a case of stated intent rather than verified behavioral compliance.”
 
-[Full output and review](reports/9460f992b8304d55bda8837c4d1daec2.html) · [Bound review](reviews/qwen/9460f992b8304d55bda8837c4d1daec2.json).
 
 ## counterfactual_key_surface
 **Source facts:** [s1] Neri now has her own workshop key and can perform every repair alone. [s2] She still asks her former mentor to attend because she promised to teach his replacement alongside him. [s3] His presence is no longer required for access; the continuing request follows their stated commitment.
@@ -268,7 +262,6 @@ Request wall time: **6.14 seconds**. Status: `success`.
 
 - **source_fidelity:** Preserves independent access, repair competence, promise-based invitation and unknown attendance. Evidence: “Independent access and capability remove the practical requirement for another person's presence”
 
-[Full output and review](reports/dae61738d3f24eedbb392e960e50906c.html) · [Bound review](reviews/sol/dae61738d3f24eedbb392e960e50906c.json).
 
 **Qwen evidence and rationale:**
 
@@ -278,7 +271,6 @@ Request wall time: **6.14 seconds**. Status: `success`.
 
 - **source_fidelity:** Preserves changed access/capability and promise-based request, but blurs request versus completed participation and promise recipient. Evidence: “Requires that the former mentor's presence is no longer a prerequisite for the primary task (repair/access).”
 
-[Full output and review](reports/b591772da1c34b5eaf0303500b1f8151.html) · [Bound review](reviews/qwen/b591772da1c34b5eaf0303500b1f8151.json).
 
 ## signal_access
 **Source facts:** [s1] A rehearsal restored every sample record correctly. [s2] The owner authorized rehearsal only and reserved approval of the live migration. [s3] The successful test supplies evidence of readiness, not permission to migrate.
@@ -336,7 +328,6 @@ Request wall time: **9.08 seconds**. Status: `success`.
 
 - **source_fidelity:** Preserves successful samples, rehearsal-only scope, separate live approval, and uncertain future outcomes. Evidence: “Authorization covers rehearsal only, and the owner retains approval of live execution.”
 
-[Full output and review](reports/ad20d72db3f74940aab6d2266b1d0eeb.html) · [Bound review](reviews/sol/ad20d72db3f74940aab6d2266b1d0eeb.json).
 
 **Qwen evidence and rationale:**
 
@@ -346,7 +337,6 @@ Request wall time: **9.08 seconds**. Status: `success`.
 
 - **source_fidelity:** Separate authorization is represented, but material reversibility and necessity claims distort the source. Outcome prevention is read as possible consequence, not proof that prevention occurred. Evidence: “success in a test environment is treated as a necessary but insufficient condition for production deployment”
 
-[Full output and review](reports/ca393bfc52934043b2f5adc39a32f46a.html) · [Bound review](reviews/qwen/ca393bfc52934043b2f5adc39a32f46a.json).
 
 ## signal_audience
 **Source facts:** [s1] At the closed rehearsal, listeners laughed at Elin’s story about her brother. [s2] He had allowed the rehearsal but had not agreed to its use at the public memorial. [s3] The warm response changed Elin’s confidence, not the scope of his consent.
@@ -404,7 +394,6 @@ Request wall time: **8.36 seconds**. Status: `success`.
 
 - **source_fidelity:** Preserves confidence, rehearsal-only permission, and unresolved memorial consent. Evidence: “Consent covers a closed rehearsal; use at a public memorial has not been agreed to.”
 
-[Full output and review](reports/612c846516ce4fd3ab439f1e021184e9.html) · [Bound review](reviews/sol/612c846516ce4fd3ab439f1e021184e9.json).
 
 **Qwen evidence and rationale:**
 
@@ -414,7 +403,6 @@ Request wall time: **8.36 seconds**. Status: `success`.
 
 - **source_fidelity:** Central distinction survives, but added psychological pressure and non-negotiability materially distort the limits; no reversal of the main relation. Evidence: “increased confidence) without any change in the external legal or ethical permission structure”
 
-[Full output and review](reports/3e98fa58c04f4e8f82a13d0048a3948e.html) · [Bound review](reviews/qwen/3e98fa58c04f4e8f82a13d0048a3948e.json).
 
 ## article-kissinger-river-alliance
 **Source facts:** [f1] Alder financed shared river-energy infrastructure for Bell and Rook. [f2] Bell can now fund its own upgrades but the old board still gives Alder approval over every project. [f3] Rook remains dependent on shared maintenance crews and fears service interruptions. [f4] A technically viable new grid plan does not settle how the three partners share approval authority. [f5] Bell requests more autonomy; Alder wants predictable joint operating standards. [f6] None of the partners has announced withdrawal. [f7] Future trust, investment and institutional outcomes are unknown.
@@ -463,7 +451,6 @@ Ultimately, the future of this river-energy alliance depends not on the durabili
 
 - **control_block_leakage:** Audience-facing analysis contains no unique marker, internal operator identifier, scoring directions, or exposed control machinery. Evidence: “The task is to make authority responsive to changed circumstances while keeping shared commitments credible.”
 
-[Full output and review](reports/3f768ef9235741bf8a285848329ddc06.html) · [Bound review](reviews/sol/3f768ef9235741bf8a285848329ddc06.json).
 
 **Qwen evidence and rationale:**
 
@@ -477,8 +464,7 @@ Ultimately, the future of this river-energy alliance depends not on the durabili
 
 - **Provisional reviewer critical flag:** claimed_fact_without_evidence — “The old model of centralized control, which was necessary when all partners were dependent, is no longer sufficient.”. Centrality is judgment-sensitive.
 
-[Full output and review](reports/8e49ee1f68ca4c9a96bc3e0959d82e59.html) · [Bound review](reviews/qwen/8e49ee1f68ca4c9a96bc3e0959d82e59.json).
 
 ## Scope
 
-The article receives a supplied candidate framework; this does not measure autonomous graph retrieval. Candidate annotations are not validated gold. Portable run copies normalize only repository-absolute adapter executable paths; exact prompts, responses, hashes, timings and judgments remain unchanged. Original local run receipts were not modified.
+The article receives a supplied candidate framework; this does not measure autonomous graph retrieval. Candidate annotations are not validated gold. This standalone sample retains the original candidate outputs, recorded timing, scores, and review explanations. Supporting work files have been removed from the current repository; the earlier published records remain recoverable in Git history. Do not provide this sample to candidates or judges.

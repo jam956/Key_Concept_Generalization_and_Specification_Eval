@@ -90,4 +90,4 @@ The finalized output contains an output-first report and a machine-readable summ
 
 The existing programmable runners remain optional and unchanged. Use `python3 -m kce_eval --help` and `python3 -m kce_eval.suite --help` for the existing runner commands. They are separate from this manual submission route; do not assume their run records are submission JSON or that their measured timing transfers to manually captured attempts.
 
-The Sol 6.1/Qwen comparison in `results/sol-qwen-2026-10-15/` remains an immutable published example, with its existing report, receipts, and original opening explanation preserved. Do not feed that comparison to candidates or judges. This workflow does not change the included corpus, its scope, or the interpretation limits in `docs/VALIDATION.md`.
+The [sample report](../examples/sample-report.md) retains the historical Sol 6.1/Qwen outputs, scores, explanations and timing as a single worked example. Do not feed it to candidates or judges. Supporting working artifacts are excluded from the current repository; earlier committed records remain in Git history. The included corpus and its interpretation limits are unchanged.
