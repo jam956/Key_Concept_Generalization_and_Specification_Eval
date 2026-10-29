@@ -1,66 +1,74 @@
-# KCE: Can an AI carry an idea into a new situation?
+# KCE and the Kissinger corpus: steering an LLM's attention
 
-An AI can write a convincing explanation and still miss the idea that makes it useful. It may repeat the details of an example, turn a conditional observation into a universal rule, or invent facts when applying the lesson elsewhere.
+Large language models can extract concepts, change perspective, follow an analytical framework, and adapt their writing to a particular voice. Having those capabilities does not mean they will apply them reliably. Even with a suitable problem, a fluent response can lose a crucial condition, settle on a familiar interpretation, or adopt an author's mannerisms while missing the structure of the argument.
 
-This project explores a practical question: **can a model identify a useful concept, preserve its limits, and apply a supplied concept to a different situation?** It provides short reading exercises, a Kissinger-based analytical writing exercise, a review rubric, and tools for recording and comparing the results.
+This repository explores a way to make those abilities more deliberate: **give the model a structured account of what to attend to, which relationships to follow, and how to carry them into a new piece of writing.** It includes a normalized corpus of Henry Kissinger's political analysis, exercises for applying and extracting conceptual structures, and a rubric for grading the resulting output.
 
-It is for people building AI assistants, studying conceptual transfer, or simply curious about what survives when a model moves from an example to an idea and back again.
+The aim is to make attention steering inspectable and testable. Can an LLM use an explicit cognitive framework to guide its analysis and expression? Where does it preserve that framework, and where does it drift?
 
-**Start here:** [read the sample responses and reviews](examples/sample-report.md), or [try the evaluation with your own model](docs/USAGE.md).
+**Explore the [example scorecard and complete responses: Sol 6.1 versus Qwen 3.8 27B](examples/sample-report.md), or [try the evaluation with another model](docs/USAGE.md).**
 
 ## Why this exists
 
-Consider a technician who can diagnose a broken pump but needs someone else's permission to enter the workshop. Increasing the technician's skill does not, by itself, remove that access dependency.
+This work grew out of developing Alex, an AI collaborator intended to carry useful methods between tasks. That requires more than remembering facts or producing agreeable, polished language. The model needs to recognize which relationships matter, preserve the conditions under which a method applies, and express the result appropriately for the present situation.
 
-The useful idea is the relationship between capability and control of a necessary step. That relationship can help explain a different situation: a neighborhood council may train its own technicians while still depending on a supplier to unlock a meter.
+Frontier models can already perform many of these cognitive transformations. The engineering question is how to call on those capabilities consistently and how to judge whether they were actually applied.
 
-There are several ways a model can lose the lesson. “Skill never creates independence” goes beyond the evidence. Retelling the pump story leaves the reader to work out what transfers. An account that invents a hostile gatekeeper changes the explanation by adding an unsupported motive.
+A broad instruction such as “write like Kissinger” leaves the model to choose what that means. A structured representation can specify a more particular route: begin with a shared aspiration, examine the tensions it conceals, distinguish the parties' positions, and develop a proposal only after establishing the diagnosis. It can also state when a move is inappropriate. A claim of inevitability, for example, needs supporting facts.
 
-We built this evaluation to make those differences visible. If conceptual representations are to support reusable skills or memory, we need to inspect what they preserve, what they discard, and what happens when a model uses them.
+That is the attention-steering approach explored here. The context supplied to the model describes relationships, analytical moves, their ordering, and their limits. These can guide how a response develops as its focus moves from one concern to another. The evaluation lets readers inspect and grade the model's use of that guidance. Establishing an advantage over simpler prompts would require a matched comparison; the current example compares models using the supplied framework.
 
-## The idea behind KCE
+## The Kissinger corpus
 
-**KCE means Key Concept Elevation:** moving from a particular example to a reusable concept while retaining the conditions that make it applicable.
+The included database is a normalized description of analytical and expressive patterns identified across **28 of Henry Kissinger's works**. It records concepts, analytical operators, argument routes, and sentence-level structures, with the aim of making aspects of his reasoning and writing style available for use on new material.
 
-The evaluation asks a model to express that concept using four fields, abbreviated **O/D/R/O**:
+Here, an **operator** is a describable move in an argument, such as showing how a successful policy creates a new difficulty. A **route** connects such moves into a progression. Style includes how attention develops: when competing perspectives enter, how a technical issue becomes a political question, and when the analysis has earned a conclusion.
 
-| Field | Plain-language question |
+The intention is to reproduce aspects of that analytical and writing style through explicit contextual guidance. The records are interpretations of the source material, so their faithfulness and usefulness remain open to examination.
+
+The current article exercise draws on the framework extracted from *Strains on the Alliance* (1963). The model receives that framework alongside fictional facts about a river-energy negotiation and writes a four-to-six-paragraph article. For example, a technically workable infrastructure plan may leave unresolved who has authority to approve it. The model must develop the political significance of the supplied facts while preserving what remains unknown.
+
+The corpus covers more works than this single exercise tests. Its inclusion supports inspection and future experiments; the present results do not establish faithful reproduction of Kissinger's writing across the whole corpus.
+
+## O/D/R/O: making the guidance explicit
+
+The broader cognitive framework uses **O/D/R/O** to describe the shape of a concept or transformation:
+
+| Field | What it makes explicit |
 |---|---|
-| Ontology | What kinds of things or relationships are involved? |
-| Dynamics | What happens, changes, or maintains the relationship? |
-| Regime | Under what conditions does it hold? |
-| Outcome | What follows, or could follow, under those conditions? |
+| **Ontology** | The kinds of entities, roles, or relationships involved. |
+| **Dynamics** | What acts, changes, or maintains a relationship. |
+| **Regime** | The conditions and constraints under which it applies. |
+| **Outcome** | The consequence that follows or could follow under those conditions. |
 
-The model also states the concept's limits. The aim is a useful abstraction whose claims can be checked against its source. The four fields make that checking easier; filling them in does not establish that the model is right.
+For example, developing technical competence does not necessarily remove dependence on another party who controls a required access point. The condition matters: if another viable access route becomes available, that particular dependency may change.
 
-## What the evaluation asks a model to do
+This structure helps carry a relationship between situations while retaining its boundaries. In the writing exercise, the supplied context also includes analytical operators, their connections, argument routes, and transfer limits. Together, these provide a more explicit account of the intended analytical movement than an author's name alone.
 
-There are two main exercises:
+This repository evaluates selected uses of that approach. It is one application of the larger cognitive-skills framework developed alongside the Alex persona and Noetic Cortex.
 
-| Exercise | Task | What reviewers look for |
+## KCE is one of the transformations being tested
+
+**KCE—Key Concept Elevation—**moves from a specific example to a reusable concept while preserving the conditions that make it useful. It is one cognitive transformation within the broader framework.
+
+The evaluation separates two tasks so that their strengths and failures can be examined independently:
+
+| Exercise | What the model does | What the review examines |
 |---|---|---|
-| **Encoding: example to concept** | Read a short passage and identify its governing concept, O/D/R/O structure, and limits. | Does the answer preserve the relationship, avoid unsupported generalization, and remain faithful to the source? |
-| **Decoding: concept to new expression** | Use a supplied analytical framework and new fictional facts to write a four-to-six-paragraph article. | Does the article apply the framework coherently, preserve its conditions, use the supplied facts accurately, and keep task instructions out of the finished prose? |
+| **Encoding: example to concept** | Extracts a governing concept, its O/D/R/O structure, and its limits from a short passage. | Unsupported generalization, failure to recover the useful relationship, and fidelity to the source. |
+| **Decoding: framework to expression** | Applies a supplied Kissinger analytical framework to new fictional facts in an article. | Quality of writing, transfer of the supplied structure, factual fidelity, and leakage of task instructions into the prose. |
 
-These exercises are assessed separately. The writing model receives a prepared framework; it does not have to use its own earlier extraction. This helps distinguish difficulty identifying a concept from difficulty applying one. It also means the current evaluation does **not** demonstrate an automatic end-to-end extraction-and-transfer system.
+The article model receives a prepared framework; it does not use its own preceding extraction. The present setup therefore tests extraction and application separately. Supplementary exercises explore application through other forms of writing and action proposals.
 
-Supplementary exercises explore application through other forms of writing and action proposals.
+The rubric grades observable outputs. It does not measure internal attention weights, and these exercises do not automatically execute the full Noetic Cortex.
 
-## Where Kissinger fits
+## Example scorecard: Sol 6.1 and Qwen 3.8 27B
 
-The article exercise uses an analytical framework drawn from annotations of Henry Kissinger's *Strains on the Alliance* (1963). The model receives that framework alongside fictional facts about a river-energy negotiation and writes an article about the new situation.
+The [included scorecard and sample report](examples/sample-report.md) show **Sol 6.1 versus Qwen 3.8 27B with thinking disabled**. Sol used low reasoning effort; Qwen used the installed Q4_K_M quantized model in nonreasoning mode. The report records the different backends and settings.
 
-The question is whether the model can use the supplied relationships and qualifications to organize a fresh analysis. Historical facts from the source must not become invented facts about the fictional negotiation. The exercise does not establish that the model has acquired Kissinger's thinking or can reproduce his work generally.
+Each model completed six encoding exercises and one supplied-framework article exercise: 14 recorded calls in total. Read the complete responses first, then the separate scores, supporting quotations, review explanations, and timings. This makes it possible to examine what a grade refers to and disagree with the reviewer where warranted.
 
-The repository includes a [standalone retrieval database](data/kissinger/kissinger-eval.sqlite) covering 28 works: 206 analytical operators, 78 routes, and 155 source-derived sentence vectors, with related concept and invariant records. The current article exercise uses one work's framework. The annotations are provisional interpretations, not validated answer keys.
-
-Original source spans, document pointers, historical generated drafts and scores, and six lesson vectors derived from earlier transfer tests were excluded from this extraction. Conceptual summaries and analytical expressions remain, and some wording may overlap the original works. See [corpus scope and verification](docs/KISSINGER_DATABASE.md), the [extraction receipt](data/kissinger/kissinger-eval.receipt.json), and the [retrieval verification](data/kissinger/kissinger-eval.consumer-verification.json).
-
-## See an example
-
-The [Sol 6.1 and Qwen sample report](examples/sample-report.md) shows six encoding cases and one article case per model. It presents the complete responses before the scores, followed by evidence and explanations for each judgment.
-
-All 14 recorded calls completed. Reviews were performed separately with model identity and timing masked. They are provisional AI judgments, not human-calibrated grades. The models also used different backends and decoding settings; the report records those differences. Treat it as a worked example of the evaluation, rather than a general model ranking.
+Reviews were performed separately with model identity and timing masked. They remain provisional AI judgments, not human-calibrated grades. This is a worked example of how to assess the framework's application, rather than a general ranking of the two models.
 
 ## Try it with a model
 
@@ -90,6 +98,12 @@ Reviewers use 0–3 scales. Higher severity scores mean more error; higher quali
 
 See the [scoring rubric](docs/RUBRIC.md) for examples, scale definitions, and critical-error rules.
 
+## Corpus contents and provenance
+
+The [standalone Kissinger database](data/kissinger/kissinger-eval.sqlite) is a 7.47 MiB extraction containing 28 works, 206 analytical operators, 78 routes, and 155 source-derived sentence vectors, with related concept and invariant records. The annotations are provisional interpretations, not validated answer keys.
+
+Original source spans, document pointers, historical generated drafts and scores, and six lesson vectors derived from earlier transfer tests were excluded. Conceptual summaries and analytical expressions remain, and some wording may overlap the original works. See [corpus scope and verification](docs/KISSINGER_DATABASE.md), the [extraction receipt](data/kissinger/kissinger-eval.receipt.json), and the [retrieval verification](data/kissinger/kissinger-eval.consumer-verification.json).
+
 ## For developers
 
 The core tools require **Python 3.9+**, use the standard library, and need no installation. From the repository root, these commands check the implementation and fixtures and show the planned exercises without calling models:
@@ -116,4 +130,4 @@ This is a small diagnostic pilot. It can reveal where a particular response lose
 
 Stronger conclusions require repeated trials, independent human calibration, and genuinely held-out cases. The visible validation cases are available for inspection, so they are not a private holdout. See the [validation plan and limitations](docs/VALIDATION.md) and [related research](docs/RESEARCH.md).
 
-The purpose is to make conceptual transfer easier to examine: show the source, inspect the extracted idea, read its new expression, and identify exactly where meaning survives or changes.
+The purpose is to make structured attention steering and cognitive transformation easier to examine: describe the intended analytical movement, supply it to a model, inspect the resulting expression, and grade how faithfully it was applied.
