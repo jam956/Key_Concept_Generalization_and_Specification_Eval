@@ -1,46 +1,112 @@
-# KCE generalization evaluation
+# KCE and the Kissinger corpus: steering an LLM's attention
 
-For agentic AI systems to reuse knowledge reliably, they must move in two directions: turn specific examples into bounded concepts, then apply those concepts to new specifics without losing the conditions that make them true. Fluent output alone does not establish that transfer. A generalization can discard a necessary constraint; a retelling can preserve details without identifying what transfers.  New unestablished information (hallucination) should not be introduced to force a desired position.  This repository assesses a model’s ability to navigate this cognitive skill.  
+Large language models can extract concepts, change perspective, follow an analytical framework, and adapt their writing to a particular voice. Having those capabilities does not mean they will apply them reliably. Even with a suitable problem, a fluent response can lose a crucial condition, settle on a familiar interpretation, or adopt an author's mannerisms while missing the structure of the argument.
 
-A trained technician who needs someone else to unlock a workshop illustrates a transferable distinction: capability does not confer control of required access. Applied to an archive, the same distinction means that being able to verify a record does not grant authority to release it. The details change; the governing relationship and its limits must survive.
+This repository explores a way to make those abilities more deliberate: **give the model a structured account of what to attend to, which relationships to follow, and how to carry them into a new piece of writing.**  Includes a normalized corpus of Henry Kissinger's political analysis, exercises for applying and extracting conceptual structures, and a rubric for grading the resulting output.
 
-This repository examines whether that relationship survives both steps. **KCE—Key Concept Elevation—**extracts a governing concept from a specific passage. **ODRO—ontology, dynamics, regime, outcome—**records what is involved, how it changes, the applicable constraints, and the possible result.
+The aim is to make attention steering inspectable and testable. Can an LLM use an explicit cognitive framework to guide its analysis and expression? Where does it preserve that framework, and where does it drift?
 
-The tests assess extraction and generation separately. Generation uses a supplied conceptual framework, so this pilot does not establish automatic round-trip transfer. It is a small diagnostic study, not a calibrated benchmark.
+**Explore the [example scorecard and complete responses: Sol 6.1 versus Qwen 3.8 27B](examples/sample-report.md), or [try the evaluation with another model](docs/USAGE.md).**
 
-## Sample report
+## Why this exists
 
-[**Read the sample report: Sol 6.1 and Qwen**](examples/sample-report.md).
+This work grew out of developing Alex, an AI collaborator intended to carry useful methods between tasks. That requires more than remembering facts or producing agreeable, polished language. The model needs to recognize which relationships matter, preserve the conditions under which a method applies, and express the result appropriately for the present situation.
 
-The sample contains six encoding cases and one article case per model: complete outputs first, then separate scores, evidence and recorded timings. All 14 calls completed. Reviews were performed separately with model identity and timing masked; they remain provisional AI judgments, not human-calibrated grades. Use this as a report example, not an answer key for candidates or judges.
+Frontier models can already perform many of these cognitive transformations. The engineering question is how to call on those capabilities consistently and how to judge whether they were actually applied.
 
-## Evaluate any model through a submission
+A broad instruction such as “write like Kissinger” leaves the model to choose what that means. A structured representation can specify a more particular route: begin with a shared aspiration, examine the tensions it conceals, distinguish the parties' positions, and develop a proposal only after establishing the diagnosis. It can also state when a move is inappropriate. A claim of inevitability, for example, needs supporting facts.  Such were features of Kissinger's writing style which this repository attempts to emulate.
 
-Download the [ready-to-use evaluation bundle](evaluation/bundle-v1/) and follow the [submission and independent review instructions](docs/USAGE.md). Each candidate case uses a fresh chat or independent API call with the selected case file's ordered messages. The model portion can be performed manually without Python. The optional CLI imports captured responses, prepares an anonymous judge packet, and validates an independently obtained judgment; it does not call models.
+That is the attention-steering approach explored here. The context supplied to the model describes relationships, analytical moves, their ordering, and their limits. These can guide how a response develops as its focus moves from one concern to another. The evaluation lets readers inspect and grade the model's use of that guidance. Establishing an advantage over simpler prompts would require a matched comparison; the current example compares models using the supplied framework.
 
-Responses appear before separate dimension scores. Failures remain visible. Manual timing and statelessness claims are not independently verified. Keep existing results and prior grades out of candidate and judge chats.
+## The Kissinger corpus
 
-1. **Run the candidate:** use the bundle’s common candidate instructions and one `cases/case-NNN.json` at a time in a fresh chat. Preserve that case’s ordered system/user messages.
-2. **Submit the outputs:** copy `04_Submission_Template.json`, fill model settings and every case’s exact raw response, and retain failures. Import it with the commands in [USAGE](docs/USAGE.md).
-3. **Use a separate judge:** generate the anonymous judge packet, then give a fresh judge only that packet and `06_Judge_Agent.md`. Keep example reports, prior grades and model metadata out of the judge context.
-4. **Finalize the report:** capture the judge’s JSON and run finalization to check ownership, score ranges and evidence quotes. Read the outputs before the separate scores.
+The included database is a normalized description of analytical and expressive patterns identified across **28 of Henry Kissinger's works**. It records concepts, analytical operators, argument routes, and sentence-level structures, with the aim of making aspects of his reasoning and writing style available for use on new material.
 
-The full [step-by-step guide](docs/USAGE.md) includes submission JSON, copyable import/judging commands, uncertainty handling and the final report files. Run `python3 -m kce_eval.workflow --help` for command help. All workflow commands are offline preparation/validation; you choose and run the candidate and judge models separately.
+Here, an **operator** is a describable move in an argument, such as showing how a successful policy creates a new difficulty. A **route** connects such moves into a progression. Style includes how attention develops: when competing perspectives enter, how a technical issue becomes a political question, and when the analysis has earned a conclusion.
 
-## What the two evaluations measure
+The intention is to reproduce aspects of that analytical and writing style through explicit contextual guidance. The records are interpretations of the source material, so their faithfulness and usefulness remain open to examination.
 
-| Evaluation | Model receives | Model produces | Separate dimensions |
-|---|---|---|---|
-| **Encoding** | A bounded passage | Governing concept, ODRO, limits | Overgeneralization severity; undergeneralization severity; source fidelity |
-| **Decoding** | A supplied Kissinger analytical framework and new fictional facts | A four-to-six-paragraph article | Generation quality; structural transfer; source fidelity; control-block leakage |
+The current article exercise draws on the framework extracted from *Strains on the Alliance* (1963). The model receives that framework alongside fictional facts about a river-energy negotiation and writes a four-to-six-paragraph article. For example, a technically workable infrastructure plan may leave unresolved who has authority to approve it. The model must develop the political significance of the supplied facts while preserving what remains unknown.
 
-Encoding asks whether the model preserves the relationship and its scope. Decoding asks whether it can realize a supplied structure in coherent, situation-specific writing without importing unsupported history or exposing control instructions. The supplied-framework condition keeps extraction errors separate from writing errors.
+The corpus covers more works than this single exercise tests. Its inclusion supports inspection and future experiments; the present results do not establish faithful reproduction of Kissinger's writing across the whole corpus.
 
-The repository also includes supplementary target-generation fixtures. These tracks do **not** automatically execute the full Noetic Cortex, perform autonomous graph retrieval, or measure a model's hidden internal reasoning.
+## O/D/R/O: making the guidance explicit
 
-## Quick start: no model calls
+The broader cognitive framework uses **O/D/R/O** to describe the shape of a concept or transformation:
 
-Requires **Python 3.9+**. Run from the repository root; the core uses only the standard library and needs no installation.
+| Field | What it makes explicit |
+|---|---|
+| **Ontology** | The kinds of entities, roles, or relationships involved. |
+| **Dynamics** | What acts, changes, or maintains a relationship. |
+| **Regime** | The conditions and constraints under which it applies. |
+| **Outcome** | The consequence that follows or could follow under those conditions. |
+
+For example, developing technical competence does not necessarily remove dependence on another party who controls a required access point. The condition matters: if another viable access route becomes available, that particular dependency may change.
+
+This structure helps carry a relationship between situations while retaining its boundaries. In the writing exercise, the supplied context also includes analytical operators, their connections, argument routes, and transfer limits. Together, these provide a more explicit account of the intended analytical movement than an author's name alone.
+
+This repository evaluates selected uses of that approach. It is one application of the larger cognitive-skills framework developed alongside the Alex persona and Noetic Cortex.
+
+## KCE is one of the transformations being tested
+
+**KCE—Key Concept Elevation—**moves from a specific example to a reusable concept while preserving the conditions that make it useful. It is one cognitive transformation within the broader framework.
+
+The evaluation separates two tasks so that their strengths and failures can be examined independently:
+
+| Exercise | What the model does | What the review examines |
+|---|---|---|
+| **Encoding: example to concept** | Extracts a governing concept, its O/D/R/O structure, and its limits from a short passage. | Unsupported generalization, failure to recover the useful relationship, and fidelity to the source. |
+| **Decoding: framework to expression** | Applies a supplied Kissinger analytical framework to new fictional facts in an article. | Quality of writing, transfer of the supplied structure, factual fidelity, and leakage of task instructions into the prose. |
+
+The article model receives a prepared framework; it does not use its own preceding extraction. The present setup therefore tests extraction and application separately. Supplementary exercises explore application through other forms of writing and action proposals.
+
+The rubric grades observable outputs. It does not measure internal attention weights, and these exercises do not automatically execute the full Noetic Cortex.
+
+## Example scorecard: Sol 6.1 and Qwen 3.8 27B
+
+The [included scorecard and sample report](examples/sample-report.md) show **Sol 6.1 versus Qwen 3.8 27B with thinking disabled**. Sol used low reasoning effort; Qwen used the installed Q4_K_M quantized model in nonreasoning mode. The report records the different backends and settings.
+
+Each model completed six encoding exercises and one supplied-framework article exercise: 14 recorded calls in total. Read the complete responses first, then the separate scores, supporting quotations, review explanations, and timings. This makes it possible to examine what a grade refers to and disagree with the reviewer where warranted.
+
+Reviews were performed separately with model identity and timing masked. They remain provisional AI judgments, not human-calibrated grades. This is a worked example of how to assess the framework's application, rather than a general ranking of the two models.
+
+## Try it with a model
+
+The [evaluation bundle](evaluation/bundle-v1/) supports manual chats or independent API calls. You can collect model responses without writing code. Python is needed for the optional command-line workflow that imports responses, prepares review materials, and validates the resulting review.
+
+1. **Run each case separately.** Give the model the common candidate instructions and one case's ordered messages in a fresh conversation or independent API call. Record any interface adaptations.
+2. **Keep the original response.** Enter every case into the submission template, preserving failures and incomplete or invalid output. Record the model and known settings.
+3. **Arrange a separate review.** Use the tools to prepare an anonymous review packet for a fresh judge model or an independent human reviewer.
+4. **Inspect the report.** Validate the review and read the actual responses alongside the separate scores and supporting quotations.
+
+Keep rubrics, reference answers, sample reports, and previous grades out of candidate conversations. Reviewers receive the generated review packet, without prior results or explicit candidate identity and timing. Manual timing and use of independent contexts are recorded claims, not independently verified measurements.
+
+The [step-by-step guide](docs/USAGE.md) provides the exact files and commands. The submission workflow prepares and validates material locally; you run the candidate and reviewer separately.
+
+## How to read the results
+
+The evaluation keeps different failures separate:
+
+- **Overgeneralization:** the answer claims more than the source supports.
+- **Undergeneralization:** the answer fails to recover a useful relationship from the example.
+- **Source fidelity:** the answer preserves the supplied facts and qualifications.
+- **Structural transfer:** the new writing carries the supplied relationship into the new situation.
+- **Generation quality:** the writing fulfills its task and is coherent for its intended reader.
+- **Control-block leakage:** instructions or test markers appear in the reader-facing prose.
+
+Reviewers use 0–3 scales. Higher severity scores mean more error; higher quality scores mean better performance. **There is no combined score.** Missing judgments remain unscored, failures remain visible, and failed runs are excluded from semantic averages. Reviews must bind to the relevant outputs and support their judgments with exact quotations. Automated marker checks flag possible leakage for review; they do not determine semantic quality.
+
+See the [scoring rubric](docs/RUBRIC.md) for examples, scale definitions, and critical-error rules.
+
+## Corpus contents and provenance
+
+The [standalone Kissinger database](data/kissinger/kissinger-eval.sqlite) is a 7.47 MiB extraction containing 28 works, 206 analytical operators, 78 routes, and 155 source-derived sentence vectors, with related concept and invariant records. The annotations are provisional interpretations, not validated answer keys.
+
+Original source spans, document pointers, historical generated drafts and scores, and six lesson vectors derived from earlier transfer tests were excluded. Conceptual summaries and analytical expressions remain, and some wording may overlap the original works. See [corpus scope and verification](docs/KISSINGER_DATABASE.md), the [extraction receipt](data/kissinger/kissinger-eval.receipt.json), and the [retrieval verification](data/kissinger/kissinger-eval.consumer-verification.json).
+
+## For developers
+
+The core tools require **Python 3.9+**, use the standard library, and need no installation. From the repository root, these commands check the implementation and fixtures and show the planned exercises without calling models:
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -50,53 +116,18 @@ python3 -m kce_eval.suite encoding
 python3 -m kce_eval.suite decoding
 ```
 
-The suite commands show the planned fixtures unless `--execute` is supplied. To inspect an exact model prompt:
+The suite commands execute model calls only when explicitly requested with `--execute`. To inspect one model prompt, with reviewer-only material excluded:
 
 ```sh
 python3 -m kce_eval prompt fixtures/capacity_council.json
 ```
 
-Reviewer rubrics and reference answers are excluded from model prompts.
+See the [submission guide](docs/USAGE.md) for the manual workflow and optional programmable runners. The [GitHub Actions example](docs/github-actions-workflow.example.yml) is a contract-check template, not an active workflow. The original mixed database and local working runs remain excluded from Git; the sample report preserves the recorded outputs, judgments, and timings in a portable form.
 
-## Review, score and inspect a new run
+## What we hope to learn next
 
-```sh
-python3 -m kce_eval review-template runs/qwen-encoding/RUN_ID/run.json --output reviews/qwen-encoding/RUN_ID.json
-# Fill in reviewer identity, scores, reasons and exact output quotations.
-python3 -m kce_eval score runs/qwen-encoding/RUN_ID/run.json reviews/qwen-encoding/RUN_ID.json
-python3 -m kce_eval summarize runs/qwen-encoding reviews/qwen-encoding
-python3 -m kce_eval.report runs/qwen-encoding/RUN_ID/run.json --review reviews/qwen-encoding/RUN_ID.json --output reviewed-run.html
-```
+This is a small diagnostic pilot. It can reveal where a particular response loses a condition, stays too close to an example, or introduces unsupported information. It does not yet establish a model's general reasoning ability or predict performance across unrelated tasks. 
 
-Replace `RUN_ID` with the UUID directory created by the run. The HTML report shows the output before the dimension scores and supporting evidence.
+Stronger conclusions require repeated trials, independent human calibration, and genuinely held-out cases. The visible validation cases are available for inspection, so they are not a private holdout. See the [validation plan and limitations](docs/VALIDATION.md) and [related research](docs/RESEARCH.md).
 
-| Score type | 0 | 3 |
-|---|---|---|
-| Severity: overgeneralization, undergeneralization, leakage | No error | Severe error |
-| Quality: fidelity, generation, structural transfer | Absent or contradictory | Faithful and useful |
-
-There is **no combined score**. Missing judgments remain unscored; failed runs stay visible and are excluded from semantic means. Reviews must match run/output hashes and quote actual output. Control-marker detection supplies review flags, not automatic semantic grades. Critical errors remain explicit; a critical-gate pass is not an intelligence certification or a quality threshold.
-
-See the [scoring rubric](docs/RUBRIC.md) for dimension anchors, examples and critical-error rules.
-
-## Included Kissinger corpus
-
-[`data/kissinger/kissinger-eval.sqlite`](data/kissinger/kissinger-eval.sqlite) is a **7.47 MiB standalone extraction** containing 28 works, 206 analytical operators, 78 routes, 155 source-derived sentence vectors, and the necessary shared concept and invariant nodes.
-
-Source spans, document pointers, historical generated drafts/scores and six transfer-test-derived lesson vectors are excluded. Conceptual summaries and analytical expressions remain; this is not a guarantee of no wording overlap with original works. Candidate annotations are not validated gold.
-
-The current article fixture uses the framework from **Strains on the Alliance (1963)** and new fictional river-energy facts. It does not test all 28 works or establish author-wide emulation ability. Database integrity, graph references, route sequences and framework retrieval were checked against the original before publication.
-
-- [Corpus scope, extraction and verification](docs/KISSINGER_DATABASE.md)
-- [Database extraction receipt](data/kissinger/kissinger-eval.receipt.json)
-- [Consumer retrieval verification](data/kissinger/kissinger-eval.consumer-verification.json)
-
-The original mixed database and local working runs remain excluded from Git. The recorded results are portable publication copies: repository-absolute adapter paths were made relative, while exact prompts, outputs, timing and judgments were preserved.
-
-## Interpretation and next steps
-
-The results can help locate a failure: losing a qualifier, remaining too close to an example, importing unsupported facts, failing to realize a framework, or leaking control material. They do not establish a general cognitive ability or predictive validity. Repeated trials, independent human calibration and a genuinely held-out set are needed before stronger claims. Visible validation families differ from development families, but are not a private holdout.
-
-Read [validation limits and design](docs/VALIDATION.md) and [related research](docs/RESEARCH.md).
-
-The [GitHub Actions template](docs/github-actions-workflow.example.yml) runs local-style contract checks without model calls. It is included as a template rather than an active workflow because the publishing credential lacks workflow permission.
+The purpose is to make structured attention steering and cognitive transformation easier to examine: describe the intended analytical movement, supply it to a model, inspect the resulting expression, and grade how faithfully it was applied.  For fun, one may give the LLM a political science article and ask it to write a rebuttal using the Kissinger database as a guide and see what comes out.
