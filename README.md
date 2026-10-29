@@ -45,7 +45,7 @@ For example, developing technical competence does not necessarily remove depende
 
 This structure helps carry a relationship between situations while retaining its boundaries. In the writing exercise, the supplied context also includes analytical operators, their connections, argument routes, and transfer limits. Together, these provide a more explicit account of the intended analytical movement than an author's name alone.
 
-This repository evaluates selected uses of that approach. It is one application of the larger cognitive-skills framework developed alongside the Alex persona and Noetic Cortex.
+This repository evaluates selected uses of that approach. It is one application of the larger [cognitive-skills framework](https://github.com/jam956/cognitive-skills-framework) developed alongside the Alex persona and Noetic Cortex.
 
 ## KCE is one of the transformations being tested
 
