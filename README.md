@@ -2,7 +2,7 @@
 
 Large language models can extract concepts, change perspective, follow an analytical framework, and adapt their writing to a particular voice. Having those capabilities does not mean they will apply them reliably. Even with a suitable problem, a fluent response can lose a crucial condition, settle on a familiar interpretation, or adopt an author's mannerisms while missing the structure of the argument.
 
-This repository explores a way to make those abilities more deliberate: **give the model a structured account of what to attend to, which relationships to follow, and how to carry them into a new piece of writing.** It includes a normalized corpus of Henry Kissinger's political analysis, exercises for applying and extracting conceptual structures, and a rubric for grading the resulting output.
+This repository explores a way to make those abilities more deliberate: **give the model a structured account of what to attend to, which relationships to follow, and how to carry them into a new piece of writing.**  Includes a normalized corpus of Henry Kissinger's political analysis, exercises for applying and extracting conceptual structures, and a rubric for grading the resulting output.
 
 The aim is to make attention steering inspectable and testable. Can an LLM use an explicit cognitive framework to guide its analysis and expression? Where does it preserve that framework, and where does it drift?
 
@@ -14,7 +14,7 @@ This work grew out of developing Alex, an AI collaborator intended to carry usef
 
 Frontier models can already perform many of these cognitive transformations. The engineering question is how to call on those capabilities consistently and how to judge whether they were actually applied.
 
-A broad instruction such as “write like Kissinger” leaves the model to choose what that means. A structured representation can specify a more particular route: begin with a shared aspiration, examine the tensions it conceals, distinguish the parties' positions, and develop a proposal only after establishing the diagnosis. It can also state when a move is inappropriate. A claim of inevitability, for example, needs supporting facts.
+A broad instruction such as “write like Kissinger” leaves the model to choose what that means. A structured representation can specify a more particular route: begin with a shared aspiration, examine the tensions it conceals, distinguish the parties' positions, and develop a proposal only after establishing the diagnosis. It can also state when a move is inappropriate. A claim of inevitability, for example, needs supporting facts.  Such were features of Kissinger's writing style which this repository attempts to emulate.
 
 That is the attention-steering approach explored here. The context supplied to the model describes relationships, analytical moves, their ordering, and their limits. These can guide how a response develops as its focus moves from one concern to another. The evaluation lets readers inspect and grade the model's use of that guidance. Establishing an advantage over simpler prompts would require a matched comparison; the current example compares models using the supplied framework.
 
@@ -126,8 +126,8 @@ See the [submission guide](docs/USAGE.md) for the manual workflow and optional p
 
 ## What we hope to learn next
 
-This is a small diagnostic pilot. It can reveal where a particular response loses a condition, stays too close to an example, or introduces unsupported information. It does not yet establish a model's general reasoning ability or predict performance across unrelated tasks. The exercises do not automatically run the Noetic Cortex or reveal a model's hidden internal reasoning.
+This is a small diagnostic pilot. It can reveal where a particular response loses a condition, stays too close to an example, or introduces unsupported information. It does not yet establish a model's general reasoning ability or predict performance across unrelated tasks. 
 
 Stronger conclusions require repeated trials, independent human calibration, and genuinely held-out cases. The visible validation cases are available for inspection, so they are not a private holdout. See the [validation plan and limitations](docs/VALIDATION.md) and [related research](docs/RESEARCH.md).
 
-The purpose is to make structured attention steering and cognitive transformation easier to examine: describe the intended analytical movement, supply it to a model, inspect the resulting expression, and grade how faithfully it was applied.
+The purpose is to make structured attention steering and cognitive transformation easier to examine: describe the intended analytical movement, supply it to a model, inspect the resulting expression, and grade how faithfully it was applied.  For fun, one may give the LLM a political science article and ask it to write a rebuttal using the Kissinger database as a guide and see what comes out.
